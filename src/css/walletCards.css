@@ -1,0 +1,38 @@
+.walletCardsContainer {
+  display: flex;
+  margin-top: 2.375rem;
+  background: linear-gradient(131.46deg, #C9E5FD 1.47%, #DEF0FF 103.63%);
+  border-radius: 16px;
+  margin: 5% 5% 0 5%;
+}
+
+.walletCardImage {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  /* border: solid 1px; */
+}
+
+.coinBalanceCardContainer {
+  overflow: auto;
+  flex: 1;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .walletCardImage, .coinBalanceCardContainer {
+    margin-bottom: 5%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .container-dash-border{
+    border-width: 0 0 0 1px;
+    border-style: dashed;
+  }
+
+  .walletCardsContainer{
+    height: 300px;
+  }
+}

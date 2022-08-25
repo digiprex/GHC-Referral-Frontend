@@ -1,0 +1,208 @@
+.orderCardContainer{
+    display: flex;
+    border-bottom: 2px solid #EBEBEB;
+    margin: 3% 15%;
+}
+
+.fire {
+    margin-top: 1.375rem;
+    margin-left: 1.25rem;
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.calender{
+    margin-top: 4.6%;
+    margin-left: 1.4375rem;
+    height: 14px;
+    width: 14px;
+}
+
+.historyContentCard{
+    width: 100%;
+}
+
+.coin-pic {
+    width: 5.5rem;
+    height: 2.375rem;
+    background: #FCF0D2;
+    border-radius: 4px;
+    margin-left: 1rem;
+}
+
+.historyContent{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: .875rem;
+    color: #000000;
+    margin-left: 1.4375rem;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.historyContent2{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: .875rem;
+    color: #000000;
+    margin-left: 1%;
+    display: flex;
+    align-items: center;
+}
+.left-section, .right-section{
+    display: flex;
+    flex:1
+}
+
+
+.copy-coupon-button{
+    background: #FE8276;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 8px 50px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.coupon-description,.coupon-status{
+    display: flex;
+    align-items: center;
+}
+
+.amazon-coupon,.coupon-description,.coupon-status,.copy-coupon{
+    flex: 1
+}
+
+.status-dot{
+    height: 7px;
+    width: 7px;
+    background-color: #108F57;
+    border-radius: 50%;
+    display: inline-block;
+    color: green;
+    margin-right:2%;
+}
+
+.coupon-description{
+    color: #EE9A24;
+    font-size: 20px;
+}
+
+.coupon-status{
+}
+.historyDate{
+    margin-top: 4.5%;
+    margin-left: 7px;
+    margin-bottom: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.3125rem;
+    color: #726868;
+    height: 1.3125rem;
+}
+
+.historyInfo{
+    display: flex;
+    margin-bottom: 2%;
+    margin-top: -15px;
+}
+
+.amazon-coupon{
+    padding: 17px 20px 10px 40px;
+    position: relative;
+    font-size: 20px;
+    color: #108F57
+}
+
+.copy-border{
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100%;
+}
+.coins {
+    color: var(--mars-coins)
+}
+
+.copy-green {
+    background: #5F9E71;
+    color: white
+}
+
+@media only screen and (max-width: 600px){
+    
+    .historyContent{
+        font-size: 10px
+    }
+    
+    .left-section{
+        flex-direction: column;
+    }
+
+    .right-section{
+        flex-direction: column-reverse;
+    }
+
+    .historyDate{
+        font-size: 11px;
+    }
+
+    .copy-coupon{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .copy-coupon-button{
+        padding: 7px 23px;
+        font-size: 12px
+    }
+
+    .coupon-description{
+        margin-top: 12%;
+        margin-left: 8%;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .coupon-status{
+        margin-top: 12%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    .coupon-pic{
+        height: 16px;
+        width: 13px
+    }
+
+    .amazon-coupon{
+        font-size: 12px;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .right-section{
+        margin-top: 3%;
+    }
+
+    .spending-text, .earn-record{
+        font-size: 12px;
+    }
+
+    .calender{
+        margin-top: 4.1%;
+    }
+
+    .orderCardContainer {
+        margin: 3% 4%;
+    }
+}

@@ -1,0 +1,124 @@
+.howItWorksSectionCard {
+  display: flex;
+  margin-top: 1.25rem;
+}
+
+.how-it-works-container {
+  overflow: auto;
+  border-radius: 16px;
+  position: relative;
+  margin: 5% 5% 0 5%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+
+.how-heading {
+  text-align: center;
+  background: #F9E9EE;
+  border-radius: 16px 16px 0px 0px;
+  padding: 20px 0;
+  color: #8D5468;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+
+.how-content-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+
+.img-content, .img-sub-content {
+  text-align: center;
+}
+
+.img-content {
+  margin: 10px;
+  font-weight: 700;
+}
+
+.img-sub-content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.img-reward {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.how-content {
+  margin: 0 3%;
+}
+
+.how-login {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.how-login-button {
+  margin-top: 2%;
+  width: 15%;
+  height: 50px;
+  background-color: #8D5468;
+  border: 1px solid #8D5468;
+  border-radius: 5px;
+  color: white
+}
+
+.mcash-balance-nil {
+  margin-top: 3%;
+  padding: 2% 3%;
+  margin: 3% 5%;
+  background: linear-gradient(131.46deg, #C9E5FD 1.47%, #DEF0FF 103.63%);
+  border-radius: 16px;
+}
+
+.mcash-content {
+  margin-top: 1%;
+}
+
+.how-login-button-div {
+  margin-bottom: 3%;
+}
+
+@media only screen and (max-width: 600px) {
+  .how-content-div {
+    flex-direction: column;
+  }
+
+  .how-content {
+    display: flex;
+    margin: 3% 4%;
+  }
+
+  .img-reward {
+    height: 50px;
+    width: 50px;
+  }
+
+  .how-sub-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-sub-content {
+    margin-left: 3%;
+    width: 100%;
+    margin-left: 6px;
+    /* margin-top: 1%; */
+    font-size: 11px;
+  }
+
+  .img-content {
+    text-align: left;
+    margin: 10px 10px 0 10px;
+  }
+
+  .how-login-button {
+    width: 30%;
+  }
+}

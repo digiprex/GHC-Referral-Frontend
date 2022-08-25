@@ -1,0 +1,14 @@
+.backNavigatorText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.backNavigatorContainer {
+  display: flex;
+  align-items: baseline;
+}

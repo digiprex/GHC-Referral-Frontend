@@ -1,0 +1,49 @@
+.headerContent{
+    display: block;
+}
+
+.modalHeader {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    margin-left: 5px;
+    margin-top: 10px;
+    /* border: solid 1px; */
+    padding-bottom: 3%
+}
+
+.bottom-border {
+    border-bottom: 1px solid #DADADA;;
+}
+
+.login-input {
+    background: #F6F6F6;
+    border-radius: 5px;
+    height: 50px;
+    margin: 12% 5% 0 5%;
+}
+
+.login-input-text {
+    background-color: #F6F6F6;
+    width: 100%;
+    line-height: 50px;
+    padding-left: 2%;
+}
+
+.login-input::placeholder{
+    line-height: 20px;
+    margin-left: 10px;
+}
+
+.login-button-popup {
+  width: 90%;
+  height: 50px;
+  background-color: #8D5468;
+  border: 1px solid #8D5468;
+  border-radius: 5px;
+  color: white;
+  margin-top: 30%;
+  margin-left: 5%;
+}
