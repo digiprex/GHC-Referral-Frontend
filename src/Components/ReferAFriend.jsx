@@ -8,6 +8,22 @@ export default function ReferAFriend({ customer_id }) {
   const [isMobile, SetIsMobile] = useState(false);
   const [clicked, Set_clicked] = useState(false);
   const [referral_code, Set_referral_code] = useState("");
+  const share = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Something",
+          text: "Hello, please come visit my website",
+          url: "www.website.com.br",
+        })
+        .then(() => {
+          console.log("Successfully shared");
+        })
+        .catch((error) => {
+          console.error("Something went wrong", error);
+        });
+    }
+  }
 
   useEffect(() => {
     SetIsMobile(window.innerWidth > 480 ? true : false);
@@ -60,7 +76,7 @@ export default function ReferAFriend({ customer_id }) {
             </div>
           </div> : null }
           <div className="refer-friend-container">
-            <div className="referFriend" onClick={() => window.navigator.share("hello")}> 
+            <div className="referFriend" onClick={() => share()}> 
               <div className="share-img-div">
                 {/* <img src={sharePic} alt="" className='sharePic'  /> */}
               </div>
