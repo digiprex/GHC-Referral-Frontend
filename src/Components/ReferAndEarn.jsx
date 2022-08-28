@@ -3,6 +3,7 @@ import ReferAFriend from "./ReferAFriend.jsx";
 import React, { Component } from "react";
 
 export default function ReferAndEarn({customer_id}) {
+  console.log(customer_id,'cst id')
   return (
     <div className="referContainer">
       <div className="content">
