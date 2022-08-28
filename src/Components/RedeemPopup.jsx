@@ -33,7 +33,7 @@ export default function RedeemPopup({ user_data }) {
     };
     const config = {
       method: "post",
-      url: `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+      url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
       headers: {
         "Content-Type": "application/json",
       },
