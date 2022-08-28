@@ -28,8 +28,8 @@ const App = () => {
       // customer_id:"5874011242688",
       // customer_id: document.getElementById("shopify-customer-id")
     }
-    Set_customer_id(document.getElementById("shopify-customer-id"));
-    // Set_customer_id("5874011242688");
+    // Set_customer_id(document.getElementById("shopify-customer-id"));
+    Set_customer_id("5874011242688");
   const getEarningsData = async () => {
       const config = {
           method: 'post',

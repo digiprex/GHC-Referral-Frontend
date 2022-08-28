@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { useEffect, useState } from "react";
-// import sharePic from './images/share.png'
+import sharePic from '../images/share.png'
+import copyPic from '../images/copy.png';
 import "../css/referAFriend.css";
 import axios from "axios";
 
@@ -53,7 +54,7 @@ export default function ReferAFriend({ customer_id }) {
 
   const copyToClipBoard = (obj) => {
     obj.target.innerHTML = "Copied";
-    Set_clicked(true);
+    Set_clicked((prevState) => !prevState);
     navigator.clipboard.writeText(referral_code);
   };
   return (
@@ -71,16 +72,20 @@ export default function ReferAFriend({ customer_id }) {
                   className={`copyCoupon ${clicked ? "copy-green" : ""}`}
                   type="button"
                   >
+                  <img src={copyPic} className="copy-pic-referral" alt="" srcset="" />
                   Copy Code
                 </button>
             </div>
           </div> : null }
           <div className="refer-friend-container">
-            <div className="referFriend" onClick={() => share()}> 
-              <div className="share-img-div">
-                {/* <img src={sharePic} alt="" className='sharePic'  /> */}
-              </div>
-              <div className="referText">Refer A Friend</div>
+            <div className={`referFriend ${customer_id ? "refer-friend-width-with-customer-id" : 
+          "refer-friend-width-no-customer-id"}`} onClick={() => share()}> 
+              {/* <div className="share-img-div">
+              </div> */}
+              <div className="referText">
+                <img src={sharePic} alt="" className='sharePic'  />
+                Refer A Friend
+                </div>
             </div>
           </div>
         </div>

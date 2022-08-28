@@ -1,7 +1,7 @@
 .onWayCard {
   overflow: auto;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   padding-bottom: 10px;
   background: #FFFFFF;
@@ -16,18 +16,18 @@
 .onWayCardBody {
   font-style: normal;
   font-weight: 500;
-  line-height: 1.75rem;
+  line-height: 28px;
   color: black;
-  margin-top: 1.1875rem;
+  margin-top: 19px;
 }
 
 .historyTag {
   font-style: normal;
   font-weight: normal;
-  font-size: 1rem;
-  line-height: 1.1875rem;
+  font-size: 16px;
+  line-height: 19px;
   color: #726868;
-  margin-top: 1rem;
+  margin-top: 16px;
   width: 100%;
 }
 .coinsHistoryCard {
@@ -48,37 +48,37 @@
 .coinHistoryText {
   font-style: normal;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #000000;
   text-align: center;
   margin-top: 3%;
 }
 
 .container {
-  margin-top: 6.25rem;
+  margin-top: 100px;
   margin-left: 20%;
 }
 
 .linkToHistory {
   font-style: normal;
   font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 1.75rem;
+  font-size: 24px;
+  line-height: 28px;
   text-decoration-line: underline;
   color: #fe8276;
   cursor: pointer;
 }
 .view-all-link {
-  margin: 2.3125rem 13.625rem;
+  margin: 37px 218px;
 }
 
 .live {
-  margin-top: 1.5625rem;
-  margin-left: 3rem;
+  margin-top: 25px;
+  margin-left: 48px;
 }
 
 .onYourWayData {
-  margin-left: 1rem;
+  margin-left: 16px;
   margin-bottom: 3%;
 }
 

@@ -8,24 +8,24 @@
 }
 
 .earnings {
-  height: 1.3125rem;
-  line-height: 1.3125rem;
+  height: 21px;
+  line-height: 21px;
   display: inline-block;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.125rem;
+  font-size: 18px;
   color: #000000;
-  margin-left: 3.0625rem;
+  margin-left: 49px;
 }
 .amount {
   font-style: normal;
   font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.75rem;
+  font-size: 24px;
+  line-height: 28px;
   letter-spacing: 0.0025em;
   color: #000000;
   display: inline-block;
-  margin-left: 1rem;
+  margin-left: 16px;
 }
 
 .redeem {
@@ -40,7 +40,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 25px;
-  line-height: 1.75rem;
+  line-height: 28px;
   text-align: center;
   color: #ffffff;
   cursor: pointer;
@@ -50,8 +50,8 @@
   border: none;
   border-bottom: 1px dashed #000000;
   height: 0px;
-  margin-top: 2.0625rem;
-  margin: 2.0625rem 2.1875rem 0px 2.1875rem;
+  margin-top: 33px;
+  margin: 33px 35px 0px 35px;
 }
 
 .savedMoneyCard {
@@ -60,7 +60,7 @@
 
 .coinsOnWayFlex {
   display: flex;
-  margin-top: 2.25rem;
+  margin-top: 36px;
 }
 
 .giftPic {
@@ -118,11 +118,11 @@
 }
 
 .coinPic {
-  width: 5.625rem;
-  height: 5.625rem;
-  margin-top: 0.8125rem;
-  margin-bottom: 0.8125rem;
-  margin-left: 0.875rem;
+  width: 90px;
+  height: 90px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  margin-left: 14px;
   background: #ffffff;
   border-radius: 6px;
 }
@@ -227,8 +227,6 @@
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  line-height: 1.1875rem;
-  letter-spacing: 0.0025em;
   color: #000000;
   margin-top: 18px;
   margin-left: 18px;
@@ -243,7 +241,7 @@
   letter-spacing: 0.0025em;
   text-decoration-line: underline;
   color: #000000;
-  margin-right: 2.435rem;
+  margin-right: 39px;
   cursor: pointer;
   display: flex;
   align-items: baseline;

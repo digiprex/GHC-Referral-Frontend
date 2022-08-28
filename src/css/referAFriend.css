@@ -44,21 +44,19 @@
 
 .copyCoupon {
   background: #edefed;
-  border: none;
   box-sizing: border-box;
   border-radius: 5px;
   font-size: 20px;
   color: #8a8a8a;
   height: 74%;
   width: 82%;
-  float: right;
   cursor: pointer;
   margin: 3% 5%;
+  padding: 0 3%;
 }
 
 .referFriend {
   background-color: var(--button-color);
-  /* background : var(--button-color); */
   box-sizing: border-box;
   border-radius: 5px;
   text-align: center;
@@ -75,11 +73,7 @@
 }
 
 .sharePic{
-  display: block;
-  position: relative;
-  top: 54%;
-  left: 80%;
-  transform: translate(-50%,-50%);
+  margin-right: 8%;
 }
 
 .share-img-div{
@@ -117,6 +111,11 @@
 .copy-green{
   background: #5F9E71;
   color: white
+}
+
+.copy-pic-referral {
+  height: 50%;
+  width: 15%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -164,7 +163,7 @@
     color: #ffffff;
     padding: 3% 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .share-img-div {
     flex: 4;
@@ -206,12 +205,21 @@
 
   .referText {
     font-size: 24px;
+    display: flex;
+    justify-content: center;
   }
   
   .referFriend {
     margin-left: 6%;
     display: flex;
     align-items: center;
-    width: 40%;
+  }
+
+  .refer-friend-width-no-customer-id {
+    width: 38%;
+  }
+
+  .refer-friend-width-with-customer-id {
+    width: 92%;
   }
 }

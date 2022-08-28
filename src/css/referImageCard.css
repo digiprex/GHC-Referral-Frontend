@@ -1,9 +1,9 @@
 
 .referImageCard{
-    max-width: 31.75rem;
-    height: 27.8125rem;
+    max-width: 508px;
+    height: 445px;
     background-color: #FFF5EF;
     border-radius: 16px;
-    margin-top: 1.875rem;
-    margin-left: 6.25rem;
+    margin-top: 30px;
+    margin-left: 100px;
 }
