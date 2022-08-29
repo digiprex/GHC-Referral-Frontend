@@ -22,19 +22,19 @@ const App = () => {
   useEffect(()=>{
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    // Set_customer_id(document.getElementById("shopify-customer-id"));
-    Set_customer_id("5874011242688"); 
+    Set_customer_id(document.getElementById("shopify-customer-id"));
+    // Set_customer_id("5874011242688"); 
     const data = {
-      "customer_id":"5874011242688",
+      // "customer_id":"5874011242688",
        // customer_id:"5874011242688",
-      // customer_id: document.getElementById("shopify-customer-id")
+      customer_id: document.getElementById("shopify-customer-id")
     }
     // 5874011242688
   const getEarningsData = async () => {
       const config = {
           method: 'post',
           mode: 'cors',
-          url : `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`,
+          url : `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`,
           headers: { 
           'Content-Type': 'application/json'
           },
