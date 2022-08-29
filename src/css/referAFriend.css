@@ -9,7 +9,7 @@
   color: #ffffff;
 }
 
-.code {
+.referral-code {
   max-width: 100%;
   overflow: auto;
   display: flex;
@@ -128,7 +128,7 @@
     font-size: 15px;
   }
 
-  .code {
+  .referral-code {
     flex-direction: column;
     /* background: linear-gradient(-90deg, #1469B3 -1.36%, #222E54 77.79%);  */
     background: var(--backgroundGradient)
@@ -182,7 +182,7 @@
     background: var(--backgroundGradient);  
   }
 
-  .code {
+  .referral-code {
     margin-bottom: 3%;
     margin-right: 38%;
     height: 55px;

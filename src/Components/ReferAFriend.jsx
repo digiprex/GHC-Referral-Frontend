@@ -64,7 +64,7 @@ export default function ReferAFriend({ customer_id }) {
         {customer_id ? (
           <div className="refer-code-header">My Referral Code</div>
         ) : null}
-        <div className="code">
+        <div className="referral-code">
           { customer_id ? <div className="coupon">
             <div className="couponText">{referral_code.toUpperCase()}</div>
             <div className="copyCouponDiv">
