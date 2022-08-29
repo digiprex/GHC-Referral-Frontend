@@ -22,12 +22,12 @@ const App = () => {
   useEffect(()=>{
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    Set_customer_id(document.getElementById("shopify-customer-id"));
+    Set_customer_id(document.getElementById("shopify-customer-id").value);
     // Set_customer_id("6411445371092"); 
     const data = {
       // "customer_id":"5874011242688",
       //  customer_id:"6411445371092",
-      customer_id: document.getElementById("shopify-customer-id")
+      customer_id: document.getElementById("shopify-customer-id").value
     }
     // 5874011242688
   const getEarningsData = async () => {
@@ -77,6 +77,7 @@ const App = () => {
       {!showHistory ? <WalletCards showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
       {!showHistory ? <HowItWorks customer_id={customer_id} /> :  null}
       {!showHistory ? <History user_data={user_data} customer_id={customer_id}/> : null}
+          <input type="text" id="lava" value="567"/>
     </div>
   );
 };
