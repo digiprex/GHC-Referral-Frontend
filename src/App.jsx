@@ -77,7 +77,6 @@ const App = () => {
       {!showHistory ? <WalletCards showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
       {!showHistory ? <HowItWorks customer_id={customer_id} /> :  null}
       {!showHistory ? <History user_data={user_data} customer_id={customer_id}/> : null}
-          <input type="text" id="lava" value={document.getElementById("shopify-customer-id").value}/>
     </div>
   );
 };
