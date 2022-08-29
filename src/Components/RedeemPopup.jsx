@@ -10,7 +10,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import React, { Component } from "react";
 import axios from "axios";
 
-export default function RedeemPopup({ user_data }) {
+export default function RedeemPopup({ user_data, customer_id }) {
   const [redeemAmount, setRedeemAmount] = useState(1000);
   const [progress_amount, Set_progress_amount] = useState(10);
   const balanceAmount = 1600;
@@ -27,14 +27,13 @@ export default function RedeemPopup({ user_data }) {
   };
 
   const redeemCoins = async () => {
-    console.log(redeemAmount, "redeem amount");
     const data = {
-      customer_id: c,
+      customer_id: customer_id,
       redeem: redeemAmount,
     };
     const config = {
       method: "post",
-      url: `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+      url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
       headers: {
         "Content-Type": "application/json",
       },

@@ -35,7 +35,7 @@ export default function ReferAFriend({ customer_id }) {
     const getReferralCode = async () => {
       const config = {
         method: "post",
-        url: `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
+        url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
         headers: {
           "Content-Type": "application/json",
         },

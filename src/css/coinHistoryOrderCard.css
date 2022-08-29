@@ -57,7 +57,7 @@
 
 
 .copy-coupon-button{
-    background: #FE8276;
+    background: var(--button-color);
     border-radius: 4px;
     color: white;
     border: none;
@@ -116,7 +116,8 @@
     padding: 17px 20px 10px 40px;
     position: relative;
     font-size: 20px;
-    color: #108F57
+    color: #108F57;
+    margin-bottom: 10%;
 }
 
 .copy-border{
@@ -201,5 +202,17 @@
 
     .orderCardContainer {
         margin: 3% 4%;
+    }
+
+    .historyInfo {
+        margin-left: 4%;
+    }
+
+    .calender {
+        margin-left: 0px;
+    }
+
+    .amazon-coupon {
+        margin-bottom: -7%;
     }
 }

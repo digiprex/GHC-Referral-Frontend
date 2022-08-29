@@ -26,6 +26,7 @@
   --backgroundGradient: linear-gradient(97.06deg, #FCE2EB 37.38%, #BE91A0 127.27%);
   --button-color: #8D5468;
   --blue: #1e90ff;
+  --color-normal:#F9E9EE;
   --white: #ffffff;
   --basic: #8D5468;
 }
@@ -103,7 +104,6 @@ a:not([href]) {
   
   .walletCardImage,
   .coinBalanceCardContainer {
-    margin: 5px 0px 5px 0px;
   }
 
   .headerCard,

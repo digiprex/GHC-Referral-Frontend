@@ -92,7 +92,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
           Redeem Now
         </button>
         <BottomSheet open={open} onDismiss={closeMobileModal}>
-          <RedeemPopup user_data={user_data} />
+          <RedeemPopup user_data={user_data} customer_id={customer_id} />
         </BottomSheet>
         <Modal
           // isOpen={modalIsOpen}
