@@ -11,10 +11,11 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default function RedeemPopup({ user_data }) {
-  const [redeemAmount, setRedeemAmount] = useState(0);
+  const [redeemAmount, setRedeemAmount] = useState(1000);
   const [progress_amount, Set_progress_amount] = useState(10);
-  // const balanceAmount = 1600;
+  const balanceAmount = 1600;
   const decrement = () => {
+    console.log('decrement')
     if (redeemAmount - 500 >= 0) {
       setRedeemAmount(redeemAmount - 500);
     }
@@ -28,12 +29,12 @@ export default function RedeemPopup({ user_data }) {
   const redeemCoins = async () => {
     console.log(redeemAmount, "redeem amount");
     const data = {
-      customer_id: "4320944390308",
+      customer_id: c,
       redeem: redeemAmount,
     };
     const config = {
       method: "post",
-      url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+      url: `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,7 +62,7 @@ export default function RedeemPopup({ user_data }) {
             <div className="modalHeader">Redeem Coins</div>
             <div className="redeemCoinBalance">
               <div className="redeemCoinBalanceText">Balance:</div>
-              <div className="redeemCoinBalanceAmount">1000</div>
+              <div className="redeemCoinBalanceAmount">{user_data.lifetime}</div>
             </div>
           </div>
           <div className="addCoins">
@@ -69,7 +70,7 @@ export default function RedeemPopup({ user_data }) {
               <img src={minus} alt="" />
             </div>
             <div className="addCoinsText">
-              <img src={pic} alt="" /> 1000
+              <img src={pic} alt="" /> {redeemAmount}
             </div>
             <div className="plus" onClick={() => increment()}>
               <img src={plus} alt="" />

@@ -13,7 +13,7 @@ import RedeemPopup from "./RedeemPopup";
 import axios from "axios";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id }) {
   const [open, setOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const customStyles = {
@@ -67,14 +67,19 @@ export default function CoinBalanceCard({ showHistory, user_data }) {
           <div style={{ flex: 1 }} className="earnings-div">
             <div className="headerCard">MCash Balance</div>
             <div className="coinBalanceDiv">
-              <div className="coinBalance">1000</div>
+              <div className="coinBalance">{user_data.lifetime}</div>
+            </div>
+          </div>
+          <div style={{ flex: 1 }} className="earnings-div-mobile">
+            <div className="coinBalanceDiv" style={{display: "flex", justifyContent: "center"}}>
+              <div className="coinBalance">{user_data.lifetime}</div>
             </div>
           </div>
         </div>
       </div>
       <div className="lifetime-earnings">
         <span className="earnings">Lifetime earnings:</span>
-        <span className="amount">&#8377;1000</span>
+        <span className="amount">&#8377;{user_data.lifetime}</span>
       </div>
       <div className="button-container">
         <button
@@ -106,7 +111,7 @@ export default function CoinBalanceCard({ showHistory, user_data }) {
           // ariaHideApp={false}
           // contentLabel="Desktop Modal"
         >
-          <RedeemPopup user_data={user_data} />
+          <RedeemPopup user_data={user_data} customer_id={customer_id} />
         </Modal>
       </div>
       {/* <div id="myModal" class="modal">

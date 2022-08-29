@@ -250,7 +250,7 @@
 .coinBalance {
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 27px;
   color: #fefefe;
   max-width: 100%;
   margin-left: 5%;
@@ -337,4 +337,11 @@
     /* height: 44%; */
   }
 
+  .coinsOnWayFlex {
+    margin-left: 3%;
+  }
+
+  .earnings-div-mobile {
+    display: none;
+  }
 }

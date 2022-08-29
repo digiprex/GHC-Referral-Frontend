@@ -97,7 +97,7 @@ const HowItWorks = ({customer_id}) => {
             </div>
           </div>
         </div>
-        <div className="how-login">
+       { !customer_id ? <div className="how-login">
           <div className="how-login-text">
             Log In and unlock these exciting rewards. Let’s go!
           </div>
@@ -111,7 +111,7 @@ const HowItWorks = ({customer_id}) => {
               Log In
             </button>
           </div>
-        </div>
+        </div> : null}
       </div>
       <BottomSheet open={open} onDismiss={closeMobileModal}>
         <Login />

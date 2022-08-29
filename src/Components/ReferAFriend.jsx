@@ -28,29 +28,30 @@ export default function ReferAFriend({ customer_id }) {
 
   useEffect(() => {
     SetIsMobile(window.innerWidth > 480 ? true : false);
+    // Set_customer_id(customer_Id)
     const data = {
-      customer_id: "4320944390308",
+      customer_id: customer_id,
     };
-    const getReferralCode = () => {
+    const getReferralCode = async () => {
       const config = {
         method: "post",
-        url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
+        url: `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
         headers: {
           "Content-Type": "application/json",
         },
         data: data,
       };
-      axios(config)
+      await axios(config)
         .then((response) => {
           Set_referral_code(response.data.body.referral_code);
         })
         .catch((error) => {
           console.log(error, "error");
         });
-      config.url = `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`;
+      config.url = `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`;
     };
     getReferralCode();
-  }, []);
+  }, [customer_id]);
 
   const copyToClipBoard = (obj) => {
     obj.target.innerHTML = "Copied";

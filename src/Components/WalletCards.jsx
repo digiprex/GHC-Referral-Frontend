@@ -16,7 +16,7 @@ export default function WalletCards({ showHistory, user_data, customer_id }) {
               <img src={giftPic} className="giftPic" alt="" />
             </div>
             <div className="coinsOnWay">
-              <span className="onWayCoinsNumber">200</span>
+              <span className="onWayCoinsNumber">{user_data.coins_on_way}</span>
               &nbsp;coins are on the way
               {/* <Chip label="200" classes={onWayCoinsNumber} component="a" href="#basic-chip" /> &nbsp;coins are on the way */}
             </div>
@@ -42,7 +42,7 @@ export default function WalletCards({ showHistory, user_data, customer_id }) {
           </div> */}
         </div>
         <div className="coinBalanceCardContainer container-dash-border">
-          <CoinBalanceCard user_data={user_data} showHistory={showHistory} />
+          <CoinBalanceCard user_data={user_data} showHistory={showHistory}customer_id={customer_id} />
         </div>
       </div> : null }
     </>
