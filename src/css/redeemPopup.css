@@ -121,7 +121,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #5f9e71;
+  color: var(--light-green)
 }
 
 .redeemCoinBalanceText {
