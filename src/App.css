@@ -31,6 +31,7 @@
   --basic: #8D5468;
   --green: #108F57;
   --light-green:#5f9e71;
+  --coin: #FCF0D2
 }
 
 
@@ -167,3 +168,11 @@ a:not([href]) {
 
 }
 
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .react-responsive-modal-modal {
+      height: 73%;
+      width: 64%;
+      border-radius: 16px;
+    }
+}

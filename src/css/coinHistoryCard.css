@@ -115,6 +115,10 @@
   font-weight: 600;
 }
 
+.coin-pic {
+  display: flex;
+}
+
 @media only screen and (max-width: 480px){
   .onWayCard{
     /* display: none; */

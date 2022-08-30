@@ -6,7 +6,7 @@ import "../css/howItWorksCards.css";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import { useState } from "react";
 
-const HowItWorks = ({customer_id}) => {
+const HowItWorks = ({customer_id,user_data}) => {
   const [open, setOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const openDesktopModal = () => {
@@ -28,7 +28,7 @@ const HowItWorks = ({customer_id}) => {
     <>
       <div className="how-it-works-container">
         <div className="how-heading">How It Works</div>
-        { customer_id  ? <div className="mcash-balance-nil">
+        { customer_id  && !user_data.balance ? <div className="mcash-balance-nil">
           <div className="mcash-header">MCash Balance</div>
           <div className="mcash-content">
             You will be able to see your MCash balance when your referrals place

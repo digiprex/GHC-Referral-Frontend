@@ -11,9 +11,10 @@ export default function VouchersCard({item,code}) {
     const date = new Date(item.createdAt);
     const [clicked,Set_clicked] = useState(false);
     const required_date = `${date.getDate()} ${date.toLocaleString('en-US', {month: 'short'})} ${date.getFullYear()} `
-    
+    console.log(item,'item')
     const copyToClipBoard = (obj) => {
-        const text = document.getElementById('copy-code-text') 
+        console.log(item.code,'item code')
+        const text = document.getElementById(`${item.code}`) 
         text.innerHTML = "Copied";
         Set_clicked(true);
         navigator.clipboard.writeText(code)
@@ -26,28 +27,28 @@ export default function VouchersCard({item,code}) {
                     <div className='historyContent2'>
                         <div className='left-section'>
                             <div className='amazon-coupon'>
-                                {code}
+                                {item.voucher_code}
                                 <img className='copy-border' src={amazon} alt="" />
                             </div>
-                            <div className='coupon-description'>
-                                Flat 500 off
-                            </div>
+                        </div>
+                        <div className='coupon-description'>
+                            Amazon voucher worth {item.value}
                         </div>
                         <div className='right-section'>
-                            <div className='coupon-status'>
+                            {/* <div className='coupon-status'>
                                 <span className='status-dot'></span>  Active
-                            </div>
+                            </div> */}
                             <div className='copy-coupon'>
                                 <button className={`copy-coupon-button ${clicked? "copy-green" : ""}`} onClick={(e) => copyToClipBoard(e)}>
                                     <img className='coupon-pic' src={copyPic} alt="" />
-                                    <span id='copy-code-text'>Copy code</span> 
+                                    <span id={item.code}>Copy code</span> 
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div className='historyInfo'>
                         <img src={calenderPic} className='calender' alt="" />
-                        <span className='historyDate'> Redeemed 500 coins on {required_date}</span>
+                        <span className='historyDate'> Redeemed {item.value} coins on {required_date}</span>
                     </div>
                 </div>
             </div>

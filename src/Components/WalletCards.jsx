@@ -11,26 +11,26 @@ export default function WalletCards({ showHistory, user_data, customer_id }) {
     <>
       { customer_id ? <div className="walletCardsContainer">
         <div className="coinBalanceCardContainer">
-          <div className="coinsOnWayFlex">
+        { user_data.coins_on_way ? <div className="coinsOnWayFlex">
             <div className="gift-pic-div">
               <img src={giftPic} className="giftPic" alt="" />
             </div>
-            <div className="coinsOnWay">
+              <div className="coinsOnWay">
               <span className="onWayCoinsNumber">{user_data.coins_on_way}</span>
-              &nbsp;coins are on the way
+              &nbsp;Mcash credits are on the way
               {/* <Chip label="200" classes={onWayCoinsNumber} component="a" href="#basic-chip" /> &nbsp;coins are on the way */}
-            </div>
-          </div>
-          <div className="coinsOnWayFlex">
+            </div> 
+          </div> : null}
+          { user_data.amazon_voucher_value ? <div className="coinsOnWayFlex">
             <div className="gift-pic-div">
               <img src={discountIcon} className="giftPic" alt="" />
             </div>
             <div className="coinsOnWay">
               You earned Amazon vouchers worth &nbsp;
-              <span className="onWayCoinsNumber">1000</span>
+              <span className="onWayCoinsNumber">{user_data.amazon_voucher_value}</span>
               {/* <Chip label="200" classes={onWayCoinsNumber} component="a" href="#basic-chip" /> &nbsp;coins are on the way */}
             </div>
-          </div>
+          </div> : null}
           {/* <div className="savedMoneyCard">
             <img src={discountIcon} className="giftPic" alt="" />
             <div className="coinsOnWayFlex savedMoney">

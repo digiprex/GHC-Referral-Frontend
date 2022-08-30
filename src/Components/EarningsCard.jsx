@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import '../css/coinHistoryOrderCard.css'
-import pic from '../images/fire.png';
+import pic from '../images/credits.png';
+import moneyPic from '../images/coin-money.png';
 import calenderPic from '../images/calender.png';
 import coinPic from '../images/500coin.jpg';
 import { useEffect } from 'react';
@@ -19,7 +20,15 @@ export default function EarningsCard({item}) {
                             Earned <span className='coins'>{item.value} Cash credits</span>  on referral order
                         </div>
                         <div className='earn-image'>
-                            <img src={coinPic} className='coin-pic' alt="" />
+                            {/* <img src={coinPic} className='coin-pic' alt="" /> */}
+                            <div className='coin-pic'>
+                                <div>
+                                    <img src={moneyPic} alt="" />
+                                </div>
+                                <div>
+                                    {item.value}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='historyInfo'>

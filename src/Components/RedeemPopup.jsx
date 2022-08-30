@@ -11,21 +11,24 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default function RedeemPopup({ user_data, customer_id }) {
-  const [redeemAmount, setRedeemAmount] = useState(1000);
+  const [redeemAmount, setRedeemAmount] = useState(0);
   const [progress_amount, Set_progress_amount] = useState(10);
-  const balanceAmount = 1600;
   const decrement = () => {
-    console.log('decrement')
     if (redeemAmount - 500 >= 0) {
       setRedeemAmount(redeemAmount - 500);
-    }
+    } 
   };
   const increment = () => {
     if (redeemAmount + 500 <= user_data.balance) {
       setRedeemAmount(redeemAmount + 500);
+    } else {
+      alertUser(redeemAmount + 500)
     }
   };
 
+  const alertUser = (amount) => {
+    alert(`Balance less than ${amount}`)
+  }
   const redeemCoins = async () => {
     const data = {
       customer_id: customer_id,
@@ -33,7 +36,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
     };
     const config = {
       method: "post",
-      url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -42,15 +45,18 @@ export default function RedeemPopup({ user_data, customer_id }) {
 
     await axios(config)
       .then((response) => {
-        console.log(response.data, "resp body");
+        console.log(response.body,'resp body')
+        alert(response.body,'resp body')
       })
       .catch((error) => {
         console.log(error);
+        alert(error)
       });
   };
   useEffect(() => {
     // const progress_value = (parseInt(user_data.balance) * 100) / 2000;
-    const progress_value = 10;
+    const progress_value = ((parseInt(1000) * 100) / 2000 ) > 100 
+                        ?  100 : ((parseInt(1000) * 100) / 2000 )
     Set_progress_amount(progress_value);
   }, []);
   return (
@@ -61,7 +67,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
             <div className="modalHeader">Redeem Coins</div>
             <div className="redeemCoinBalance">
               <div className="redeemCoinBalanceText">Balance:</div>
-              <div className="redeemCoinBalanceAmount">{user_data.lifetime}</div>
+              <div className="redeemCoinBalanceAmount">{user_data.balance}</div>
             </div>
           </div>
           <div className="addCoins">
@@ -79,7 +85,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
             <div className="fiveHundred">
               <div
                 className="fiveHundredText"
-                onClick={() => setRedeemAmount(500)}
+                onClick={() => user_data.balance >= 500 ? setRedeemAmount(500) : alertUser(500)}
               >
                 500
               </div>
@@ -87,7 +93,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
             <div className="thousand">
               <div
                 className="thousandText"
-                onClick={() => setRedeemAmount(1000)}
+                onClick={() => user_data.balance >= 1000 ? setRedeemAmount(1000) : alertUser(1000)}
               >
                 1000
               </div>
@@ -95,7 +101,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
             <div className="fifteenHundred">
               <div
                 className="fifteenHundredText"
-                onClick={() => setRedeemAmount(1500)}
+                onClick={() => user_data.balance >= 1500 ? setRedeemAmount(1500) : alertUser(1500)}
               >
                 1500
               </div>

@@ -49,14 +49,14 @@ const History = ({user_data, customer_id}) => {
     <>
      { customer_id ?  <div className="how-it-works-container">
       <div className="how-heading">History</div>
-      <div className="history-referral">
+      { user_data.coins_on_way ? <div className="history-referral">
         <div className="history-referral-header">
-           <span className="green-text">200 MCash Credits</span> are on your way!
+           <span className="green-text"> {user_data.coins_on_way} MCash Credits</span> are on your way!
         </div>
         <div className="history-referral-content">
-            2 of your referrals orders are on the way - Mcash will be credited once they reach your friends. 
+            {user_data.number_of_pending_referrals} of your referrals orders are on the way - Mcash will be credited once they reach your friends. 
         </div>
-      </div>
+      </div> : null }
       <div className='rewardsAndBurnsContainer'>
             <div className='toggleButtons'>
                 <button className='rewards' style={{backgroundColor: buttonsState.earningsButtonColor, color: buttonsState.earningsButtonTextColor }} onClick={showEarnings}> 
@@ -69,7 +69,7 @@ const History = ({user_data, customer_id}) => {
             {buttonsState.earnings && user_data.rewards_list.map((item,key)=> (
                   <EarningsCard key={key} item={item} />
             ))}
-            {buttonsState.vouchers && user_data.rewards_list.map((item,key)=> (
+            {buttonsState.vouchers && user_data.vouchers_array.map((item,key)=> (
                 <VouchersCard key={key} item={item} />  
             ))}
       </div>

@@ -25,9 +25,12 @@
 .coin-pic {
     width: 88px;
     height: 38px;
-    background: #FCF0D2;
+    background: var(--coin);
     border-radius: 4px;
     margin-left: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .historyContent{
@@ -127,7 +130,7 @@
     width: 100%;
 }
 .coins {
-    color: var(--mars-coins)
+    color: var(--button-color)
 }
 
 .copy-green {

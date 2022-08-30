@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import "../css/LoginPopup.css";
 
 export default function LoginPopup() {
+  const redirectToShopifyHome = () => {
+    window.location.href = process.env.REACT_APP_LOGIN_REDIRECT_URL;
+  }
   return (
     <>
       <div className="modalContainer">
@@ -23,7 +26,7 @@ export default function LoginPopup() {
             />
           </div>
           <div className="how-login-button-div">
-            <button className="login-button-popup">Login</button>
+            <button className="login-button-popup" onClick={() => redirectToShopifyHome()}>Login</button>
           </div>
         </div>
       </div>

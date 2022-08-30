@@ -35,7 +35,7 @@ export default function ReferAFriend({ customer_id }) {
     const getReferralCode = async () => {
       const config = {
         method: "post",
-        url: `https://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
+        url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -48,7 +48,7 @@ export default function ReferAFriend({ customer_id }) {
         .catch((error) => {
           console.log(error, "error");
         });
-      config.url = `http://${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`;
+      config.url = `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`;
     };
     getReferralCode();
   }, [customer_id]);

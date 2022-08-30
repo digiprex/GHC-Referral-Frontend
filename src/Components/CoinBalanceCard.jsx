@@ -67,12 +67,12 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
           <div style={{ flex: 1 }} className="earnings-div">
             <div className="headerCard">MCash Balance</div>
             <div className="coinBalanceDiv">
-              <div className="coinBalance">{user_data.lifetime}</div>
+              <div className="coinBalance">{user_data.balance}</div>
             </div>
           </div>
           <div style={{ flex: 1 }} className="earnings-div-mobile">
             <div className="coinBalanceDiv" style={{display: "flex", justifyContent: "center"}}>
-              <div className="coinBalance">{user_data.lifetime}</div>
+              <div className="coinBalance">{user_data.balance}</div>
             </div>
           </div>
         </div>

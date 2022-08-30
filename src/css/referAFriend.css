@@ -157,13 +157,14 @@
     /* border: solid 1px; */
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 19px;
     text-align: center;
     color: #ffffff;
     padding: 3% 0;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .share-img-div {
     flex: 4;
@@ -229,4 +230,20 @@
   .refer-friend-width-with-customer-id {
     width: 92%;
   }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .sharePic {
+    margin-right: 8%;
+    height: 92%;
+    width: 10%;
+  }
+
+  .referText {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
 }
