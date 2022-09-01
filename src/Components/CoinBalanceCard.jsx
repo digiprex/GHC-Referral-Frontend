@@ -111,7 +111,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
           // ariaHideApp={false}
           // contentLabel="Desktop Modal"
         >
-          <RedeemPopup user_data={user_data} customer_id={customer_id} />
+          <RedeemPopup user_data={user_data} customer_id={customer_id} closeDesktopModal={closeDesktopModal} />
         </Modal>
       </div>
       {/* <div id="myModal" class="modal">

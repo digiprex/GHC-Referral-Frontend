@@ -31,7 +31,8 @@
   --basic: #8D5468;
   --green: #108F57;
   --light-green:#5f9e71;
-  --coin: #FCF0D2
+  --coin: #FCF0D2;
+  --progress-bar: linear-gradient(180deg, #95CD6C 14.9%, #C3DD7F 100%);
 }
 
 
@@ -48,13 +49,6 @@ div:empty{
 a:not([href]) {
   cursor: pointer;
 }
-
-.react-responsive-modal-modal{
-  height: 70%;
-  width: 30%;
-  border-radius: 16px;
-}
-
 
 @media only screen and (min-width: 600px) {
 
@@ -80,6 +74,10 @@ a:not([href]) {
 
   .coinsOnWayFlex {
     margin-top: 36px;
+  }
+
+  .react-responsive-modal-modal {
+    border-radius: 16px
   }
 }
 
@@ -169,10 +167,16 @@ a:not([href]) {
 }
 
 
-@media only screen and (min-width: 600px) and (max-width: 768px) {
+@media only screen and (min-width: 600px) and (max-width: 900px) {
     .react-responsive-modal-modal {
       height: 73%;
       width: 64%;
       border-radius: 16px;
     }
+}
+
+@media only screen and  (min-width: 900px) {
+  .react-responsive-modal-modal {
+    width: 35%;
+  }
 }

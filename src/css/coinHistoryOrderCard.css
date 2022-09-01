@@ -64,12 +64,12 @@
     border-radius: 4px;
     color: white;
     border: none;
-    padding: 8px 50px;
+    padding: 6% 10%;
     display: flex;
     align-items: center;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
 }
 
 .coupon-description,.coupon-status{
@@ -120,7 +120,6 @@
     position: relative;
     font-size: 20px;
     color: #108F57;
-    margin-bottom: 10%;
 }
 
 .copy-border{

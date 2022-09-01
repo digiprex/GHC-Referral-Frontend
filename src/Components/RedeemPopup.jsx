@@ -10,9 +10,16 @@ import LinearProgress from "@mui/material/LinearProgress";
 import React, { Component } from "react";
 import axios from "axios";
 
-export default function RedeemPopup({ user_data, customer_id }) {
-  const [redeemAmount, setRedeemAmount] = useState(0);
-  const [progress_amount, Set_progress_amount] = useState(10);
+export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }) {
+  const [redeemAmount, setRedeemAmount] = useState(1000);
+  const [progress_amount, Set_progress_amount] = useState(0);
+  const [friend_to_refer_for_redemption,Set_friend_to_refer_for_redemption] = useState(0);
+  user_data.balance = 900;
+  const mcash_for_redeem_pending = (user_data.balance%500);
+  const can_redeem = (user_data/500);
+  const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
+  const next_redemption_amount = user_data.balance+mcash_for_redeem_pending;
+  // Set_friend_to_refer_for_redemption(number_of_more_friends_to_refer);
   const decrement = () => {
     if (redeemAmount - 500 >= 0) {
       setRedeemAmount(redeemAmount - 500);
@@ -45,8 +52,8 @@ export default function RedeemPopup({ user_data, customer_id }) {
 
     await axios(config)
       .then((response) => {
-        console.log(response.body,'resp body')
-        alert(response.body,'resp body')
+
+        alert('success')
       })
       .catch((error) => {
         console.log(error);
@@ -54,9 +61,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
       });
   };
   useEffect(() => {
-    // const progress_value = (parseInt(user_data.balance) * 100) / 2000;
-    const progress_value = ((parseInt(1000) * 100) / 2000 ) > 100 
-                        ?  100 : ((parseInt(1000) * 100) / 2000 )
+    const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
     Set_progress_amount(progress_value);
   }, []);
   return (
@@ -64,7 +69,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
       <Container>
         <div className="modalContainer">
           <div className="headerContent">
-            <div className="modalHeader">Redeem Coins</div>
+            <div className="modalHeader">Redeem Credits</div>
             <div className="redeemCoinBalance">
               <div className="redeemCoinBalanceText">Balance:</div>
               <div className="redeemCoinBalanceAmount">{user_data.balance}</div>
@@ -80,6 +85,9 @@ export default function RedeemPopup({ user_data, customer_id }) {
             <div className="plus" onClick={() => increment()}>
               <img src={plus} alt="" />
             </div>
+          </div>
+          <div className="redeem-message">
+            You can only redeem in multiples of 500 
           </div>
           <div className="coinsList">
             <div className="fiveHundred">
@@ -108,24 +116,30 @@ export default function RedeemPopup({ user_data, customer_id }) {
             </div>
           </div>
           <div className="earnAndSave">
-            <div className="saveHeader">Earn More. Save More.</div>
+            <div className="saveHeader">Gift More. Save More.</div>
             <div className="saveContent">
-              <img src={share} alt="" style={{}} /> 100 coins for every referral
-              order
+              <img src={share} alt="" style={{}} />
+              <span className="save-content-text">
+                100 Mcash credits for every referral order
+              </span> 
             </div>
             <div className="saveContent bottom">
-              <img src={next} alt="" style={{}} /> Use these Coins to save on
-              your next purchase
+              <img src={next} alt="" style={{}} /> 
+              <span className="save-content-text">
+                Redeem Credits for Amazon gift vouchers
+              </span>
             </div>
           </div>
           <div className="referMore">
-            Refer 4 more friends to unlock{" "}
+            <div>
+            Refer {number_of_more_friends_to_refer} more friends to reach{"  "}
             <span
               style={{ color: "green", fontSize: "10px" }}
               className="greenText"
-            >
-              2000 coins
+              >
+              {user_data.balance+number_of_more_friends_to_refer*100} Mcash credits
             </span>
+            </div> 
           </div>
         </div>
         <div className="progressBar">
@@ -139,7 +153,7 @@ export default function RedeemPopup({ user_data, customer_id }) {
           id="redeemBtn"
           className="redeemButtonPopUp"
           type="button"
-          onClick={() => redeemCoins()}
+          onClick={() => closeDesktopModal()}
         >
           Redeem Now
         </button>

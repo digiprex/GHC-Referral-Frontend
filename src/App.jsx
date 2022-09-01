@@ -22,14 +22,14 @@ const App = () => {
   useEffect(()=>{
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    // Set_customer_id("6411445371092"); 
+    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    Set_customer_id("6411445371092"); 
   
     
     const data = {
-      // "customer_id":"5874011242688",
-      //  customer_id:"6411445371092",
-      customer_id: document.getElementById("shopify-customer-id")?.value
+      // "customer_id":"5874011242680",
+       customer_id:"6411445371092",
+      // customer_id: document.getElementById("shopify-customer-id")?.value
     }
     // 5874011242688
   const getEarningsData = async () => {
@@ -55,6 +55,8 @@ const App = () => {
         console.log(rewards_earned.length,'rew earned')
         const amazon_vouchers_array=response.data.body.ledger.filter((x) => x.voucher_code != "0");
         amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
+        const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")})
+        console.log(pending_amazon_vouchers,'pending vouchers')
         Set_user_data({
               "balance": response.data.body.balance,
               "lifetime": response.data.body.lifetime,
@@ -62,7 +64,8 @@ const App = () => {
               "rewards_list": rewards_earned,
               "amazon_voucher_value":amazon_vouchers_total_sum,
               "vouchers_array":amazon_vouchers_array,
-              "number_of_pending_referrals":pending_rewards_values.length
+              "number_of_pending_referrals":pending_rewards_values.length,
+              "pending_amazon_vouchers": pending_amazon_vouchers
           });
       }).catch((error)=>{
           console.log(error,'error');

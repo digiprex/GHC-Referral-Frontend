@@ -47,7 +47,7 @@ const History = ({user_data, customer_id}) => {
   }
   return (
     <>
-     { customer_id ?  <div className="how-it-works-container">
+     { customer_id && (user_data.number_of_pending_referrals || user_data.lifetime)?  <div className="how-it-works-container">
       <div className="how-heading">History</div>
       { user_data.coins_on_way ? <div className="history-referral">
         <div className="history-referral-header">
@@ -68,6 +68,9 @@ const History = ({user_data, customer_id}) => {
             </div>
             {buttonsState.earnings && user_data.rewards_list.map((item,key)=> (
                   <EarningsCard key={key} item={item} />
+            ))}
+            {buttonsState.vouchers && user_data.pending_amazon_vouchers.map((item,key)=> (
+                <VouchersCard key={key} item={item} pending="true"/>  
             ))}
             {buttonsState.vouchers && user_data.vouchers_array.map((item,key)=> (
                 <VouchersCard key={key} item={item} />  

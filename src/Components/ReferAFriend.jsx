@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { BottomSheet } from "react-spring-bottom-sheet";
+import { Modal } from "react-responsive-modal";
 import { useEffect, useState } from "react";
 import sharePic from '../images/share.png'
 import copyPic from '../images/copy.png';
+import Login from "./LoginPopup";
 import "../css/referAFriend.css";
 import axios from "axios";
 
@@ -9,9 +12,27 @@ export default function ReferAFriend({ customer_id }) {
   const [isMobile, SetIsMobile] = useState(false);
   const [clicked, Set_clicked] = useState(false);
   const [referral_code, Set_referral_code] = useState("");
+  const [open, setOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openDesktopModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeDesktopModal = () => {
+    setIsOpen(false);
+  };
+
+  const openMobileModal = () => {
+    setOpen(true);
+  };
+
+  const closeMobileModal = () => {
+    setOpen(false);
+  };
   const share = () => {
-    if (navigator.share) {
-      navigator
+    if(customer_id) {
+      if (navigator.share) {
+        navigator
         .share({
           title: "Something",
           text: "Hello, please come visit my website",
@@ -23,8 +44,11 @@ export default function ReferAFriend({ customer_id }) {
         .catch((error) => {
           console.error("Something went wrong", error);
         });
+      }
+    } else {
+      window.innerWidth > 480 ? openDesktopModal() : openMobileModal()
     }
-  }
+}
 
   useEffect(() => {
     SetIsMobile(window.innerWidth > 480 ? true : false);
@@ -39,7 +63,8 @@ export default function ReferAFriend({ customer_id }) {
         headers: {
           "Content-Type": "application/json",
         },
-        data: data,
+        customer_id: customer_id,
+        data: data
       };
       await axios(config)
         .then((response) => {
@@ -73,7 +98,7 @@ export default function ReferAFriend({ customer_id }) {
                   className={`copyCoupon ${clicked ? "copy-green" : ""}`}
                   type="button"
                   >
-                  <img src={copyPic} className="copy-pic-referral" alt="" srcset="" />
+                  {/* <img src={copyPic} className="copy-pic-referral" alt="" srcset="" /> */}
                   Copy Code
                 </button>
             </div>
@@ -91,6 +116,28 @@ export default function ReferAFriend({ customer_id }) {
           </div>
         </div>
       </div>
+      <BottomSheet open={open} onDismiss={closeMobileModal}>
+        <Login />
+      </BottomSheet>
+      <Modal
+        // isOpen={modalIsOpen}
+        // onRequestClose={closeDesktopModal}
+        center
+        open={modalIsOpen}
+        onClose={closeDesktopModal}
+        // classNames={{
+        //     overlay: 'customOverlay',
+        //     modal: 'customModal',
+        // }}
+        // style={customStyles}
+        // className="desktopModal"
+        // overlayClassName="overlay"
+        // className='desktopPopup'
+        // ariaHideApp={false}
+        // contentLabel="Desktop Modal"
+      >
+        <Login />
+      </Modal>
     </>
   );
 }
