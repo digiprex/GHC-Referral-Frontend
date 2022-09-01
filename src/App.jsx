@@ -22,14 +22,14 @@ const App = () => {
   useEffect(()=>{
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    Set_customer_id("6411445371092"); 
+    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    // Set_customer_id("6411445371092"); 
   
     
     const data = {
       // "customer_id":"5874011242680",
-       customer_id:"6411445371092",
-      // customer_id: document.getElementById("shopify-customer-id")?.value
+      //  customer_id:"6411445371092",
+      customer_id: document.getElementById("shopify-customer-id")?.value
     }
     // 5874011242688
   const getEarningsData = async () => {
