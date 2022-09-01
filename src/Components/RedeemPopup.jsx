@@ -14,7 +14,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
   const [redeemAmount, setRedeemAmount] = useState(1000);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [friend_to_refer_for_redemption,Set_friend_to_refer_for_redemption] = useState(0);
-  user_data.balance = 900;
   const mcash_for_redeem_pending = (user_data.balance%500);
   const can_redeem = (user_data/500);
   const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
