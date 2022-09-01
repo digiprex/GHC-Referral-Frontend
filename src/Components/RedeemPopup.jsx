@@ -51,7 +51,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
 
     await axios(config)
       .then((response) => {
-
         alert('success')
       })
       .catch((error) => {
@@ -152,7 +151,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
           id="redeemBtn"
           className="redeemButtonPopUp"
           type="button"
-          onClick={() => closeDesktopModal()}
+          onClick={() => {closeDesktopModal();redeemCoins()}}
         >
           Redeem Now
         </button>
