@@ -19,7 +19,7 @@
 .fiveHundred,
 .thousand,
 .fifteenHundred {
-  background: #ebeff0;
+  background: #ffffff;
   border-radius: 16px;
   cursor: pointer;
   height: 30px;
@@ -28,6 +28,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  border: solid 1px #975169;
+  color: #975169;
 }
 
 .fiveHundredText,

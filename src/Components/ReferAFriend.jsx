@@ -34,9 +34,9 @@ export default function ReferAFriend({ customer_id }) {
       if (navigator.share) {
         navigator
         .share({
-          title: "Something",
-          text: "Hello, please come visit my website",
-          url: "www.website.com.br",
+          title: "Referral",
+          text: "Hey,",
+          url: "/",
         })
         .then(() => {
           console.log("Successfully shared");

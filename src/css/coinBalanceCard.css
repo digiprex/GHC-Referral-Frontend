@@ -372,6 +372,11 @@
   .custom-modal-redeem {
     width: 35%;
   }
+
+  .custom-modal-success {
+    width: 25%;
+    height: 45%;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {

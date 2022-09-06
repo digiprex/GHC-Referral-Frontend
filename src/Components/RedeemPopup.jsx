@@ -6,23 +6,18 @@ import plus from "../images/plus.png";
 import share from "../images/small-share.png";
 import share_saturn from '../images/share-saturn.png';
 import redeem_saturn from '../images/redeem-saturn.png'
-import SuccessPopup from '../Components/SucessPopup';
+import { Modal } from "react-responsive-modal";
 import next from "../images/next.png";
 import { useEffect, useState } from "react";
 import LinearProgress from "@mui/material/LinearProgress";
 import React, { Component } from "react";
 import axios from "axios";
 
-export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }) {
+export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup }) {
   const [redeemAmount, setRedeemAmount] = useState(0);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
   const [friend_to_refer_for_redemption,Set_friend_to_refer_for_redemption] = useState(0);
-  const [buttonListStatus,Set_buttonListStatus] = useState({
-    "fiveHundred":"not-selected",
-    "thousand":"not-selected",
-    "fifteenHundred":"not-selected"
-  })
   const mcash_for_redeem_pending = (user_data.balance%500);
   const can_redeem = (user_data/500);
   const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
@@ -48,17 +43,14 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
   };
 
   const setAmount = (amount,id) => {
-    document.getElementById(id).style.backgroundColor = "#975169"
     document.getElementById("error-text-redeem").style.visibility = "hidden"
     setRedeemAmount(amount);
-    Set_buttonListStatus((prevState) => {
-    return  {...prevState, [id]:"selected" }
-    })
-  }
+   }
 
   const alertUser = (amount) => {
     alert(`Balance less than ${amount}`)
   }
+
   const redeemCoins = async () => {
     const data = {
       customer_id: customer_id,
@@ -76,12 +68,12 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
     await axios(config)
       .then((response) => {
         closeDesktopModal();
-        alert('success')
-      })
-      .catch((error) => {
-        console.log(error);
-        alert('error')
-      });
+        open_SuccessPopup();
+        })
+        .catch((error) => {
+            console.log(error);
+            alert('error')
+          });
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
@@ -128,7 +120,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
             Enter a value less than the current balance 
           </div>
           <div className="coinsList">
-            <button className="fiveHundred"id="fiveHundred" onClick={() =>{setAmount(500,"fiveHundred");}}>
+            <button className="fiveHundred" id="fiveHundred" onClick={() =>{setAmount(500,"fiveHundred");}}>
                 500
             </button>
             <button className="thousand" id="thousand" onClick={(e) =>setAmount(1000,"thousand")}>
@@ -180,17 +172,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
         >
           Redeem Now
         </button>
-        {/* <Modal
-          center
-          open={noCashModalIsOpen}
-          onClose={closeNoMcashPopUp}
-          showCloseIcon={false}
-          classNames={{
-              modal: 'custom-modal-success',
-          }}
-        >
-          <SuccessPopup closeDesktopModal={closeDesktopModal} />
-        </Modal> */}
+       
       </Container>
     </>
   );

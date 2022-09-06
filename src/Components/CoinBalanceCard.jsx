@@ -11,12 +11,14 @@ import Chip from "@mui/material/Chip";
 // import Modal from 'react-modal';
 import RedeemPopup from "./RedeemPopup";
 import NoMcashPopUp from "./NoMcashPopUp";
+import SuccessPopup from '../Components/SuccessPopup';
 import axios from "axios";
 const mobileViewContext = createContext();
 
 export default function CoinBalanceCard({ showHistory, user_data, customer_id }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [successPopup,Set_successPopup] = useState(false);
   const [noCashModalIsOpen,Set_noCashModalIsOpen] = useState(false);
   const customStyles = {
     content: {
@@ -51,6 +53,14 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
   const closeNoMcashPopUp = () => {
     Set_noCashModalIsOpen(false);
   }
+
+  const open_SuccessPopup = () => {
+    Set_successPopup(true);
+  } 
+
+  const close_SuccessPopup = () => {
+    Set_successPopup(false);
+  } 
 
   useEffect(() => {}, []);
 
@@ -112,7 +122,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
               modal: 'custom-modal-redeem',
           }}
         >
-          <RedeemPopup user_data={user_data} customer_id={customer_id} closeDesktopModal={closeDesktopModal} />
+          <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal} />
         </Modal>
         <Modal
           center
@@ -126,6 +136,17 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
           <NoMcashPopUp closeDesktopModal={closeDesktopModal} />
         </Modal>
       </div>
+      <Modal
+          center
+          open={successPopup}
+          onClose={close_SuccessPopup}
+          showCloseIcon={false}
+          classNames={{
+              modal: 'custom-modal-success',
+          }}
+        >
+          <SuccessPopup closeDesktopModal={closeDesktopModal} />
+        </Modal>
       {/* <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>

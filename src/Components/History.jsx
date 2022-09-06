@@ -48,7 +48,7 @@ const History = ({user_data, customer_id}) => {
   }
   return (
     <>
-     { customer_id && (user_data.number_of_pending_referrals || user_data.lifetime)?  <div className="how-it-works-container">
+     { customer_id && (user_data.number_of_pending_referrals || user_data.lifetime)?  <div className="history-container">
       <div className="how-heading">History</div>
       { (user_data.coins_on_way ) ?  <div className="history-referral">
         <div className="history-referral-header">
