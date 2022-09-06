@@ -4,6 +4,9 @@ import pic from "../images/goldcoin.png";
 import minus from "../images/minus.png";
 import plus from "../images/plus.png";
 import share from "../images/small-share.png";
+import share_saturn from '../images/share-saturn.png';
+import redeem_saturn from '../images/redeem-saturn.png'
+import SuccessPopup from '../Components/SucessPopup';
 import next from "../images/next.png";
 import { useEffect, useState } from "react";
 import LinearProgress from "@mui/material/LinearProgress";
@@ -11,26 +14,47 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }) {
-  const [redeemAmount, setRedeemAmount] = useState(1000);
+  const [redeemAmount, setRedeemAmount] = useState(0);
   const [progress_amount, Set_progress_amount] = useState(0);
+  const [loading_state,Set_loading_state] = useState(false);
   const [friend_to_refer_for_redemption,Set_friend_to_refer_for_redemption] = useState(0);
+  const [buttonListStatus,Set_buttonListStatus] = useState({
+    "fiveHundred":"not-selected",
+    "thousand":"not-selected",
+    "fifteenHundred":"not-selected"
+  })
   const mcash_for_redeem_pending = (user_data.balance%500);
   const can_redeem = (user_data/500);
   const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
   const next_redemption_amount = user_data.balance+mcash_for_redeem_pending;
   // Set_friend_to_refer_for_redemption(number_of_more_friends_to_refer);
   const decrement = () => {
-    if (redeemAmount - 500 >= 0) {
-      setRedeemAmount(redeemAmount - 500);
-    } 
+    if (redeemAmount == 0) {
+      document.getElementById("error-text-redeem").style.visibility = "hidden"
+    } else if ( redeemAmount - 500 >= 0) {
+     setRedeemAmount(redeemAmount - 500);
+     document.getElementById("error-text-redeem").style.visibility = "hidden"
+    } else {
+      document.getElementById("error-text-redeem").style.visibility = "visible"
+    }
   };
   const increment = () => {
     if (redeemAmount + 500 <= user_data.balance) {
       setRedeemAmount(redeemAmount + 500);
+      document.getElementById("error-text-redeem").style.visibility = "hidden"
     } else {
-      alertUser(redeemAmount + 500)
+      document.getElementById("error-text-redeem").style.visibility = "visible"
     }
   };
+
+  const setAmount = (amount,id) => {
+    document.getElementById(id).style.backgroundColor = "#975169"
+    document.getElementById("error-text-redeem").style.visibility = "hidden"
+    setRedeemAmount(amount);
+    Set_buttonListStatus((prevState) => {
+    return  {...prevState, [id]:"selected" }
+    })
+  }
 
   const alertUser = (amount) => {
     alert(`Balance less than ${amount}`)
@@ -51,16 +75,27 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
 
     await axios(config)
       .then((response) => {
+        closeDesktopModal();
         alert('success')
       })
       .catch((error) => {
         console.log(error);
-        alert(error)
+        alert('error')
       });
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
     Set_progress_amount(progress_value);
+    if(user_data.balance < 1500) {
+      document.getElementById("fifteenHundred").style.color="#C4C4C4";
+      document.getElementById("fifteenHundred").style.cursor="no-drop";
+      document.getElementById("fifteenHundred").disabled= true;
+    }
+    if( user_data.balance < 1000) {
+      document.getElementById("thousand").style.color="#C4C4C4";
+      document.getElementById("thousand").style.cursor="no-drop";
+      document.getElementById("thousand").disabled= true;
+    }
   }, []);
   return (
     <>
@@ -68,6 +103,11 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
         <div className="modalContainer">
           <div className="headerContent">
             <div className="modalHeader">Redeem Credits</div>
+          </div>
+          <div className="sub-heading-redeem">
+            <div className="redeem-message">
+              You can only redeem in multiples of 500 
+            </div>
             <div className="redeemCoinBalance">
               <div className="redeemCoinBalanceText">Balance:</div>
               <div className="redeemCoinBalanceAmount">{user_data.balance}</div>
@@ -84,47 +124,32 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
               <img src={plus} alt="" />
             </div>
           </div>
-          <div className="redeem-message">
-            You can only redeem in multiples of 500 
+          <div id="error-text-redeem">
+            Enter a value less than the current balance 
           </div>
           <div className="coinsList">
-            <div className="fiveHundred">
-              <div
-                className="fiveHundredText"
-                onClick={() => user_data.balance >= 500 ? setRedeemAmount(500) : alertUser(500)}
-              >
+            <button className="fiveHundred"id="fiveHundred" onClick={() =>{setAmount(500,"fiveHundred");}}>
                 500
-              </div>
-            </div>
-            <div className="thousand">
-              <div
-                className="thousandText"
-                onClick={() => user_data.balance >= 1000 ? setRedeemAmount(1000) : alertUser(1000)}
-              >
+            </button>
+            <button className="thousand" id="thousand" onClick={(e) =>setAmount(1000,"thousand")}>
                 1000
-              </div>
-            </div>
-            <div className="fifteenHundred">
-              <div
-                className="fifteenHundredText"
-                onClick={() => user_data.balance >= 1500 ? setRedeemAmount(1500) : alertUser(1500)}
-              >
+            </button>
+            <button className="fifteenHundred" id="fifteenHundred" onClick={(e) => setAmount(1500,"fifteenHundred")}>
                 1500
-              </div>
-            </div>
+            </button>
           </div>
           <div className="earnAndSave">
             <div className="saveHeader">Gift More. Save More.</div>
             <div className="saveContent">
-              <img src={share} alt="" style={{}} />
+              <img src={share_saturn} alt="" style={{}} />
               <span className="save-content-text">
                 100 Mcash credits for every referral order
               </span> 
             </div>
             <div className="saveContent bottom">
-              <img src={next} alt="" style={{}} /> 
+              <img src={redeem_saturn} alt="" style={{}} /> 
               <span className="save-content-text">
-                Redeem Credits for Amazon gift vouchers
+                Redeem credits for Amazon gift vouchers
               </span>
             </div>
           </div>
@@ -151,10 +176,21 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal }
           id="redeemBtn"
           className="redeemButtonPopUp"
           type="button"
-          onClick={() => {closeDesktopModal();redeemCoins()}}
+          onClick={() => {redeemCoins()}}
         >
           Redeem Now
         </button>
+        {/* <Modal
+          center
+          open={noCashModalIsOpen}
+          onClose={closeNoMcashPopUp}
+          showCloseIcon={false}
+          classNames={{
+              modal: 'custom-modal-success',
+          }}
+        >
+          <SuccessPopup closeDesktopModal={closeDesktopModal} />
+        </Modal> */}
       </Container>
     </>
   );

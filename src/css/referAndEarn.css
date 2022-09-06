@@ -127,4 +127,11 @@
   .bottom-div-heading {
     font-size: 14px;
   }
+
+  .coupon-image {
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+    margin-left: 10%;
+  }
 }

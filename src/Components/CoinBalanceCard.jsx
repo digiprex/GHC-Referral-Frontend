@@ -10,12 +10,14 @@ import "react-responsive-modal/styles.css";
 import Chip from "@mui/material/Chip";
 // import Modal from 'react-modal';
 import RedeemPopup from "./RedeemPopup";
+import NoMcashPopUp from "./NoMcashPopUp";
 import axios from "axios";
 const mobileViewContext = createContext();
 
 export default function CoinBalanceCard({ showHistory, user_data, customer_id }) {
   const [open, setOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [noCashModalIsOpen,Set_noCashModalIsOpen] = useState(false);
   const customStyles = {
     content: {
       top: "50%",
@@ -41,6 +43,14 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
   const closeMobileModal = () => {
     setOpen(false);
   };
+
+  const openNoMcashPopUp = () => {
+    Set_noCashModalIsOpen(true);
+  }
+
+  const closeNoMcashPopUp = () => {
+    Set_noCashModalIsOpen(false);
+  }
 
   useEffect(() => {}, []);
 
@@ -84,7 +94,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
       <div className="button-container">
         <button
           id="redeemBtn"
-          onClick={window.innerWidth > 480 ? openDesktopModal : openMobileModal}
+          onClick={!(user_data.balance < 500 ) ? (window.innerWidth > 900 ? openDesktopModal : openMobileModal ) : openNoMcashPopUp}
           className="redeem"
           type="button"
         >
@@ -95,23 +105,25 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
           <RedeemPopup user_data={user_data} customer_id={customer_id} />
         </BottomSheet>
         <Modal
-          // isOpen={modalIsOpen}
-          // onRequestClose={closeDesktopModal}
           center
           open={modalIsOpen}
           onClose={closeDesktopModal}
-          // classNames={{
-          //     overlay: 'customOverlay',
-          //     modal: 'customModal',
-          // }}
-          // style={customStyles}
-          // className="desktopModal"
-          // overlayClassName="overlay"
-          // className='desktopPopup'
-          // ariaHideApp={false}
-          // contentLabel="Desktop Modal"
+          classNames={{
+              modal: 'custom-modal-redeem',
+          }}
         >
           <RedeemPopup user_data={user_data} customer_id={customer_id} closeDesktopModal={closeDesktopModal} />
+        </Modal>
+        <Modal
+          center
+          open={noCashModalIsOpen}
+          onClose={closeNoMcashPopUp}
+          showCloseIcon={false}
+          classNames={{
+              modal: 'custom-modal-no-mcash',
+          }}
+        >
+          <NoMcashPopUp closeDesktopModal={closeDesktopModal} />
         </Modal>
       </div>
       {/* <div id="myModal" class="modal">

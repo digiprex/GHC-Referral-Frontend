@@ -1,6 +1,7 @@
 import {useState,React} from "react";
 import EarningsCard from "./EarningsCard";
 import VouchersCard from "./VouchersCard";
+import nocoinsPic from '../images/no-coins.png'
 import "../css/History.css";
 
 const History = ({user_data, customer_id}) => {
@@ -49,7 +50,7 @@ const History = ({user_data, customer_id}) => {
     <>
      { customer_id && (user_data.number_of_pending_referrals || user_data.lifetime)?  <div className="how-it-works-container">
       <div className="how-heading">History</div>
-      { user_data.coins_on_way ? <div className="history-referral">
+      { (user_data.coins_on_way ) ?  <div className="history-referral">
         <div className="history-referral-header">
            <span className="green-text"> {user_data.coins_on_way} MCash Credits</span> are on your way!
         </div>
@@ -66,15 +67,31 @@ const History = ({user_data, customer_id}) => {
                     My Vouchers
                 </button>
             </div>
+            { user_data?.rewards_list?.length  ? <div>
             {buttonsState.earnings && user_data.rewards_list.map((item,key)=> (
-                  <EarningsCard key={key} item={item} />
-            ))}
-            {buttonsState.vouchers && user_data.pending_amazon_vouchers.map((item,key)=> (
-                <VouchersCard key={key} item={item} pending="true"/>  
-            ))}
-            {buttonsState.vouchers && user_data.vouchers_array.map((item,key)=> (
-                <VouchersCard key={key} item={item} />  
-            ))}
+                <EarningsCard key={key} item={item} />
+                ))} 
+            </div> : 
+            buttonsState.earnings && <div className="no-coins-pic"> 
+                <img src={nocoinsPic} alt="" srcset="" />
+                <div className="no-earnings">
+                    You don't have any earnings yet.
+                </div>
+            </div> }
+            { (user_data?.pending_amazon_vouchers?.length || user_data?.vouchers_array?.length) ? <div>
+                {buttonsState.vouchers && user_data.pending_amazon_vouchers.map((item,key)=> (
+                    <VouchersCard key={key} item={item} pending="true"/>  
+                ))}
+                {buttonsState.vouchers && user_data.vouchers_array.map((item,key)=> (
+                    <VouchersCard key={key} item={item} />  
+                ))}
+            </div> : 
+             buttonsState.vouchers && <div className="no-coins-pic"> 
+                <img src={nocoinsPic} alt="" srcset="" />
+                <div className="no-earnings">
+                It appears that you don't have any vouchers yet
+                </div>
+            </div>  }
       </div>
     </div> : null }
     </>

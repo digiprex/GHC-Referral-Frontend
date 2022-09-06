@@ -143,15 +143,6 @@ a:not([href]) {
     margin-bottom: 5px;
   }
 
-  .earnings {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.0025em;
-    color: #000000;
-  }
-
   .amount {
     font-weight: 700;
   }
@@ -168,15 +159,9 @@ a:not([href]) {
 
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
-    .react-responsive-modal-modal {
-      height: 73%;
-      width: 64%;
-      border-radius: 16px;
-    }
+    
 }
 
 @media only screen and  (min-width: 900px) {
-  .react-responsive-modal-modal {
-    width: 35%;
-  }
+  
 }

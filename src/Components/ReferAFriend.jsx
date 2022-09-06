@@ -46,7 +46,7 @@ export default function ReferAFriend({ customer_id }) {
         });
       }
     } else {
-      window.innerWidth > 480 ? openDesktopModal() : openMobileModal()
+      openDesktopModal()
     }
 }
 
@@ -120,21 +120,13 @@ export default function ReferAFriend({ customer_id }) {
         <Login />
       </BottomSheet>
       <Modal
-        // isOpen={modalIsOpen}
-        // onRequestClose={closeDesktopModal}
         center
         open={modalIsOpen}
         onClose={closeDesktopModal}
-        // classNames={{
-        //     overlay: 'customOverlay',
-        //     modal: 'customModal',
-        // }}
-        // style={customStyles}
-        // className="desktopModal"
-        // overlayClassName="overlay"
-        // className='desktopPopup'
-        // ariaHideApp={false}
-        // contentLabel="Desktop Modal"
+        showCloseIcon={false}
+        classNames={{
+          modal:'custom-modal'
+        }}
       >
         <Login />
       </Modal>

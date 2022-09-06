@@ -47,10 +47,18 @@
   font-size: 16px;
 }
 
-.login-modal-content {
+.login-modal-content-mcash {
     color: #777777;;
     text-align: center;
-    margin: 0 3%;
+    margin: 0 3% 10% 0;
+}
+
+.alert-image {
+    text-align: center;
+}
+
+.custom-modal-no-mcash {
+    width: 22%;
 }
 
 @media only screen and (min-width: 600px) {

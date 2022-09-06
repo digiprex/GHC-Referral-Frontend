@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import '../css/coinHistoryOrderCard.css'
 import pic from '../images/voucher.png';
 import copyPic from '../images/copy.png'
+import coupinPic from '../images/coupon.png';
 import amazon from '../images/amazon.png'
 import calenderPic from '../images/calender.png';
 import { useState } from 'react';
@@ -10,10 +11,9 @@ export default function VouchersCard({item,code,pending}) {
     const date = new Date(item.createdAt);
     const [clicked,Set_clicked] = useState(false);
     const required_date = `${date.getDate()} ${date.toLocaleString('en-US', {month: 'short'})} ${date.getFullYear()} `
-    console.log(item,'item')
-    const copyToClipBoard = (e) => {
-        const text = document.getElementById(`${item.code}`) 
-        text.innerHTML = "Copied";
+    const copyToClipBoard = (e,code) => {
+           console.log(e.target,'target')
+        e.target.innerHTML = "Copied";
         Set_clicked(true);
         navigator.clipboard.writeText(code)
     }
@@ -25,8 +25,12 @@ export default function VouchersCard({item,code,pending}) {
                     <div className='historyContent2'>
                         <div className='left-section'>
                             { !pending ? <div className='amazon-coupon'>
-                                {item.voucher_code}
-                                <img className='copy-border' src={amazon} alt="" />
+                                <div className='copy-coupon-image'>
+                                    <img className='copy-border' src={coupinPic} alt="Hello" />
+                                    <div className='copy-coupon-code'>
+                                        {item.voucher_code}
+                                    </div>
+                                </div>
                             </div> :  
                             <div className='amazon-coupon'>
                                 Amazon voucher coming your way
@@ -34,25 +38,22 @@ export default function VouchersCard({item,code,pending}) {
                                 }
 
                         </div>
-                        { !pending ? <div className='coupon-description'>
-                            Amazon voucher worth {item.value}
-                        </div> : 
-                        <div className='coupon-description'>
-                            Voucher code will be sent to your registered account.
-                        </div>
-                        }
                         <div className='right-section'>
-                            {/* <div className='coupon-status'>
-                                <span className='status-dot'></span>  Active
-                            </div> */}
                         { !pending ? <div className='copy-coupon'>
-                                <button id={`${item.code}`} className={`copy-coupon-button ${clicked? "copy-green" : ""}`} onClick={(e) => copyToClipBoard(e)}>
+                                <button id={`${item.id}`} className={`copy-coupon-button ${clicked? "copy-green" : ""}`} onClick={(e) => copyToClipBoard(e,item.voucher_code)}>
                                     {/* <img className='coupon-pic' src={copyPic} alt="" /> */}
-                                    <span id={item.code}>Copy code</span> 
+                                    Copy code
                                 </button>
                             </div> : null }
                         </div>
                     </div>
+                    { !pending ? <div className='coupon-description'>
+                        Amazon voucher worth {item.voucher_value}
+                    </div> : 
+                    <div className='coupon-description'>
+                        Voucher code will be sent to your registered account.
+                    </div>
+                    }
                     <div className='historyInfo'>
                         <img src={calenderPic} className='calender' alt="" />
                         <span className='historyDate'> Redeemed {item.value} coins on {required_date}</span>

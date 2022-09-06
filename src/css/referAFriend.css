@@ -73,7 +73,9 @@
 }
 
 .sharePic{
-  margin-right: 8%;
+  margin-right: 5%;
+  height: 17px;
+  width: 19px;
 }
 
 .share-img-div{
@@ -151,6 +153,7 @@
 
   .refer-friend-container{
     margin: 0 4% 5% 4%;
+    height: 44px;
   }
 
   .referText {
@@ -177,9 +180,9 @@
 
   .sharePic{
     margin-right: 3%;
-    height: 92%;
-    width: 5%;
+    width: 4%;
     margin-top: .3%;
+    height: 68%;
   }
 }
 
@@ -215,6 +218,7 @@
     font-size: 24px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   
   .referFriend {
@@ -230,6 +234,16 @@
   .refer-friend-width-with-customer-id {
     width: 92%;
   }
+
+  .sharePic{
+    margin-right: 5%;
+    height: 17px;
+    width: 19px;
+  }
+
+  .custom-modal {
+    width: 20%;
+  }
 }
 
 @media only screen and (max-width: 900px) and (min-width: 600px) {
@@ -240,10 +254,25 @@
   }
 
   .referText {
-    font-size: 16px;
+    font-size: 14px;
   }
+  
+  .couponText {
+    font-size: 18px;
+  }
+
+  .copyCoupon {
+    font-size: 12px;
+  }
+
+  .referral-code {
+    height: 46px;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
-
+  .refer-code-header{
+    margin-left: 5%;
+  }
 }

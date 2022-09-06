@@ -87,7 +87,7 @@
   color: #000000;
   margin-left: 3%;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 }
 
@@ -310,16 +310,40 @@
 
   .coinsOnWayFlex {
     margin-left: 10%;
-    margin-top: 0;
+    margin-top: 4%;
   } 
 
   .coinsOnWay {
-    font-size: 16px;
-    margin-top: 2%;
+    font-size: 13px;
   }
 
   .onWayCoinsNumber {
-    font-size: 16px;
+    font-size: 13px;
+  }
+
+  .coinBalanceHeading{
+    margin-left: 11%; 
+  }
+
+  .amount {
+    font-size: 14px;
+  }
+
+  .redeem {
+    font-size: 19px;
+    height: 45px;
+  }
+
+  .earnings {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    color: #000000;
+  }
+
+  .amount {
+    font-size: 17px;
   }
 }
 
@@ -343,5 +367,57 @@
 
   .earnings-div-mobile {
     display: none;
+  }
+
+  .custom-modal-redeem {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .coinsOnWay {
+    font-size: 14px;
+  }
+
+  .gift-pic-div {
+    display: flex;
+    align-items: center;
+  }
+
+  .giftPic {
+    width: 20px;
+    height: 20px;
+  }
+
+  .onWayCoinsNumber {
+    font-size: 14px;
+  }
+
+  .coinPic {
+    width: 60px;
+    height: 60px;
+  }
+
+  .headerCard {
+    font-size: 14px;
+    margin-top: 5%;
+  }
+
+  .coinBalance{
+    font-size: 20px;
+  }
+
+  .earnings {
+    margin-left: 7%;
+    font-size: 14px;
+  }
+
+  .amount {
+    font-size: 16px;
+  }
+
+  .redeem {
+    height: 45px;
+    font-size: 20px;
   }
 }

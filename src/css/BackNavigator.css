@@ -11,4 +11,6 @@
 .backNavigatorContainer {
   display: flex;
   align-items: baseline;
+  margin-left: 6%;
+  margin-top: 9%;
 }

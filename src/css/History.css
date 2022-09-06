@@ -199,9 +199,11 @@
 @media only screen and (max-width: 600px){
   .rewards{
     font-size: 15px;
+    margin: 2% 2%
   }
 
   .how-it-works-container{
+    margin-bottom: 10%;
   }
 
   .history-referral {
@@ -209,7 +211,7 @@
   }
 
   .toggleButtons {
-    margin: 2% 14%;
+    margin: 2% 5%;
   }
 
   .history-referral-header {
@@ -221,12 +223,48 @@
   }
 
   .how-heading {
-    margin-top: 10%;
-    margin: 10% 5% 0 5%;
+    margin: 5% 5% 0 5%;
     border-radius: 10px;
     font-size: 20px;
     text-align: left;
     color: black;
     padding-left: 5%;
+  }
+  
+  .rewards {
+    margin-left: 2%;
+    line-height: 19px;
+  }
+  
+}
+
+  .no-earnings {
+    color: #777777;
+  
+  }
+
+
+@media only screen and (min-width: 600px) {
+  .no-coins-pic{
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 10%;
+  }
+
+  .no-coins-pic-img {
+  }
+
+  .no-earnings {
+    margin-top: 2%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .how-heading {
+    font-size: 22px;
+  }
+
+  .rewards {
+    font-size: 16px;
   }
 }

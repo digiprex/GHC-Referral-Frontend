@@ -10,23 +10,12 @@ export default function LoginPopup() {
     <>
       <div className="modalContainer">
         <div className="header-content">
-          <div className="modalHeader">Log in to continue</div>
-          <div className="login-input">
-            <input
-              className="login-input-text"
-              type="text"
-              placeholder="username"
-            />
-          </div>
-          <div className="login-input">
-            <input
-              className="login-input-text"
-              type="text"
-              placeholder="password"
-            />
+          <div className="modal-Header">Log in to continue</div>
+          <div className="login-modal-content">
+            Earn MCash credits and get Access to exclusive rewards 
           </div>
           <div className="how-login-button-div">
-            <button className="login-button-popup" onClick={() => redirectToShopifyHome()}>Login</button>
+            <button className="login-button-popup" onClick={() => redirectToShopifyHome()}>Log In</button>
           </div>
         </div>
       </div>

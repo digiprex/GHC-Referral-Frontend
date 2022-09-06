@@ -5,14 +5,14 @@
 }
 
 .fire {
-    margin-top: 22px;
+    margin-top: 1%;
     margin-left: 20px;
     width: 30px;
     height: 30px;
 }
 
 .calender{
-    margin-top: 4.6%;
+    margin-top: 2px;
     margin-left: 23px;
     height: 14px;
     width: 14px;
@@ -54,22 +54,26 @@
     align-items: center;
 }
 .left-section, .right-section{
-    display: flex;
     flex:1
 }
 
+.right-section {
+    display: flex;
+}
 
 .copy-coupon-button{
     background: var(--button-color);
     border-radius: 4px;
     color: white;
     border: none;
-    padding: 6% 10%;
+    padding: 0% 10%;
     display: flex;
     align-items: center;
     font-size: 16px;
     cursor: pointer;
-    width: 50%;
+    height: 100%;
+    width: 42%;
+    justify-content: center;
 }
 
 .coupon-description,.coupon-status{
@@ -78,7 +82,9 @@
 }
 
 .amazon-coupon,.coupon-description,.coupon-status,.copy-coupon{
-    flex: 1
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .status-dot{
@@ -91,15 +97,17 @@
     margin-right:2%;
 }
 
-.coupon-description{
+.coupon-description{    
     color: #EE9A24;
-    font-size: 20px;
+    font-size: 16px;
+    margin-left: 3%;
+    margin-top: 1%;
+
 }
 
 .coupon-status{
 }
 .historyDate{
-    margin-top: 4.5%;
     margin-left: 7px;
     margin-bottom: 0;
     font-style: normal;
@@ -112,21 +120,19 @@
 .historyInfo{
     display: flex;
     margin-bottom: 2%;
-    margin-top: -15px;
+    margin-top: 2%;
 }
 
 .amazon-coupon{
-    padding: 17px 20px 10px 40px;
     position: relative;
-    font-size: 20px;
-    color: #108F57;
+    font-size: 16px;
+    color: #333333;
+    margin-left: 4%;
+    margin-top: 1.5%;
 }
 
 .copy-border{
-    position: absolute;
-    top: -30%;
-    left: 0;
-    width: 100%;
+    margin-left: -6%;
 }
 .coins {
     color: var(--button-color)
@@ -137,10 +143,28 @@
     color: white
 }
 
+.copy-coupon-image {
+    position: relative;
+}
+
+.copy-coupon-code {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+    font-size: 16px;
+}
+
+.copy-coupon {
+    display: flex;
+    justify-content: flex-end;
+    height: 42px;
+}
+
 @media only screen and (max-width: 600px){
     
     .historyContent{
-        font-size: 10px
+        font-size: 10px;
+        margin-left: 4%;
     }
     
     .left-section{
@@ -166,10 +190,9 @@
     }
 
     .coupon-description{
-        margin-top: 12%;
-        margin-left: 8%;
         font-weight: 600;
         font-size: 12px;
+        margin-top: 5%;
     }
 
     .coupon-status{
@@ -187,7 +210,6 @@
 
     .amazon-coupon{
         font-size: 12px;
-        padding: 20px 20px 10px 20px;
     }
 
     .right-section{
@@ -199,7 +221,7 @@
     }
 
     .calender{
-        margin-top: 4.1%;
+        margin-top: 0;
     }
 
     .orderCardContainer {
@@ -207,7 +229,7 @@
     }
 
     .historyInfo {
-        margin-left: 4%;
+        margin-left: 3%;
     }
 
     .calender {
@@ -216,5 +238,49 @@
 
     .amazon-coupon {
         margin-bottom: -7%;
+    }
+
+    .earn-image {
+        display: none;
+    }
+
+    .fire {
+        width: 20px;
+        height: 20px;
+    }
+
+    .copy-coupon-button{
+        width: 80%;
+    }
+
+    .copy-coupon-code{
+        left: 20%;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    .copy-coupon-button {
+        width: 50%;
+        font-size: 12px;
+    }
+
+    .amazon-coupon {
+        font-size: 12px;
+        margin-left: 7%;
+    }
+
+    .coupon-description {
+        font-size: 14px;
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+
+    .calender {
+        margin-left: 4%;
+    }
+
+    .historyInfo {
+        margin-top: 3%;
     }
 }

@@ -4,6 +4,7 @@ import HowItWorks from "./Components/HowItWorks";
 import History from "./Components/History";
 import WalletCards from "./Components/WalletCards";
 import BackNavigator from "./Components/BackNavigator";
+import ReferAFriend from "./Components/ReferAFriend.jsx";
 import axios from 'axios';
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -22,14 +23,16 @@ const App = () => {
   useEffect(()=>{
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    // Set_customer_id("6411445371092"); 
-  
-    
+    console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
+    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    Set_customer_id("6411445371092"); 
+    // Set_customer_id("6414055473364");
+    // Set_customer_id("5874011242688") 
     const data = {
-      // "customer_id":"5874011242680",
-      //  customer_id:"6411445371092",
-      customer_id: document.getElementById("shopify-customer-id")?.value
+      // "customer_id":"6414055473364",
+       customer_id:"6411445371092",
+      // "customer_id":"5874011242688",
+      // customer_id: document.getElementById("shopify-customer-id")?.value
     }
     // 5874011242688
   const getEarningsData = async () => {
@@ -52,13 +55,12 @@ const App = () => {
           pending_rewards_sum = pending_rewards_values?.reduce((x,y) => x+y);
         }
         const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded')
-        console.log(rewards_earned.length,'rew earned')
         const amazon_vouchers_array=response.data.body.ledger.filter((x) => x.voucher_code != "0");
         amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
         const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")})
-        console.log(pending_amazon_vouchers,'pending vouchers')
         Set_user_data({
               "balance": response.data.body.balance,
+              // "balance": 2000,
               "lifetime": response.data.body.lifetime,
               "coins_on_way": pending_rewards_sum,
               "rewards_list": rewards_earned,
@@ -85,10 +87,11 @@ const App = () => {
   return (
     <div className="main-container">
       {showHistory ? <BackNavigator hideHistory={toggleHistoryFalse} /> : null}
-      {!showHistory ? <ReferAndEarn  customer_id={customer_id}/> : null}
+      {!showHistory ? <ReferAndEarn  customer_id={customer_id} showHistory={showHistory}/> : null}
+      {/* {(showHistory &&  window.innerWidth < 600) ? <ReferAFriend  customer_id={customer_id} showHistory={showHistory}/> : null} */}
       {!showHistory ? <WalletCards showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
       {!showHistory ? <HowItWorks customer_id={customer_id} user_data={user_data}/> :  null}
-      {!showHistory ? <History user_data={user_data} customer_id={customer_id}/> : null}
+      { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) ? <History user_data={user_data} customer_id={customer_id}/> : null}
     </div>
   );
 };

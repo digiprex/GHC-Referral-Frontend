@@ -2,7 +2,7 @@ import "../css/referAndEarn.css";
 import ReferAFriend from "./ReferAFriend.jsx";
 import React, { Component, useEffect, useState } from "react";
 
-export default function ReferAndEarn({customer_id}) {
+export default function ReferAndEarn({customer_id, showHistory}) {
   const [customer_Id,Set_customer_Id] = useState("");
   useEffect(()=>{
     Set_customer_Id(customer_id);
@@ -28,7 +28,7 @@ export default function ReferAndEarn({customer_id}) {
           />
         </div>
       </div>
-      <ReferAFriend customer_id={customer_id}/>
+      { true ? <ReferAFriend customer_id={customer_id}/> : null }
     </div>
   );
 }
