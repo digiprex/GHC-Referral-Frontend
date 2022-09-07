@@ -32,22 +32,22 @@ export default function ReferAFriend({ customer_id }) {
   const share = () => {
     if(customer_id) {
       if (navigator.share) {
-        const filesArray = [
-          new File(
-            '../images/Referral-share-image.jpeg',
-            {
-              type: "image/jpeg",
-              lastModified: new Date().getTime()
-            }
-         )
-        ];
+        // const filesArray = [
+        //   new File(
+        //     '../images/Referral-share-image.jpeg',
+        //     {
+        //       type: "image/jpeg",
+        //       lastModified: new Date().getTime()
+        //     }
+        //  )
+        // ];
         navigator
         .share({
           title: "Referral",
           text: `Hey,buddy!\n Here is my Mars by ghc referral code - ${referral_code}.\nYou get 20% off and free delivery on your next order.\n
           Let's celebrate Good health and Wellness`,
           // url: "/",
-          files:filesArray
+          // files:filesArray
         })
         .then(() => {
           console.log("Successfully shared");
