@@ -73,7 +73,7 @@ const History = ({user_data, customer_id}) => {
                 ))} 
             </div> : 
             buttonsState.earnings && <div className="no-coins-pic"> 
-                <img src={nocoinsPic} alt="" srcset="" />
+                <img src={nocoinsPic} className="no-coins-img" alt="" srcset="" />
                 <div className="no-earnings">
                     You don't have any earnings yet.
                 </div>

@@ -5,7 +5,6 @@
     margin: 2% 5%;
     overflow: auto;
     position: relative;
-    height: 500px;
 }
 
 .how-heading {
@@ -245,6 +244,16 @@
     margin-left: 2%;
     line-height: 19px;
   }
+
+  .no-coins-pic {
+    margin-left: 25%;
+    margin-top: 6%;
+    margin-bottom: 20%;
+  }
+
+  .history-container {
+    box-shadow: none;
+  }
   
 }
 
@@ -267,6 +276,10 @@
   .no-earnings {
     margin-top: 2%;
   }
+
+  .history-container {
+    height: 500px;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
@@ -277,4 +290,5 @@
   .rewards {
     font-size: 16px;
   }
+
 }
