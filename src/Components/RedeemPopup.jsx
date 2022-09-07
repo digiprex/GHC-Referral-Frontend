@@ -43,8 +43,12 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   };
 
   const setAmount = (amount,id) => {
+    if(redeemAmount + amount <= user_data.balance) {
+    setRedeemAmount(redeemAmount+amount);
     document.getElementById("error-text-redeem").style.visibility = "hidden"
-    setRedeemAmount(amount);
+    } else {
+      document.getElementById("error-text-redeem").style.visibility = "visible"
+    }
    }
 
   const alertUser = (amount) => {

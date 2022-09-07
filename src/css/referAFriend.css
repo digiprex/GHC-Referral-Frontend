@@ -51,8 +51,8 @@
   height: 74%;
   width: 82%;
   cursor: pointer;
-  margin: 3% 5%;
-  padding: 0 3%;
+  margin: 3% 0 3% 5%;
+  padding: 0 0;
 }
 
 .referFriend {
@@ -212,6 +212,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    margin-right: -3.5%;
   }
 
   .referText {
