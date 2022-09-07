@@ -28,8 +28,7 @@
 .how-content-div {
   display: flex;
   justify-content: space-around;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin: 5% 1%;
 }
 
 .img-content, .img-sub-content {
@@ -54,7 +53,7 @@
 }
 
 .how-content {
-  margin: 0 3%;
+  margin: 0 0%;
 }
 
 .how-login {
@@ -192,6 +191,5 @@
   }
 
   .how-it-works-container {
-    height: 400px;
   }
 }
