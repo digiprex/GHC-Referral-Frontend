@@ -90,7 +90,6 @@
 
   .coupon-image-div {
     height: 100px;
-    width: 100px;
     right: 5%;
     top: 5%
   }
@@ -109,6 +108,11 @@
   }
   .content{
     margin-left: 6%;
+  }
+
+  .coupon-image {
+    height: 118%;
+    width: 150%;
   }
 }
 
