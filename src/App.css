@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: harmonia-reg;
   src: url(./fonts/HarmoniaSansProCyr-Regular.ttf);
 }
@@ -12,13 +12,13 @@
 @font-face {
   font-family: harmonia-light;
   src: url(./fonts/HarmoniaSansProCyr-Light.ttf);
-}
+} */
 
 * {
   border: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: harmonia-reg;
+  /* font-family: harmonia-reg; */
 }
 
 
