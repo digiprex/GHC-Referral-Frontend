@@ -36,12 +36,6 @@
 }
 
 
-
-html {
-  --mars-coins : rgb(254, 130, 118);
-}
-
-
 div:empty{
   display: block;
 }
@@ -102,11 +96,6 @@ a:not([href]) {
     width: 100%;
   }
 
-  
-  .walletCardImage,
-  .coinBalanceCardContainer {
-  }
-
   .headerCard,
   .coinPic,
   .coinsHistoryCard,
@@ -155,13 +144,4 @@ a:not([href]) {
     box-shadow: none;
   }
 
-}
-
-
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-    
-}
-
-@media only screen and  (min-width: 900px) {
-  
 }

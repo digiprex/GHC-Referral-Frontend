@@ -205,6 +205,14 @@
 }
 
 
+@media only screen and (max-width: 600px) {
+  .custom-modal-success {
+    width: 66%;
+    height: 50%;
+    border-radius: 10px;
+  }
+}
+
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .saveContent {
     margin-top: 7px;
@@ -214,6 +222,11 @@
     height: 73%;
     width: 64%;
     border-radius: 16px;
+  }
+
+  .custom-modal-success {
+    width: 48%;
+    height: 27%;
   }
 }
 
@@ -232,6 +245,11 @@
     color: #A6A6A6;
     margin-top: 3%;
     font-size: 14px;
+  }
+
+  .custom-modal-success {
+    width: 25%;
+    height: 45%;
   }
   
 }

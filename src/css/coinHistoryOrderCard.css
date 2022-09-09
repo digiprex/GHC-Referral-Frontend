@@ -160,6 +160,12 @@
     height: 42px;
 }
 
+.coupon-pic{
+    height: 16px;
+    width: 13px;
+    margin-right: 3%;
+}
+
 @media only screen and (max-width: 600px){
     
     .historyContent{
@@ -261,7 +267,7 @@
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
     .copy-coupon-button {
-        width: 50%;
+        width: 57%;
         font-size: 12px;
     }
 

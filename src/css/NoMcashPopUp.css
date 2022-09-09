@@ -66,3 +66,18 @@
     }
 
 }
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+    .custom-modal-no-mcash {
+        width: 37%;
+        height: 19%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .custom-modal-no-mcash {
+        width: 59%;
+        height: 34%;
+        border-radius: 10px;
+    }
+}

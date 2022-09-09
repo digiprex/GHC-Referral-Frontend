@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import '../css/coinHistoryOrderCard.css'
 import pic from '../images/voucher.png';
-import copyPic from '../images/copy.png'
+import copyPic from '../images/copy-light.png'
 import coupinPic from '../images/coupon.png';
 import amazon from '../images/amazon.png'
 import calenderPic from '../images/calender.png';
@@ -41,7 +41,7 @@ export default function VouchersCard({item,code,pending}) {
                         <div className='right-section'>
                         { !pending ? <div className='copy-coupon'>
                                 <button id={`${item.id}`} className={`copy-coupon-button ${clicked? "copy-green" : ""}`} onClick={(e) => copyToClipBoard(e,item.voucher_code)}>
-                                    {/* <img className='coupon-pic' src={copyPic} alt="" /> */}
+                                    <img className='coupon-pic' src={copyPic} alt="" />
                                     Copy code
                                 </button>
                             </div> : null }

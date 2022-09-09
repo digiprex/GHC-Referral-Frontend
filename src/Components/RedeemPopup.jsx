@@ -13,7 +13,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import React, { Component } from "react";
 import axios from "axios";
 
-export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup }) {
+export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,closeMobileModal }) {
   const [redeemAmount, setRedeemAmount] = useState(0);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
@@ -56,28 +56,31 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   }
 
   const redeemCoins = async () => {
-    const data = {
-      customer_id: customer_id,
-      redeem: redeemAmount,
-    };
-    const config = {
-      method: "post",
-      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+    // const data = {
+    //   customer_id: customer_id,
+    //   redeem: redeemAmount,
+    // };
+    // const config = {
+    //   method: "post",
+    //   url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: data,
+    // };
 
-    await axios(config)
-      .then((response) => {
-        closeDesktopModal();
-        open_SuccessPopup();
-        })
-        .catch((error) => {
-            console.log(error);
-            alert('error')
-          });
+    // await axios(config)
+    // .then((response) => {
+    //   closeDesktopModal();
+    //   open_SuccessPopup();
+    //   })
+    // .catch((error) => {
+    //     console.log(error);
+    //     alert('error')
+    //   });
+    closeDesktopModal();
+    open_SuccessPopup();
+    closeMobileModal();
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0

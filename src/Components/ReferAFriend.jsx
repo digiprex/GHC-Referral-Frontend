@@ -3,7 +3,7 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import { Modal } from "react-responsive-modal";
 import { useEffect, useState } from "react";
 import sharePic from '../images/share.png'
-import copyPic from '../images/copy.png';
+import copyPic from '../images/copy-dark.png';
 import Login from "./LoginPopup";
 import "../css/referAFriend.css";
 import axios from "axios";
@@ -109,7 +109,7 @@ export default function ReferAFriend({ customer_id }) {
                   className={`copyCoupon ${clicked ? "copy-green" : ""}`}
                   type="button"
                   >
-                  {/* <img src={copyPic} className="copy-pic-referral" alt="" srcset="" /> */}
+                  <img src={copyPic} className="copy-pic-referral" alt="" srcset="" />
                   Copy Code
                 </button>
             </div>

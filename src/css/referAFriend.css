@@ -53,6 +53,9 @@
   cursor: pointer;
   margin: 3% 0 3% 5%;
   padding: 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .referFriend {
@@ -117,7 +120,8 @@
 
 .copy-pic-referral {
   height: 50%;
-  width: 15%;
+  width: 10%;
+  margin-right: 4%;
 }
 
 @media only screen and (max-width: 600px) {
