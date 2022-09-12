@@ -132,6 +132,8 @@
 
 .copy-border{
     margin-left: -6%;
+    width: 305px;
+    height: 56px;
 }
 .coins {
     color: var(--button-color)
@@ -149,7 +151,7 @@
 .copy-coupon-code {
     position: absolute;
     top: 27%;
-    left: 18%;
+    left: 11%;
     font-size: 16px;
 }
 
