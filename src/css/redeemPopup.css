@@ -208,7 +208,7 @@
 @media only screen and (max-width: 600px) {
   .custom-modal-success {
     width: 66%;
-    height: 50%;
+    height: 35%;
     border-radius: 10px;
   }
 }
