@@ -61,7 +61,7 @@
     width: 22%;
 }
 
-.referFriend {
+.referFriend-in-nomcash {
     background-color: var(--button-color);
     box-sizing: border-box;
     border-radius: 5px;
@@ -90,8 +90,7 @@
     .react-responsive-modal-modal {
     }
 
-    .referFriend {
-        margin-left: 6%;
+    .referFriend-in-nomcash {
         display: flex;
         align-items: center;
     }

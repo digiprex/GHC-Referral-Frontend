@@ -27,7 +27,7 @@ export default function WalletCards({ showHistory, user_data, customer_id }) {
             </div>
             <div className="coinsOnWay">
               You earned Amazon vouchers worth &nbsp;
-              <span className="onWayCoinsNumber">{user_data.amazon_voucher_value}</span>
+              <span className="onWayCoinsNumber" style={{color:"#1DBA78"}}>{user_data.amazon_voucher_value}</span>
               {/* <Chip label="200" classes={onWayCoinsNumber} component="a" href="#basic-chip" /> &nbsp;coins are on the way */}
             </div>
           </div> : null}

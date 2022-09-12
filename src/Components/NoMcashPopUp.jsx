@@ -35,7 +35,7 @@ export default function NoMcashPopUp({closeNoMcashPopUp,code}) {
           <div className="login-modal-content-mcash">
             You need atleast 500 Mcash credits to redeem. Refer more to earn more 
           </div>
-          <div className={`referFriend `} href="#referFriend" onClick={() => {closeNoMcashPopUp(); share()}}> 
+          <div className={`referFriend-in-nomcash `} href="#referFriend" onClick={() => {closeNoMcashPopUp(); share()}}> 
               {/* <div className="share-img-div">
               </div> */}
               <div className="referText">

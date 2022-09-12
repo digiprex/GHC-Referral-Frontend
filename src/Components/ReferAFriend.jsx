@@ -92,7 +92,7 @@ export default function ReferAFriend({ customer_id,Set_Referral_code }) {
 
   const copyToClipBoard = (obj) => {
     obj.target.innerHTML = "Copied";
-    Set_clicked((prevState) => !prevState);
+    Set_clicked(true);
     navigator.clipboard.writeText(referral_code);
   };
   return (
