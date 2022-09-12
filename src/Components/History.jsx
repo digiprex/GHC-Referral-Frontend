@@ -1,12 +1,12 @@
-import {useState,React} from "react";
+import {useState,React,useRef} from "react";
 import EarningsCard from "./EarningsCard";
 import VouchersCard from "./VouchersCard";
 import nocoinsPic from '../images/no-coins.png'
 import live from '../images/live.png';
 import "../css/History.css";
 
-const History = ({user_data, customer_id}) => {
-  const [trackHistory,setTrackHistory] = useState(false)
+const History = ({user_data, customer_id,focus_ref}) => {
+    const [trackHistory,setTrackHistory] = useState(false)
     const [buttonsState,setButtonState] = useState({
         earningsButtonColor: "white",
         earningsButtonTextColor:"#8D5468",
@@ -74,7 +74,7 @@ const History = ({user_data, customer_id}) => {
                 <button className='rewards' style={{backgroundColor: buttonsState.earningsButtonColor, color: buttonsState.earningsButtonTextColor }} onClick={showEarnings}> 
                     Earnings
                 </button>
-                <button className='rewards' style={{backgroundColor: buttonsState.vouchersButtonColor, color: buttonsState.vouchersButtonTextColor}} onClick={showVouchers}>
+                <button className='rewards' id="vouchers"  ref={focus_ref} style={{backgroundColor: buttonsState.vouchersButtonColor, color: buttonsState.vouchersButtonTextColor}} onClick={showVouchers}>
                     My Vouchers
                 </button>
             </div>

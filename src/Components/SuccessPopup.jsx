@@ -3,7 +3,13 @@ import React, { Component } from "react";
 import successImage from '../images/success.png'
 import "../css/Success.css";
 
-export default function SuccessPopup() {
+export default function SuccessPopup({close_SuccessPopup,handleClick}) {
+
+  const focusOnVouchers = () => {
+    close_SuccessPopup();
+    document.getElementById("vouchers").click()
+    handleClick();
+  }
   return (
     <>
       <div className="modalContainer">
@@ -18,7 +24,7 @@ export default function SuccessPopup() {
           <div className="success-modal-content success-down-content">
             We will generate your Amazon voucher code and send it on your registered account within 24 hours
           </div>
-          <div className="how-login-button-div">
+          <div className="how-login-button-div" onClick={() => focusOnVouchers()}>
             <button className="success-button-popup">My Vouchers</button>
           </div>
         </div>

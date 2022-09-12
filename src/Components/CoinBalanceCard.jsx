@@ -15,7 +15,7 @@ import SuccessPopup from '../Components/SuccessPopup';
 import axios from "axios";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data, customer_id }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id,handleClick }) {
   const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
@@ -113,7 +113,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
         </button>
         <BottomSheet open={open} onDismiss={closeMobileModal}>
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal} 
-          closeMobileModal={closeMobileModal}/>
+          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup}/>
         </BottomSheet>
         <Modal
           center
@@ -124,7 +124,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
           }}
         >
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal}
-          closeMobileModal={closeMobileModal} />
+          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup}/>
         </Modal>
         <Modal
           center
@@ -147,7 +147,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
               modal: 'custom-modal-success',
           }}
         >
-          <SuccessPopup closeDesktopModal={closeDesktopModal} />
+          <SuccessPopup closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} handleClick={handleClick}/>
         </Modal>
       {/* <div id="myModal" class="modal">
                     <div class="modal-content">

@@ -7,10 +7,11 @@ import BackNavigator from "./Components/BackNavigator";
 import ReferAFriend from "./Components/ReferAFriend.jsx";
 import axios from 'axios';
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 
 const App = () => {
   const [screenSize,setScreenSize] = useState('')
+  const ref = useRef(null);
   const [showHistory,setShowHistory] = useState(false)
   const [customer_id,Set_customer_id] = useState("");
   const [user_data,Set_user_data] = useState({
@@ -20,6 +21,9 @@ const App = () => {
     "total_earnings":"",
     "rewards_list":[]
 })
+const handleClick = () => {
+  ref.current?.scrollIntoView({behavior: 'smooth'});
+};
   useEffect(()=>{
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
@@ -60,7 +64,7 @@ const App = () => {
         const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")})
         Set_user_data({
               "balance": response.data.body.balance,
-              // "balance": 0,
+              // "balance": 2300,
               "lifetime": response.data.body.lifetime,
               "coins_on_way": pending_rewards_sum,
               "rewards_list": rewards_earned,
@@ -100,9 +104,9 @@ const App = () => {
       {showHistory ? <BackNavigator hideHistory={toggleHistoryFalse} /> : null}
       {!showHistory ? <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}/> : null}
       {/* {(showHistory &&  window.innerWidth < 600) ? <ReferAFriend  customer_id={customer_id} showHistory={showHistory}/> : null} */}
-      {!showHistory ? <WalletCards showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
+      {!showHistory ? <WalletCards handleClick={handleClick} showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
       {!showHistory ? <HowItWorks customer_id={customer_id} user_data={user_data}/> :  null}
-      { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) ? <History user_data={user_data} customer_id={customer_id}/> : null}
+      { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) ? <History user_data={user_data} customer_id={customer_id} focus_ref={ref}/> : null}
     </div>
   );
 };
