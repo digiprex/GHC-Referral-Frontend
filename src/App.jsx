@@ -25,6 +25,11 @@ const handleClick = () => {
   ref.current?.scrollIntoView({behavior: 'smooth'});
 };
   useEffect(()=>{
+
+    document.documentElement.style.setProperty(
+      "--border",
+      process.env.REACT_APP_COLOR_BORDER
+    );
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")

@@ -17,6 +17,7 @@
     "react-responsive-modal": "^6.2.0",
     "react-scripts": "5.0.1",
     "react-spring-bottom-sheet": "^3.4.1",
+    "react-step-progress-bar": "^1.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

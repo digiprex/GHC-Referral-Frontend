@@ -44,6 +44,22 @@ a:not([href]) {
   cursor: pointer;
 }
 
+.indexedStep {
+  align-items: center;
+  background-color: hsla(0,0%,83%,.8);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  font-size: 12px;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+
+.indexedStep.accomplished {
+  background-color: var(--border);
+}
+
 @media only screen and (min-width: 600px) {
 
   .main-container{
@@ -73,12 +89,32 @@ a:not([href]) {
   .react-responsive-modal-modal {
     border-radius: 16px
   }
+
+  .progress-bar-saturn-step {
+    margin-top: 5%;
+  }
+
+  .progress-bar-container {
+    margin: 0 10%;
+    text-align: center
+  }
+  
+
 }
 
 @media only screen and (max-width: 600px) {
   .walletCardsContainer {
     flex-direction: column-reverse;
     display: flex;
+  }
+  
+  .progress-bar-saturn-step {
+    margin-top: 5%;
+  }
+
+  .progress-bar-container {
+    margin: 0 8%;
+    text-align: center;
   }
 
   .coinsHistoryCard {

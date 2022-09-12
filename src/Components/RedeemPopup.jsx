@@ -14,7 +14,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,closeMobileModal,close_SuccessPopup }) {
-  const [redeemAmount, setRedeemAmount] = useState(0);
+  const [redeemAmount, setRedeemAmount] = useState(500);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
   const [friend_to_refer_for_redemption,Set_friend_to_refer_for_redemption] = useState(0);
@@ -82,16 +82,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
     Set_progress_amount(progress_value);
-    if(user_data.balance < 1500) {
-      document.getElementById("fifteenHundred").style.color="#C4C4C4";
-      document.getElementById("fifteenHundred").style.cursor="no-drop";
-      document.getElementById("fifteenHundred").disabled= true;
-    }
-    if( user_data.balance < 1000) {
-      document.getElementById("thousand").style.color="#C4C4C4";
-      document.getElementById("thousand").style.cursor="no-drop";
-      document.getElementById("thousand").disabled= true;
-    }
   }, []);
   return (
     <>
@@ -123,17 +113,17 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           <div id="error-text-redeem">
             Enter a value less than the current balance 
           </div>
-          <div className="coinsList">
-            <button className="fiveHundred" id="fiveHundred" onClick={() =>{setAmount(user_data.balance - mcash_for_redeem_pending-1000,"fiveHundred");}}>
+           { user_data.balance > 1000 ?  <div className="coinsList">
+           {  ((user_data.balance - mcash_for_redeem_pending - 1000)) > 0 ? <button className="fiveHundred" id="fiveHundred" onClick={() =>{setAmount(user_data.balance - mcash_for_redeem_pending-1000,"fiveHundred");}}>
                 {user_data.balance - mcash_for_redeem_pending-1000}
-            </button>
+            </button> : null}
             { ((user_data.balance - mcash_for_redeem_pending - 500)) > 0 ? <button className="thousand" id="thousand" onClick={(e) =>setAmount(user_data.balance- mcash_for_redeem_pending-500,"thousand")}>
              {user_data.balance - mcash_for_redeem_pending - 500}
             </button> : null}
-            { ((user_data.balance - mcash_for_redeem_pending - 1000)) > 0 ? <button className="fifteenHundred" id="fifteenHundred" onClick={(e) => setAmount(user_data.balance-mcash_for_redeem_pending,"fifteenHundred")}>
+            { ((user_data.balance - mcash_for_redeem_pending)) > 0 ? <button className="fifteenHundred" id="fifteenHundred" onClick={(e) => setAmount(user_data.balance-mcash_for_redeem_pending,"fifteenHundred")}>
             {user_data.balance- mcash_for_redeem_pending}
             </button> : null }
-          </div>
+          </div> : null}
           <div className="earnAndSave">
             <div className="saveHeader">Gift More. Save More.</div>
             <div className="saveContent">

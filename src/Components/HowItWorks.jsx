@@ -4,6 +4,7 @@ import { Modal } from "react-responsive-modal";
 import cashPic from '../images/mcash.png'
 import "../css/howItWorksCards.css";
 import { BottomSheet } from "react-spring-bottom-sheet";
+import ProgressBarComp from "./ProgressBar";
 import { useState } from "react";
 
 const HowItWorks = ({customer_id,user_data}) => {
@@ -37,6 +38,14 @@ const HowItWorks = ({customer_id,user_data}) => {
           Redeem credits for Amazon gift vouchers.
         </div>
         <div className="how-heading">How it works</div>
+        {/* <ProgressBarComp
+              progress_step={100}
+              img_1="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/skin-1.png?v=1655109040"
+              img_2="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/skin-2.png?v=1655109040"
+              img_3="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/skin-3.png?v=1655109040"
+              img_4="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/skin-4.png?v=1655109040"
+              text={'hey'}
+        /> */}
         { customer_id  && !user_data.lifetime ? <div className="mcash-balance-nil">
           <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt="" srcset="" /> </span> MCash Balance</div>
           <div className="mcash-content">
