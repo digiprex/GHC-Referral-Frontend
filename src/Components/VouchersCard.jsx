@@ -51,7 +51,7 @@ export default function VouchersCard({item,code,pending}) {
                         Amazon voucher worth {item.voucher_value}
                     </div> : 
                     <div className='coupon-description'>
-                        Voucher code will be sent to your registered account.
+                        Voucher code will be sent to your registered account within 24 hrs
                     </div>
                     }
                     <div className='historyInfo'>
