@@ -32,11 +32,13 @@
 
 .history-referral-header {
   font-size: 18px;
+  display: flex;
 }
 
 .history-referral-content {
   font-size: 18px;
   margin-top: 1%;
+  display: flex;
 }
 
 .rewardsAndBurnsHeading {
@@ -189,7 +191,6 @@
 
 
 .rewards{
-  font-family: Harmonia-bold;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -204,11 +205,26 @@
   font-weight: 600;
 }
 
+.live-div {
+  animation: blink normal 2s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% {
+      opacity:1;
+  }
+  50% {
+      opacity:0;
+  }
+  100% {
+      opacity:1;
+  }
+} 
 
 @media only screen and (max-width: 600px){
   .rewards{
     font-size: 15px;
-    margin: 2% 2%
+    margin: 1% 1%
   }
 
   .how-it-works-container{
@@ -216,15 +232,35 @@
   }
 
   .history-referral {
-    margin: 3% 4%;
+    margin: 3% 2%;
+    padding-left: 10%;
   }
-
+  
   .toggleButtons {
-    margin: 2% 5%;
+    border-radius: 0px;
+    margin: 2% 2%;
+    height: 44px;
   }
 
   .history-referral-header {
     font-size: 15px;
+    display: flex;
+  }
+
+  .live-div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .live-div-content {
+    flex: 10;
+  }
+
+  .live-img {
+    height: 20px;
+    width: 20px;
   }
 
   .history-referral-content {
@@ -238,10 +274,10 @@
     text-align: left;
     color: black;
     padding-left: 5%;
+    display: none;
   }
   
   .rewards {
-    margin-left: 2%;
     line-height: 19px;
   }
 
@@ -254,6 +290,9 @@
   .history-container {
     box-shadow: none;
   }
+
+  .toggleButtons{
+  }
   
 }
 
@@ -263,7 +302,7 @@
   }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 900px) {
   .no-coins-pic{
     text-align: center;
     margin-top: 4%;
@@ -280,6 +319,22 @@
   .history-container {
     height: 700px;
   }
+
+  .live-div {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .live-div-content {
+    flex: 10;
+  }
+
+  .live-img {
+    height: 20px;
+    width: 20px;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
@@ -289,6 +344,22 @@
 
   .rewards {
     font-size: 16px;
+  }
+
+  .live-div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .live-div-content {
+    flex: 10;
+  }
+
+  .live-img {
+    height: 20px;
+    width: 20px;
   }
 
 }

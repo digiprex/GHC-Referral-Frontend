@@ -2,6 +2,7 @@ import {useState,React} from "react";
 import EarningsCard from "./EarningsCard";
 import VouchersCard from "./VouchersCard";
 import nocoinsPic from '../images/no-coins.png'
+import live from '../images/live.png';
 import "../css/History.css";
 
 const History = ({user_data, customer_id}) => {
@@ -52,10 +53,20 @@ const History = ({user_data, customer_id}) => {
       <div className="how-heading">History</div>
       { (user_data.coins_on_way ) ?  <div className="history-referral">
         <div className="history-referral-header">
-           <span className="green-text"> {user_data.coins_on_way} MCash Credits</span> are on your way!
+           <div className="live-div">
+                <img src={live} className='live-img' alt="" srcset="" />
+           </div>
+           <div className="live-div-content">
+               <span className="green-text"> {user_data.coins_on_way} MCash Credits</span> are on your way!
+           </div>
         </div>
         <div className="history-referral-content">
-            {user_data.number_of_pending_referrals} of your referrals orders are on the way - Mcash will be credited once they reach your friends. 
+            <div style={{flex:1, visibility:"visible"}}>
+                {/* <img src={live} className='live-img' alt="" srcset="" /> */}
+            </div>
+            <div style={{flex:10}}>
+                {user_data.number_of_pending_referrals} of your referrals orders are on the way - Mcash will be credited once they reach your friends. 
+            </div>
         </div>
       </div> : null }
       <div className='rewardsAndBurnsContainer'>

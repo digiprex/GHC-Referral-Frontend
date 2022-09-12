@@ -269,7 +269,6 @@
 
 .rupee {
   margin-left: 180px;
-  font-family: harmonia-reg;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -426,4 +425,8 @@
     font-size: 20px;
   }
 
+  .custom-modal-success {
+    width: 25%;
+    height: 45%;
+  }
 }

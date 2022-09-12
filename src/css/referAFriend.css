@@ -11,6 +11,7 @@
 
 .referral-code {
   max-width: 100%;
+  margin-right: 38%;
   overflow: auto;
   display: flex;
 }
@@ -137,7 +138,8 @@
   .referral-code {
     flex-direction: column;
     /* background: linear-gradient(-90deg, #1469B3 -1.36%, #222E54 77.79%);  */
-    background: var(--backgroundGradient)
+    background: var(--backgroundGradient);
+    margin-right: 0;
   }
 
   .refer-code-header {
@@ -188,6 +190,10 @@
     margin-top: .3%;
     height: 68%;
   }
+
+  .refer-code-header{
+    margin-left: 5%;
+  }
 }
 
 
@@ -199,7 +205,6 @@
 
   .referral-code {
     margin-bottom: 3%;
-    margin-right: 38%;
     height: 55px;
   }
 
@@ -272,12 +277,7 @@
 
   .referral-code {
     height: 46px;
+    margin-right: 28%;
   }
 
-}
-
-@media only screen and (max-width: 600px) {
-  .refer-code-header{
-    margin-left: 5%;
-  }
 }
