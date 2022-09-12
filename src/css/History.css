@@ -354,6 +354,7 @@
 
   .live-div-content {
     flex: 10;
+    font-size: 16px;
   }
 
   .live-img {
@@ -361,4 +362,7 @@
     width: 20px;
   }
 
+  .history-referral-content{
+    font-size: 11px;
+  }
 }

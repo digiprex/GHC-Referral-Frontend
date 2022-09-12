@@ -279,7 +279,7 @@
     }
 
     .amazon-coupon {
-        font-size: 12px;
+        font-size: 15px;
         margin-left: 7%;
     }
 
@@ -295,5 +295,9 @@
 
     .historyInfo {
         margin-top: 3%;
+    }
+
+    .orderCardContainer{
+        margin: 3% 8%;
     }
 }
