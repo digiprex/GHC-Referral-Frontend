@@ -36,7 +36,7 @@
   line-height: 26px;
   margin-top: 1%;
   margin-bottom: 3%;
-  max-width: 53%;
+  max-width: 65%;
 }
 
 
@@ -118,13 +118,13 @@
 
   .coupon-image-div {
     height: 200px;
-    right: 13%;
+    right: 5%;
     top: 9%;
   }
 
   .coupon-image {
-    height: 130%;
-    width: 130%;
+    height: 150%;
+    width: 150%;
   }
 
 }
