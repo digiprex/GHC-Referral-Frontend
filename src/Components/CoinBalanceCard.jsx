@@ -135,7 +135,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id })
               modal: 'custom-modal-no-mcash',
           }}
         >
-          <NoMcashPopUp closeDesktopModal={closeDesktopModal} />
+          <NoMcashPopUp closeNoMcashPopUp={closeNoMcashPopUp} code={user_data.referral_code}/>
         </Modal>
       </div>
       <Modal

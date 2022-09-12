@@ -1,12 +1,29 @@
 import { useEffect, useState } from "react";
 import React, { Component } from "react";
-import alertImage from '../images/alert.png'
+import alertImage from '../images/alert.png';
+import sharePic from '../images/share.png';
 import "../css/NoMcashPopUp.css";
+import "../css/referAndEarn.css";
 
-export default function NoMcashPopUp() {
-  const redirectToShopifyHome = () => {
-    window.location.href = process.env.REACT_APP_LOGIN_REDIRECT_URL;
-  }
+export default function NoMcashPopUp({closeNoMcashPopUp,code}) {
+  const share = () => {
+      if (navigator.share) {
+        navigator
+        .share({
+          title: "Referral",
+          text: `Hey,buddy!\n Here is my Mars by ghc referral code - ${code}.\nYou get 20% off and free delivery on your next order.\n
+          Let's celebrate Good health and Wellness`,
+          // url: "/",
+          // files:filesArray
+        })
+        .then(() => {
+          console.log("Successfully shared");
+        })
+        .catch((error) => {
+          console.error("Something went wrong", error);
+        });
+      }
+}
   return (
     <>
       <div className="modalContainer">
@@ -18,9 +35,14 @@ export default function NoMcashPopUp() {
           <div className="login-modal-content-mcash">
             You need atleast 500 Mcash credits to redeem. Refer more to earn more 
           </div>
-          {/* <div className="how-login-button-div">
-            <button className="login-button-popup" onClick={() => redirectToShopifyHome()}>Log In</button>
-          </div> */}
+          <div className={`referFriend `} href="#referFriend" onClick={() => {closeNoMcashPopUp(); share()}}> 
+              {/* <div className="share-img-div">
+              </div> */}
+              <div className="referText">
+                <img src={sharePic}  alt="" className='sharePic'  />
+                Refer A Friend
+                </div>
+            </div>
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@ import Login from "./LoginPopup";
 import "../css/referAFriend.css";
 import axios from "axios";
 
-export default function ReferAFriend({ customer_id }) {
+export default function ReferAFriend({ customer_id,Set_Referral_code }) {
   const [isMobile, SetIsMobile] = useState(false);
   const [clicked, Set_clicked] = useState(false);
   const [referral_code, Set_referral_code] = useState("");
@@ -80,6 +80,7 @@ export default function ReferAFriend({ customer_id }) {
       await axios(config)
         .then((response) => {
           Set_referral_code(response.data.body.referral_code);
+          Set_Referral_code(response.data.body.referral_code);
         })
         .catch((error) => {
           console.log(error, "error");
@@ -96,7 +97,7 @@ export default function ReferAFriend({ customer_id }) {
   };
   return (
     <>
-      <div className="referAFriendContainer">
+      <div className="referAFriendContainer" id="referFriend">
         {customer_id ? (
           <div className="refer-code-header">My Referral Code</div>
         ) : null}
