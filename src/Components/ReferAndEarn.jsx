@@ -18,7 +18,7 @@ export default function ReferAndEarn({customer_id, showHistory,Set_Referral_code
             future purchases.
           </div>
           <div className="bottom-div-content" id="bottom">
-            Redeem credits for Amazon Gift Vouchers
+            Redeem credits for Amazon Gift Vouchers.
           </div>
         </div>
         <div className="coupon-image-div">
