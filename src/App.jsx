@@ -59,8 +59,8 @@ const App = () => {
         amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
         const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")})
         Set_user_data({
-              // "balance": response.data.body.balance,
-              "balance": 0,
+              "balance": response.data.body.balance,
+              // "balance": 0,
               "lifetime": response.data.body.lifetime,
               "coins_on_way": pending_rewards_sum,
               "rewards_list": rewards_earned,
