@@ -118,13 +118,13 @@
 
   .coupon-image-div {
     height: 200px;
-    right: 5%;
+    right: 9%;
     top: 9%;
   }
 
   .coupon-image {
-    height: 150%;
-    width: 150%;
+    height: 130%;
+    width: 130%;
   }
 
 }
