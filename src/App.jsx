@@ -35,15 +35,15 @@ const handleClick = () => {
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
-    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    Set_customer_id("6411445371092"); 
+    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    // Set_customer_id("6411445371092"); 
     // Set_customer_id("6414055473364");
     // Set_customer_id("5874011242688") 
     const data = {
       // "customer_id":"6414055473364",
-       customer_id:"6411445371092",
+      //  customer_id:"6411445371092",
       // "customer_id":"5874011242688",
-      // customer_id: document.getElementById("shopify-customer-id")?.value
+      customer_id: document.getElementById("shopify-customer-id")?.value
     }
     // 5874011242688
   const getEarningsData = async () => {
@@ -74,15 +74,15 @@ const handleClick = () => {
               // "balance": 0,
               "lifetime": response.data.body.lifetime,
               "coins_on_way": pending_rewards_sum,
-              // "rewards_list": rewards_earned,
-              rewards_list:[],
+              "rewards_list": rewards_earned,
+              // rewards_list:[],
               "amazon_voucher_value":amazon_vouchers_total_sum,
-              // "vouchers_array":amazon_vouchers_array,
-              "vouchers_array":[],
+              "vouchers_array":amazon_vouchers_array,
+              // "vouchers_array":[],
               "number_of_pending_referrals":pending_rewards_values.length,
-              // "pending_amazon_vouchers": pending_amazon_vouchers,
+              "pending_amazon_vouchers": pending_amazon_vouchers,
               "referral_code":'',
-              "pending_amazon_vouchers": []
+              // "pending_amazon_vouchers": []
           });
       }).catch((error)=>{
           console.log(error,'error');
