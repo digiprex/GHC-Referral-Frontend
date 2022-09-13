@@ -174,7 +174,7 @@
   }
 
   .reward-img{
-    width: 50px !important;
+    max-width: 50px !important;
   }
 }
 
