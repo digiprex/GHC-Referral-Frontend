@@ -16,6 +16,13 @@
   display: flex;
 }
 
+.referral-code-in-history{
+  max-width: 100%;
+  margin: 0 7%;
+  overflow: auto;
+  display: flex;
+}
+
 .coupon {
   background-color: #ffffff;
   border-radius: 5px;
@@ -125,6 +132,9 @@
   margin-right: 4%;
 }
 
+.dotted-box {
+  border: dotted 1px;
+}
 @media only screen and (max-width: 600px) {
   .referAFriendContainer {
     box-sizing: border-box;
@@ -149,7 +159,6 @@
   }
   
   .coupon {
-    border: none;
     margin-left: 4%;
     background: #FFFFFF;
     border-radius: 6px;
@@ -194,6 +203,11 @@
   .refer-code-header{
     margin-left: 5%;
   }
+
+  .referral-code-in-history {
+    flex-direction: column;
+    margin: 0 8%;
+  }
 }
 
 
@@ -203,10 +217,19 @@
     background: var(--backgroundGradient);  
   }
 
+  .referAFriendContainer-inHistory {
+    margin: 1% 10% 0 10%;
+  }
+
   .referral-code {
     margin-bottom: 3%;
     height: 55px;
   }
+
+  .referral-code-in-history {
+    margin-bottom: 3%;
+    height: 55px;
+}
 
   .refer-code-header {
     font-weight: bold;

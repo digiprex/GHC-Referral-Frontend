@@ -25,7 +25,7 @@ export default function EarningsCard({item}) {
                                 <div>
                                     <img src={moneyPic} alt="" />
                                 </div>
-                                <div>
+                                <div style={{color:"#726868"}}>
                                     {item.value}
                                 </div>
                             </div>

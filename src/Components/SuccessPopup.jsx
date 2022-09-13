@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import React, { Component } from "react";
 import successImage from '../images/success.png'
 import "../css/Success.css";
+import Confetti from 'react-confetti';
 
 export default function SuccessPopup({close_SuccessPopup,handleClick}) {
 
   const focusOnVouchers = () => {
     close_SuccessPopup();
-    document.getElementById("vouchers").click()
+    document.getElementById("history").click()
     handleClick();
+    document.getElementById("vouchers").click()
   }
   return (
     <>
@@ -28,6 +30,10 @@ export default function SuccessPopup({close_SuccessPopup,handleClick}) {
             <button className="success-button-popup">My Vouchers</button>
           </div>
         </div>
+        {/* <Confetti
+            width="450px"
+            height="300px"
+        /> */}
       </div>
     </>
   );

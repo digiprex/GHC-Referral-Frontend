@@ -47,7 +47,8 @@ const HowItWorks = ({customer_id,user_data}) => {
               text={'hey'}
         /> */}
         { customer_id  && !user_data.lifetime ? <div className="mcash-balance-nil">
-          <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt="" srcset="" /> </span> MCash Balance</div>
+          <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt=""
+          className="reward-img" srcset="" /> </span> MCash Balance</div>
           <div className="mcash-content">
             You will be able to see your MCash balance when your referrals place
             an order using your code. Come back later to check.{" "}
@@ -59,13 +60,14 @@ const HowItWorks = ({customer_id,user_data}) => {
               <img
                 src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-1.png?v=1660124046"
                 alt=""
+                className="reward-img"
                 srcset=""
               />
             </div>
             <div className="how-sub-div">
               <div className="img-content">Refer a friend</div>
               <div className="img-sub-content">
-                Share your code with your friends
+                Share your code with your friends.
               </div>
             </div>
           </div>
@@ -74,6 +76,7 @@ const HowItWorks = ({customer_id,user_data}) => {
               <img
                 src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-2.png?v=1660124046"
                 alt=""
+                className="reward-img"
                 srcset=""
               />
             </div>
@@ -89,13 +92,14 @@ const HowItWorks = ({customer_id,user_data}) => {
               <img
                 src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-3.png?v=1660124046"
                 alt=""
+                className="reward-img"
                 srcset=""
               />
             </div>
             <div className="how-sub-div">
               <div className="img-content">Earn Mcash</div>
               <div className="img-sub-content">
-                You earn 100 Mcash credits once the order gets delivered
+                You earn 100 Mcash credits once the order gets delivered.
               </div>
             </div>
           </div>
@@ -104,6 +108,7 @@ const HowItWorks = ({customer_id,user_data}) => {
               <img
                 src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-4.png?v=1660124046"
                 alt=""
+                className="reward-img"
                 srcset=""
               />
             </div>

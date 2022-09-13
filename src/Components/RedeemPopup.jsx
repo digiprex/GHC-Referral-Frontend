@@ -1,8 +1,10 @@
 import "../css/redeemPopup.css";
 import Container from "@mui/material/Container";
-import pic from "../images/goldcoin.png";
+import pic from "../images/mcash.png";
 import minus from "../images/minus.png";
 import plus from "../images/plus.png";
+import saturnMinus from "../images/saturn-minus.png";
+import saturnPlus from "../images/saturn-plus.png";
 import share from "../images/small-share.png";
 import share_saturn from '../images/share-saturn.png';
 import redeem_saturn from '../images/redeem-saturn.png'
@@ -13,7 +15,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import React, { Component } from "react";
 import axios from "axios";
 
-export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,closeMobileModal,close_SuccessPopup }) {
+export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,closeMobileModal,close_SuccessPopup,getNewData }) {
   const [redeemAmount, setRedeemAmount] = useState(500);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
@@ -56,28 +58,29 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   }
 
   const redeemCoins = async () => {
-    const data = {
-      customer_id: customer_id,
-      redeem: redeemAmount,
-    };
-    const config = {
-      method: "post",
-      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+    // const data = {
+    //   customer_id: customer_id,
+    //   redeem: redeemAmount,
+    // };
+    // const config = {
+    //   method: "post",
+    //   url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: data,
+    // };
 
-    await axios(config)
-    .then((response) => {
+    // await axios(config)
+    // .then((response) => {
+      // })
+      // .catch((error) => {
+        //   console.log(error);
+        // });
       closeDesktopModal();
       closeMobileModal();
       open_SuccessPopup();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      getNewData();
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
@@ -101,13 +104,13 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           </div>
           <div className="addCoins">
             <div className="minus" onClick={() => decrement()}>
-              <img src={minus} alt="" />
+              <img src={saturnMinus} alt="" />
             </div>
             <div className="addCoinsText">
               <img src={pic} alt="" /> {redeemAmount}
             </div>
             <div className="plus" onClick={() => increment()}>
-              <img src={plus} alt="" />
+              <img src={saturnPlus} alt="" />
             </div>
           </div>
           <div id="error-text-redeem">
@@ -139,13 +142,10 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
               </span>
             </div>
           </div>
-          <div className="referMore">
-            <div>
-            Refer {number_of_more_friends_to_refer} more friends to reach{"  "}
-            <span
-              style={{ color: "green", fontSize: "10px" }}
-              className="greenText"
-              >
+          <div >
+            <div className="referMore">
+              Refer {number_of_more_friends_to_refer} more friends to reach{"  "}
+            <span className="greenText">
               {user_data.balance+number_of_more_friends_to_refer*100} Mcash credits
             </span>
             </div> 
@@ -166,7 +166,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
         >
           Redeem Now
         </button>
-       
       </Container>
     </>
   );

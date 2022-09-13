@@ -1,6 +1,6 @@
 import "../css/coinBalanceCard.css";
 // import coinPic from './images/onlycoin.png'
-import pic from "../images/coin symbol.jpg";
+import pic from "../images/mobile-mcash.png";
 import historyPic from "../images/history3.png";
 import React, { useState, useContext, createContext, useEffect } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
@@ -15,7 +15,7 @@ import SuccessPopup from '../Components/SuccessPopup';
 import axios from "axios";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data, customer_id,handleClick }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id,handleClick,getNewData }) {
   const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
@@ -68,7 +68,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
     <>
       <div className="coinBalanceHeading">
         MCash Balance:
-        <div className="history" onClick={() => showHistory()}>
+        <div className="history" id="history" onClick={() => showHistory()}>
           <img
             style={{ marginRight: "5px", height: "10px" }}
             src={historyPic}
@@ -90,10 +90,11 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
               <div className="coinBalance">{user_data.balance}</div>
             </div>
           </div>
-          <div style={{ flex: 1 }} className="earnings-div-mobile">
-            <div className="coinBalanceDiv" style={{display: "flex", justifyContent: "center"}}>
-              <div className="coinBalance">{user_data.balance}</div>
-            </div>
+          <div className="earnings-div-mobile">
+              <div>
+                <img src={pic} className="mobile-mcash" alt="" srcset="" />
+              </div>
+              <div className="mobile-coinBalance">{user_data.balance}</div>
           </div>
         </div>
       </div>
@@ -113,7 +114,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
         </button>
         <BottomSheet open={open} onDismiss={closeMobileModal}>
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal} 
-          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup}/>
+          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} getNewData={getNewData}/>
         </BottomSheet>
         <Modal
           center
@@ -124,7 +125,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
           }}
         >
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal}
-          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup}/>
+          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} getNewData={getNewData}/>
         </Modal>
         <Modal
           center

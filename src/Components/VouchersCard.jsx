@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import '../css/coinHistoryOrderCard.css'
 import pic from '../images/voucher.png';
 import copyPic from '../images/copy-light.png'
-import coupinPic from '../images/coupon.png';
+import coupinPic from '../images/coupon-new.png';
 import amazon from '../images/amazon.png'
 import calenderPic from '../images/calender.png';
 import { useState } from 'react';

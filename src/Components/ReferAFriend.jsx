@@ -8,7 +8,7 @@ import Login from "./LoginPopup";
 import "../css/referAFriend.css";
 import axios from "axios";
 
-export default function ReferAFriend({ customer_id,Set_Referral_code }) {
+export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }) {
   const [isMobile, SetIsMobile] = useState(false);
   const [clicked, Set_clicked] = useState(false);
   const [referral_code, Set_referral_code] = useState("");
@@ -32,15 +32,6 @@ export default function ReferAFriend({ customer_id,Set_Referral_code }) {
   const share = () => {
     if(customer_id) {
       if (navigator.share) {
-        // const filesArray = [
-        //   new File(
-        //     '../images/Referral-share-image.jpeg',
-        //     {
-        //       type: "image/jpeg",
-        //       lastModified: new Date().getTime()
-        //     }
-        //  )
-        // ];
         navigator
         .share({
           title: "Referral",
@@ -97,12 +88,12 @@ export default function ReferAFriend({ customer_id,Set_Referral_code }) {
   };
   return (
     <>
-      <div className="referAFriendContainer" id="referFriend">
-        {customer_id ? (
+      <div className={ `${inHistory? "referAFriendContainer-inHistory": "referAFriendContainer"}`} id="referFriend">
+        {(customer_id && !inHistory) ? (
           <div className="refer-code-header">My Referral Code</div>
         ) : null}
-        <div className="referral-code">
-          { customer_id ? <div className="coupon">
+        <div className={`${inHistory ? "referral-code-in-history": "referral-code"}`}>
+          { customer_id ? <div className={`coupon ${inHistory ? "dotted-box": ""}`}>
             <div className="couponText">{referral_code.toUpperCase()}</div>
             <div className="copyCouponDiv">
                 <button
