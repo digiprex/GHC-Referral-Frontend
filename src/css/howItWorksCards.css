@@ -172,6 +172,10 @@
     padding: 0px 12%;
     font-size: 15px;
   }
+
+  .reward-img{
+    width: 50px !important;
+  }
 }
 
 @media only screen and (min-width: 600px) {
