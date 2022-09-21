@@ -5,12 +5,15 @@ import History from "./Components/History";
 import WalletCards from "./Components/WalletCards";
 import BackNavigator from "./Components/BackNavigator";
 import ReferAFriend from "./Components/ReferAFriend.jsx";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 import "./App.css";
 import { useEffect, useState,useRef } from "react";
 
 const App = () => {
   const [screenSize,setScreenSize] = useState('')
+  const [body,Set_body] = useState(null);
   const ref = useRef(null);
   const [showHistory,setShowHistory] = useState(false)
   const [customer_id,Set_customer_id] = useState("");
@@ -57,6 +60,7 @@ const handleClick = () => {
           data : data
       }
        await axios(config).then((response) =>{
+        Set_body(response.data.body);
         let amazon_vouchers_total_sum = 0;
         let pending_rewards_sum = 0;
         const earnings_rewards_array= []; 
@@ -111,14 +115,25 @@ const handleClick = () => {
     setShowHistory(false);
   } 
   return (
-    <div className="main-container">
+    <>
+    { body ? <div className="main-container">
       {showHistory ? <BackNavigator hideHistory={toggleHistoryFalse} /> : null}
       {!showHistory ? <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}/> : null}
       {/* {(showHistory &&  window.innerWidth < 600) ? <ReferAFriend  customer_id={customer_id} showHistory={showHistory}/> : null} */}
       {!showHistory ? <WalletCards getNewData={getNewData} handleClick={handleClick} showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
       {!showHistory ? <HowItWorks customer_id={customer_id} user_data={user_data}/> :  null}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) ? <History user_data={user_data} customer_id={customer_id} focus_ref={ref} code={user_data.referral_code} Set_Referral_code={Set_Referral_code}/> : null}
+    </div> : 
+    <div>
+        <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open
+      >
+        <CircularProgress color="inherit" />
+        </Backdrop>
     </div>
+      }
+    </>
   );
 };
 

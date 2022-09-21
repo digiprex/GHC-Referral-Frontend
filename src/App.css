@@ -87,7 +87,12 @@ a:not([href]) {
   }
 
   .react-responsive-modal-modal {
-    border-radius: 16px
+    border-radius: 16px;
+    animation-fill-mode: forwards !important;
+  }
+
+  .react-responsive-modal-overlay{
+    animation-fill-mode: forwards !important;
   }
 
   .progress-bar-saturn-step {

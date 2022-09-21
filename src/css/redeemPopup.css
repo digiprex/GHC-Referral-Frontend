@@ -217,7 +217,20 @@
   }
 
   .redeem-message {
-    color: #A6A6A6
+    color: #A6A6A6;
+    font-size: 14px;
+  }
+
+  .referMore {
+    font-size: 14px;
+  }
+
+  .greenText{
+    font-size: 14px;
+  }
+
+  .redeemCoinBalanceText{
+    font-size: 14px;
   }
 }
 
