@@ -6,6 +6,8 @@ import sharePic from '../images/share.png'
 import copyPic from '../images/copy-dark.png';
 import Login from "./LoginPopup";
 import "../css/referAFriend.css";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from "axios";
 
 export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }) {
@@ -94,7 +96,14 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }
         ) : null}
         <div className={`${inHistory ? "referral-code-in-history": "referral-code"}`}>
           { customer_id ? <div className={`coupon ${inHistory ? "dotted-box": ""}`}>
-            <div className="couponText">{referral_code.toUpperCase()}</div>
+            { referral_code ? <div className="couponText">{referral_code.toUpperCase()}</div> : 
+            <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open
+          >
+            <CircularProgress color="inherit" />
+            </Backdrop>
+             }
             <div className="copyCouponDiv">
                 <button
                   onClick={(e) => copyToClipBoard(e)}
