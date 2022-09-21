@@ -60,7 +60,7 @@ const handleClick = () => {
           data : data
       }
        await axios(config).then((response) =>{
-        Set_body(response.data.body);
+        Set_body(response.data);
         let amazon_vouchers_total_sum = 0;
         let pending_rewards_sum = 0;
         const earnings_rewards_array= []; 
