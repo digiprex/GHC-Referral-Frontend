@@ -68,6 +68,7 @@
 .change-phone-link{
     color: var(--button-color);
     text-decoration-line: underline;
+    margin-left: 2%;
 }
 
 .section-header {
@@ -101,4 +102,19 @@
 
 .phone-number-details-div{
     font-size: 20px;
+}
+
+.custom-modal-phone-number {
+    width: 33%;
+    height: 33%;
+    padding: 2% 3%;
+}
+
+.phone-number-popup-heading {
+    color: #333333;
+    font-size: 25px;
+}
+
+.phone-number-popup{
+    width: 100%;
 }
