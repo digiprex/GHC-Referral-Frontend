@@ -1,6 +1,6 @@
 //Constants for the project
 
-// There are seven sections in the referral page
+// There are eight sections in the referral page
 // 1. Banner 
 // 2. Wallet which has left and right sections
 // 3. How it works component
@@ -8,12 +8,13 @@
 // 5. Redeem popup
 // 6. No mcash popup
 // 7. Redeem success popup
+// 8. Success popup after phone number is changed
 
     // Banner constants
 
     exports.BANNER_HEADER = 'Wellness is rewarding';
     exports.BANNER_SUB_HEADING= '#GiftWellness';
-    exports.BANNER_TOP_CONTENT='For every Friend you refer; you get 100 Mcash credits for their future purchases.';
+    exports.BANNER_TOP_CONTENT='For every Friend you refer,you get 100 Mcash credits for their future purchases.';
     exports.BANNER_BOTTOM_CONTENT='Redeem credits for Amazon Gift Vouchers.';
     exports.BANNER_REFERRAL_CODE_INPUT_LABEL='My Referral Code';
     exports.BANNER_COPY_CODE_TEXT='Copy Code';
@@ -65,5 +66,5 @@
     exports.HISTORY_VOUCHERS_BUTTON_TEXT='My Vouchers';
     exports.HISTORY_NO_EARNINGS_TEXT='You have no Earnings yet.';
     exports.HISTORY_NO_VOUCHERS_TEXT="It appears that you don't have any vouchers yet";
-    exports.HISTORY_REFER_FRIEND_TEXT='To earn more MCash; refer your friends by sharing your code'
+    exports.HISTORY_REFER_FRIEND_TEXT='To earn more MCash,refer your friends by sharing your code'
 

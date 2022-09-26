@@ -227,7 +227,7 @@
 }
 
 .live-div {
-  animation: blink normal 2s infinite ease-in-out;
+  animation: blink normal 1s infinite ease-in-out;
 }
 
 @keyframes blink {
