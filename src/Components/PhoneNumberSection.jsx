@@ -5,6 +5,7 @@ import { Modal } from "react-responsive-modal";
 import PhoneNumberPopup from './PhoneNumberPopup';
 import SuccessModal from './SuccessModal';
 import { BottomSheet } from "react-spring-bottom-sheet";
+import whatsappPic from '../images/whatsapp-icon.png'
 import "react-spring-bottom-sheet/dist/style.css";
 import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
@@ -79,6 +80,7 @@ const PhoneNumberSection = ({customer_id}) => {
       const response = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
       Set_loading(false);
+      console.log(from_popup,'from popup');
       if(!from_popup){
         Set_successModal(true);
       }
@@ -119,7 +121,7 @@ const PhoneNumberSection = ({customer_id}) => {
   }
   return (
     <>
-    { !loading ? 
+    {/* { !loading ?  */}
     <div>
      { !customerPhoneNumber ?  
     <div className='phone-number-section'>
@@ -128,7 +130,7 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
       <div className='sub-heading'>
         To continue using your account and for all future updates, please link your phone number.All notifications will be sent via
-        Whatsapp/SMS
+        <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS
       </div>
       <div className='input-section'>
         <div className='input-phone-number'>
@@ -154,8 +156,8 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
     </div> }
     </div> 
-    : <Loader/>
-     }
+    {/* : <Loader/> */}
+     {/* } */}
     <Modal
           center
           open={modalOpen}
