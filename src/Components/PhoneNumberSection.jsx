@@ -63,6 +63,7 @@ const PhoneNumberSection = ({customer_id}) => {
     try {
       const response = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
+      Set_modalOpen(false);
       Set_loading(false);
     } catch(error) {
 
@@ -75,7 +76,7 @@ const PhoneNumberSection = ({customer_id}) => {
   useEffect(()=>{
     getPhoneNumber();
   },[customerPhoneNumber]);
-  
+
   const SetPhoneNumber = (e) =>{
     Set_phoneNumber(e.target.value)
   }
