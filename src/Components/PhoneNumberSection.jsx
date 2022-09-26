@@ -22,6 +22,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
+      console.log(response.data.customer.phone, 'phone number');
       Set_phoneNumber(response.data.customer.phone);
       return response;
     } catch(error) {
