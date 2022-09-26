@@ -15,7 +15,8 @@ const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNu
           maxLength="10" onKeyDown={isValidInput}
           autoComplete='off'/>
 			</div>
-			<button className='phone-number-popup' onClick={changePhoneNumber}>
+			<button onClick={changePhoneNumber} disabled={phoneNumber?.length != 10}
+			 className={ ` phone-number-popup ${(phoneNumber?.length == 10)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
 				Submit
 			</button>
     </>
