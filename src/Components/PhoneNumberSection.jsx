@@ -121,7 +121,7 @@ const PhoneNumberSection = ({customer_id}) => {
         All the updates will be sent on your registered phone number via Whatsapp/SMS
       </div>
       <div className='phone-number-details-div'>
-        <span>Phone Number:</span><span>{phoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
+        <span>Phone Number:</span><span>{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
       </div>
     </div> }
     <Modal
