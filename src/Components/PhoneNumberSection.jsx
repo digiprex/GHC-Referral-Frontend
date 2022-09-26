@@ -55,7 +55,7 @@ const PhoneNumberSection = ({customer_id}) => {
     Set_mobileModal(false);
   }
 
-  const changePhoneNumber = async (from_popup) => {
+  const changePhoneNumber = async (evetm,from_popup) => {
     Set_mobileModal(false);
     Set_modalOpen(false);
     Set_loading(true);
@@ -121,7 +121,7 @@ const PhoneNumberSection = ({customer_id}) => {
   }
   return (
     <>
-    { !loading ? 
+    {/* { !loading ?  */}
     <div>
      { !customerPhoneNumber ?  
     <div className='phone-number-section'>
@@ -156,8 +156,8 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
     </div> }
     </div> 
-    : <Loader/>
-      } 
+    {/* // : <Loader/> */}
+      {/* // }  */}
     <Modal
           center
           open={modalOpen}
