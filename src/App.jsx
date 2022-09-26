@@ -123,7 +123,7 @@ const handleClick = () => {
       {!showHistory ? <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}/> : null}
       {!showHistory ? <WalletCards getNewData={getNewData} handleClick={handleClick} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}/> : null }
-      {/* {!showHistory && < PhoneNumberSection customer_id={customer_id}/> } */}
+      {!showHistory && < PhoneNumberSection customer_id={customer_id}/> }
       {!showHistory ? <HowItWorks customer_id={customer_id} user_data={user_data}/> :  null}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) ? <History user_data={user_data} customer_id={customer_id} focus_ref={ref} code={user_data.referral_code} Set_Referral_code={Set_Referral_code}/> : null}
     </div> : 
