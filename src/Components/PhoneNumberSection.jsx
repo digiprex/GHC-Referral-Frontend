@@ -30,7 +30,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      Set_customerPhoneNumber(response.data.customer.phone.slice(3));
+      Set_customerPhoneNumber(response.data.customer.phone?.slice(3));
       Set_loading(false);
       return response;
     } catch(error) {
