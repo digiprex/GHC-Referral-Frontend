@@ -8,7 +8,6 @@ import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
 
 const PhoneNumberSection = ({customer_id}) => {
-  const [isNewCustomer,Set_isNewCustomer] = useState(true);
   const [phoneNumber,Set_phoneNumber] = useState('');
   const [modalOpen,Set_modalOpen] = useState(false);
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
@@ -78,7 +77,7 @@ const PhoneNumberSection = ({customer_id}) => {
   },[customerPhoneNumber]);
 
   const SetPhoneNumber = (e) =>{
-    Set_customerPhoneNumber(e.target.value)
+    SetPhoneNumber(e.target.value)
   }
 
   const changeNumber = () => {
@@ -148,7 +147,7 @@ const PhoneNumberSection = ({customer_id}) => {
           }}
         >
         <PhoneNumberPopup 
-        phoneNumber={customerPhoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
+        phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
         // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
         />
       </Modal>
