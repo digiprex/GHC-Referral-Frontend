@@ -118,3 +118,11 @@
 .phone-number-popup{
     width: 100%;
 }
+
+.input-phone-text {
+    background-color: #f6f6f6;
+}
+
+.input-phone-popup {
+    margin: 4% 0%;
+}
