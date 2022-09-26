@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { Modal } from "react-responsive-modal";
 import PhoneNumberPopup from './PhoneNumberPopup';
 import SuccessModal from './SuccessModal';
+import { BottomSheet } from "react-spring-bottom-sheet";
+import "react-spring-bottom-sheet/dist/style.css";
 import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
@@ -14,6 +16,7 @@ const PhoneNumberSection = ({customer_id}) => {
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
   const [loading,Set_loading] = useState(true);
   const [successModal,Set_successModal] = useState(false);
+  const [mobileModal,Set_mobileModal] = useState(false);
  
   const getPhoneNumber = async () => {
     const data = {
@@ -46,6 +49,11 @@ const PhoneNumberSection = ({customer_id}) => {
   const closeSuccessModal = () => {
     Set_successModal(false);
   }
+
+  const closeMobileModal = () => {
+    Set_mobileModal(false);
+  }
+
   const changePhoneNumber = async (from_popup) => {
     Set_modalOpen(false);
     Set_loading(true);
@@ -90,7 +98,7 @@ const PhoneNumberSection = ({customer_id}) => {
   }
 
   const changeNumber = () => {
-    Set_modalOpen(true);
+    window.innerWidth > 900 ? Set_modalOpen(true) : Set_mobileModal(true);
   }
 
   const isValidInput = (e) => {
@@ -145,7 +153,8 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
     </div> }
     </div> 
-    : <Loader/> }
+    : <Loader/>
+     }
     <Modal
           center
           open={modalOpen}
@@ -171,6 +180,12 @@ const PhoneNumberSection = ({customer_id}) => {
         >
         <SuccessModal/>
       </Modal>
+      <BottomSheet open={mobileModal} onDismiss={closeMobileModal}>
+        <PhoneNumberPopup 
+          phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
+          // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
+          />
+      </BottomSheet>
   </>
   )
 }
