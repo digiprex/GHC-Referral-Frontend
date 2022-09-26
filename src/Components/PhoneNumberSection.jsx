@@ -46,7 +46,7 @@ const PhoneNumberSection = ({customer_id}) => {
   const closeSuccessModal = () => {
     Set_successModal(false);
   }
-  const changePhoneNumber = async () => {
+  const changePhoneNumber = async (from_popup) => {
     Set_modalOpen(false);
     Set_loading(true);
     let data = JSON.stringify({
@@ -70,7 +70,9 @@ const PhoneNumberSection = ({customer_id}) => {
       const response = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
       Set_loading(false);
-      Set_successModal(true);
+      if(!from_popup){
+        Set_successModal(true);
+      }
     } catch(error) {
 
     }
