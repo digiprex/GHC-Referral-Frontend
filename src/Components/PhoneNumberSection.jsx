@@ -161,7 +161,7 @@ const PhoneNumberSection = ({customer_id}) => {
       <Modal
           center
           open={successModal}
-          onClose={closePopup}
+          onClose={closeSuccessModal}
           showCloseIcon={false}
           classNames={{
             modal: 'custom-modal-success-phone-number',
