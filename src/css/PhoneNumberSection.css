@@ -174,10 +174,20 @@
     }
 
     .input-phone-text{
-        background-color: none;
+        background-color: #ffffff;
     }
 
     .phone-number-section .input-section {
         padding: 2.5% 1%;
+    }
+
+    .phone-number-submit, .phone-number-submit-correct{
+        font-size: 17px;
+    }
+
+    .custom-modal-success-phone-number{
+        height: 29%;
+        width: 68%;
+        border-radius: 15px;
     }
 }
