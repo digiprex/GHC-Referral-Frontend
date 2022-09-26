@@ -121,7 +121,7 @@ const PhoneNumberSection = ({customer_id}) => {
   }
   return (
     <>
-    {/* { !loading ?  */}
+    { !loading ? 
     <div>
      { !customerPhoneNumber ?  
     <div className='phone-number-section'>
@@ -156,8 +156,8 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
     </div> }
     </div> 
-    {/* : <Loader/> */}
-     {/* } */}
+    : <Loader/>
+      } 
     <Modal
           center
           open={modalOpen}
