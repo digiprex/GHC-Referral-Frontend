@@ -126,3 +126,33 @@
 .input-phone-popup {
     margin: 4% 0%;
 }
+
+@media only screen and (max-width: 600px){
+    .phone-number-section .sub-heading{
+        margin-left: 4%;
+        margin-right: 3%;
+        font-size: 12px;
+    }
+
+    .phone-number-text{
+        margin-left: 4%;
+    }
+
+    .change-phone-link{
+        margin-left: 35%;
+    }
+
+    .phone-number-details-div{
+        font-size: 12px;
+        margin-top: 3%;
+        margin-bottom: 2%;
+    }
+
+    .phone-number{
+        margin-left: 2%;
+    }
+
+    .phone-number-section{
+        padding: 4% 3%;
+    }
+}

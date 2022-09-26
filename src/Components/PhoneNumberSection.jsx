@@ -153,7 +153,7 @@ const PhoneNumberSection = ({customer_id}) => {
         <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS
       </div>
       <div className='phone-number-details-div'>
-        <span>Phone Number:</span><span>{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
+        <span className='phone-number-text'>Phone Number:</span><span className='phone-number' >{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
       </div>
     </div> }
     </div> 
