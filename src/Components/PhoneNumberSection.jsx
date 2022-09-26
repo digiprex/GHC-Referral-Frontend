@@ -148,7 +148,7 @@ const PhoneNumberSection = ({customer_id}) => {
           }}
         >
         <PhoneNumberPopup 
-        phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
+        phoneNumber={customerPhoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
         // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
         />
       </Modal>
