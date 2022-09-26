@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import { useEffect } from 'react';
 import { Modal } from "react-responsive-modal";
 import PhoneNumberPopup from './PhoneNumberPopup';
+import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
 
@@ -11,6 +12,7 @@ const PhoneNumberSection = ({customer_id}) => {
   const [phoneNumber,Set_phoneNumber] = useState('');
   const [modalOpen,Set_modalOpen] = useState(false);
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
+  const [loading,Set_loading] = useState(true);
  
   const getPhoneNumber = async () => {
     const data = {
@@ -28,6 +30,7 @@ const PhoneNumberSection = ({customer_id}) => {
     try {
       const response  = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
+      Set_loading(false);
       return response;
     } catch(error) {
       console.log(error);
@@ -39,6 +42,7 @@ const PhoneNumberSection = ({customer_id}) => {
     Set_modalOpen(false);
   }
   const changePhoneNumber = async () => {
+    Set_loading(true);
     let data = JSON.stringify({
       "customer": {
         "id": customer_id,
@@ -57,8 +61,9 @@ const PhoneNumberSection = ({customer_id}) => {
     };
 
     try {
-      await axios(config);
-      getPhoneNumber();
+      const response = await axios(config);
+      Set_customerPhoneNumber(response.data.customer.phone);
+      Set_loading(false);
     } catch(error) {
 
     }
@@ -67,6 +72,10 @@ const PhoneNumberSection = ({customer_id}) => {
     getPhoneNumber();
   },[])
 
+  useEffect(()=>{
+    getPhoneNumber();
+  },[customerPhoneNumber]);
+  
   const SetPhoneNumber = (e) =>{
     Set_phoneNumber(e.target.value)
   }
@@ -92,7 +101,9 @@ const PhoneNumberSection = ({customer_id}) => {
   }
   return (
     <>
-  { !customerPhoneNumber ?  
+    { !loading ? 
+    <div>
+     { !customerPhoneNumber ?  
     <div className='phone-number-section'>
       <div className='section-header'>
           Almost there!
@@ -105,11 +116,11 @@ const PhoneNumberSection = ({customer_id}) => {
         <div className='input-phone-number'>
           <input type="text" className='input-phone-text' value={phoneNumber}
            onChange={(e)=>Set_phoneNumber(e.target.value)} 
-          placeholder="Enter your phone number" inputMode="numeric"
-          pattern="[1-9]{1}[0-9]{5}"
-          minLength="10"
-          maxLength="10" onKeyDown={isValidInput}
-          autoComplete='off'/>
+           placeholder="Enter your phone number" inputMode="numeric"
+           pattern="[1-9]{1}[0-9]{5}"
+           minLength="10"
+           maxLength="10" onKeyDown={isValidInput}
+           autoComplete='off'/>
         </div>
         <button id="phone-number-submit" onClick={changePhoneNumber} className={`${(phoneNumber?.length == 10)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
           Submit
@@ -124,13 +135,14 @@ const PhoneNumberSection = ({customer_id}) => {
         <span>Phone Number:</span><span>{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
       </div>
     </div> }
+    </div> : <Loader/> }
     <Modal
           center
           open={modalOpen}
           onClose={closePopup}
           showCloseIcon={false}
           classNames={{
-              modal: 'custom-modal-phone-number',
+            modal: 'custom-modal-phone-number',
           }}
         >
         <PhoneNumberPopup 
