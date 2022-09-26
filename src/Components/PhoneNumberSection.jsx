@@ -55,6 +55,7 @@ const PhoneNumberSection = ({customer_id}) => {
   }
 
   const changePhoneNumber = async (from_popup) => {
+    Set_mobileModal(false);
     Set_modalOpen(false);
     Set_loading(true);
     let data = JSON.stringify({
