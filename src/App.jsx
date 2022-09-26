@@ -1,15 +1,16 @@
 import React from "react";
+import { useEffect, useState,useRef } from "react";
+import axios from 'axios';
+//Components
 import ReferAndEarn from "./Components/ReferAndEarn";
 import HowItWorks from "./Components/HowItWorks";
 import History from "./Components/History";
 import WalletCards from "./Components/WalletCards";
 import BackNavigator from "./Components/BackNavigator";
-import ReferAFriend from "./Components/ReferAFriend.jsx";
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import axios from 'axios';
+import Loader from "./Components/Loader";
+import PhoneNumberSection from "./Components/PhoneNumberSection";
+//css
 import "./App.css";
-import { useEffect, useState,useRef } from "react";
 
 const App = () => {
   const [screenSize,setScreenSize] = useState('')
@@ -26,8 +27,8 @@ const App = () => {
     "referral_code":""
 })
 const handleClick = () => {
-  // ref.current?.scrollIntoView({behavior: 'smooth'});
-  ref.current?.scrollIntoView();
+  ref.current?.scrollIntoView({behavior: 'smooth'});
+  // ref.current?.scrollIntoView();
 };
   useEffect(()=>{
 
@@ -38,15 +39,15 @@ const handleClick = () => {
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
-    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    // Set_customer_id("6411445371092"); 
+    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    Set_customer_id("6411445371092"); 
     // Set_customer_id("6414055473364");
     // Set_customer_id("5874011242688") 
     const data = {
       // "customer_id":"6414055473364",
-      //  customer_id:"6411445371092",
+       customer_id:"6411445371092",
       // "customer_id":"5874011242688",
-      customer_id: document.getElementById("shopify-customer-id")?.value
+      // customer_id: document.getElementById("shopify-customer-id")?.value
     }
     // 5874011242688
   const getEarningsData = async () => {
@@ -75,7 +76,7 @@ const handleClick = () => {
         const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")})
         Set_user_data({
               "balance": response.data.body.balance,
-              // "balance": 0,
+              // "balance": 2000,
               "lifetime": response.data.body.lifetime,
               "coins_on_way": pending_rewards_sum,
               "rewards_list": rewards_earned,
@@ -95,10 +96,10 @@ const handleClick = () => {
   }
 
   getEarningsData()
-  },[customer_id])
+  },[])
 
   const getNewData = () => {
-    Set_customer_id(customer_id);
+
   }
 
 
@@ -120,19 +121,13 @@ const handleClick = () => {
     { body ? <div className="main-container">
       {showHistory ? <BackNavigator hideHistory={toggleHistoryFalse} /> : null}
       {!showHistory ? <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}/> : null}
-      {/* {(showHistory &&  window.innerWidth < 600) ? <ReferAFriend  customer_id={customer_id} showHistory={showHistory}/> : null} */}
-      {!showHistory ? <WalletCards getNewData={getNewData} handleClick={handleClick} showHistory={toggleHistoryTrue}  customer_id={customer_id} user_data={user_data}/> : null }
+      {!showHistory ? <WalletCards getNewData={getNewData} handleClick={handleClick} showHistory={toggleHistoryTrue}  
+      customer_id={customer_id} user_data={user_data}/> : null }
+      {!showHistory && < PhoneNumberSection customer_id={customer_id}/> }
       {!showHistory ? <HowItWorks customer_id={customer_id} user_data={user_data}/> :  null}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) ? <History user_data={user_data} customer_id={customer_id} focus_ref={ref} code={user_data.referral_code} Set_Referral_code={Set_Referral_code}/> : null}
     </div> : 
-    <div>
-        <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open
-      >
-        <CircularProgress color="inherit" />
-        </Backdrop>
-    </div>
+      <Loader/>
       }
     </>
   );

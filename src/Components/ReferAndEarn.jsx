@@ -1,24 +1,19 @@
 import "../css/referAndEarn.css";
+import constants from '../lib/constants';
 import ReferAFriend from "./ReferAFriend.jsx";
-import React, { Component, useEffect, useState } from "react";
 
-export default function ReferAndEarn({customer_id, showHistory,Set_Referral_code}) {
-  const [customer_Id,Set_customer_Id] = useState("");
-  useEffect(()=>{
-    Set_customer_Id(customer_id);
-  },[customer_Id])
+export default function ReferAndEarn({customer_id,Set_Referral_code}) {
   return (
     <div className="referContainer">
       <div className="content">
-        <div className="top-div-heading">Wellness is rewarding</div>
-        <div className="top-heading">#GiftWellness</div>
+        <div className="top-div-heading">{constants.BANNER_HEADER}</div>
+        <div className="top-heading">{constants.BANNER_SUB_HEADING}</div>
         <div className="bottom-div-heading ">
           <div className="bottom-div-content" id="top">
-            For every Friend you refer, you get 100 Mcash credits for their
-            future purchases.
+            {constants.BANNER_TOP_CONTENT}
           </div>
           <div className="bottom-div-content" id="bottom">
-            Redeem credits for Amazon Gift Vouchers.
+            {constants.BANNER_BOTTOM_CONTENT}
           </div>
         </div>
         <div className="coupon-image-div">
@@ -28,7 +23,7 @@ export default function ReferAndEarn({customer_id, showHistory,Set_Referral_code
           />
         </div>
       </div>
-      { true ? <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code}/> : null }
+      <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code}/>
     </div>
   );
 }

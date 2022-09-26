@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import constants from '../lib/constants';
 import { BottomSheet } from "react-spring-bottom-sheet";
 import { Modal } from "react-responsive-modal";
 import { useEffect, useState } from "react";
@@ -31,14 +32,18 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }
   const closeMobileModal = () => {
     setOpen(false);
   };
+
+  const getShareText = (code) => {
+    return 
+  }
+
   const share = () => {
     if(customer_id) {
       if (navigator.share) {
         navigator
         .share({
           title: "Referral",
-          text: `Hey,buddy!\n Here is my Mars by ghc referral code - ${referral_code}.\nYou get 20% off and free delivery on your next order.\n
-          Let's celebrate Good health and Wellness`,
+          text: `Hey,buddy!\nHere is my Mars by ghc referral code - ${referral_code}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness`,
           // url: "/",
           // files:filesArray
         })
@@ -92,7 +97,7 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }
     <>
       <div className={ `${inHistory? "referAFriendContainer-inHistory": "referAFriendContainer"}`} id="referFriend">
         {(customer_id && !inHistory) ? (
-          <div className="refer-code-header">My Referral Code</div>
+          <div className="refer-code-header">{constants.BANNER_REFERRAL_CODE_INPUT_LABEL}</div>
         ) : null}
         <div className={`${inHistory ? "referral-code-in-history": "referral-code"}`}>
           { customer_id ? <div className={`coupon ${inHistory ? "dotted-box": ""}`}>
@@ -113,18 +118,16 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }
                   type="button"
                   >
                   <img src={copyPic} className="copy-pic-referral" alt="" srcset="" />
-                  Copy Code
+                  {constants.BANNER_COPY_CODE_TEXT}
                 </button>
             </div>
           </div> : null }
           <div className="refer-friend-container">
             <div className={`referFriend ${customer_id ? "refer-friend-width-with-customer-id" : 
           "refer-friend-width-no-customer-id"}`} onClick={() => share()}> 
-              {/* <div className="share-img-div">
-              </div> */}
               <div className="referText">
                 <img src={sharePic} alt="" className='sharePic'  />
-                Refer A Friend
+                {constants.BANNER_REFER_A_FRIEND_TEXT}
                 </div>
             </div>
           </div>

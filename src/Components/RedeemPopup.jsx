@@ -1,6 +1,7 @@
 import "../css/redeemPopup.css";
 import Container from "@mui/material/Container";
 import pic from "../images/mcash.png";
+import constants from "../lib/constants";
 import minus from "../images/minus.png";
 import plus from "../images/plus.png";
 import saturnMinus from "../images/saturn-minus.png";
@@ -24,7 +25,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   const can_redeem = (user_data/500);
   const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
   const next_redemption_amount = user_data.balance+mcash_for_redeem_pending;
-  // Set_friend_to_refer_for_redemption(number_of_more_friends_to_refer);
   const decrement = () => {
     if (redeemAmount == 0) {
       document.getElementById("error-text-redeem").style.visibility = "hidden"
@@ -53,34 +53,34 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
     }
    }
 
-  const alertUser = (amount) => {
-    alert(`Balance less than ${amount}`)
-  }
-
   const redeemCoins = async () => {
-    const data = {
-      customer_id: customer_id,
-      redeem: redeemAmount,
-    };
-    const config = {
-      method: "post",
-      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+    // const data = {
+    //   customer_id: customer_id,
+    //   redeem: redeemAmount,
+    // };
+    // const config = {
+    //   method: "post",
+    //   url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: data,
+    // };
 
-    await axios(config)
-    .then((response) => {
-        closeDesktopModal();
-        closeMobileModal();
-        open_SuccessPopup();
-        getNewData();
-      })
-      .catch((error) => {
-          console.log(error);
-        });
+    // await axios(config)
+    // .then((response) => {
+    //     closeDesktopModal();
+    //     closeMobileModal();
+    //     open_SuccessPopup();
+    //     getNewData();
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+    closeDesktopModal();
+    closeMobileModal();
+    open_SuccessPopup();
+    // getNewData();
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
@@ -91,14 +91,14 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       <Container>
         <div className="modalContainer">
           <div className="headerContent">
-            <div className="modalHeader">Redeem Credits</div>
+            <div className="modalHeader">{constants.REDEEM_POPUP_HEADER_TEXT}</div>
           </div>
           <div className="sub-heading-redeem">
             <div className="redeem-message">
-              You can only redeem in multiples of 500 
+              {constants.REDEEM_POPUP_SUB_HEADING_TEXT} 
             </div>
             <div className="redeemCoinBalance">
-              <div className="redeemCoinBalanceText">Balance:</div>
+              <div className="redeemCoinBalanceText">{constants.REDEEM_POPUP_BALANCE_TEXT}</div>
               <div className="redeemCoinBalanceAmount">{user_data.balance}</div>
             </div>
           </div>
@@ -114,19 +114,35 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
             </div>
           </div>
           <div id="error-text-redeem">
-            Enter a value less than the current balance 
+            {constants.REDEEM_POPUP_ERROR_TEXT}
           </div>
-           { user_data.balance > 1000 ?  <div className="coinsList">
-           {  ((user_data.balance - mcash_for_redeem_pending - 1000)) > 0 ? <button className="fiveHundred" id="fiveHundred" onClick={() =>{setAmount(user_data.balance - mcash_for_redeem_pending-1000,"fiveHundred");}}>
-                {user_data.balance - mcash_for_redeem_pending-1000}
-            </button> : null}
-            { ((user_data.balance - mcash_for_redeem_pending - 500)) > 0 ? <button className="thousand" id="thousand" onClick={(e) =>setAmount(user_data.balance- mcash_for_redeem_pending-500,"thousand")}>
+           { user_data.balance > 1000
+           ?  
+           <div className="coinsList">
+           {((user_data.balance - mcash_for_redeem_pending - 1000)) > 0 
+            ? 
+            <button className="fiveHundred" id="fiveHundred" onClick={() =>{setAmount(user_data.balance - mcash_for_redeem_pending-1000,"fiveHundred");}}>
+              {user_data.balance - mcash_for_redeem_pending-1000}
+            </button> 
+            : 
+            null}
+            { ((user_data.balance - mcash_for_redeem_pending - 500)) > 0 
+            ? 
+            <button className="thousand" id="thousand" onClick={(e) =>setAmount(user_data.balance- mcash_for_redeem_pending-500,"thousand")}>
              {user_data.balance - mcash_for_redeem_pending - 500}
-            </button> : null}
-            { ((user_data.balance - mcash_for_redeem_pending)) > 0 ? <button className="fifteenHundred" id="fifteenHundred" onClick={(e) => setAmount(user_data.balance-mcash_for_redeem_pending,"fifteenHundred")}>
+            </button> 
+            : 
+            null}
+            { ((user_data.balance - mcash_for_redeem_pending)) > 0 
+            ? 
+            <button className="fifteenHundred" id="fifteenHundred" onClick={(e) => setAmount(user_data.balance-mcash_for_redeem_pending,"fifteenHundred")}>
             {user_data.balance- mcash_for_redeem_pending}
-            </button> : null }
-          </div> : null}
+            </button> 
+            : 
+            null }
+          </div> 
+          : 
+          null}
           <div className="earnAndSave">
             <div className="saveHeader">Gift More. Save More.</div>
             <div className="saveContent">
@@ -144,9 +160,9 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           </div>
           <div >
             <div className="referMore">
-              Refer {number_of_more_friends_to_refer} more friends to reach{"  "}
+              Refer {number_of_more_friends_to_refer} more friend{`${number_of_more_friends_to_refer>1 ? 's':""}`} to reach{"  "}
             <span className="greenText">
-              {user_data.balance+number_of_more_friends_to_refer*100} Mcash credits
+              {user_data.balance+number_of_more_friends_to_refer*100} {constants.REDEEM_POPUP_MCASH_CREDITS}
             </span>
             </div> 
           </div>
@@ -164,7 +180,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           type="button"
           onClick={() => {redeemCoins()}}
         >
-          Redeem Now
+          {constants.WALLET_REDEEM_NOW_BUTTON_TEXT}
         </button>
       </Container>
     </>

@@ -82,6 +82,10 @@
   color: #ffffff;
   flex: 8;
 }
+ 
+.referFriend:hover {
+  background-color: #704353;
+}
 
 .sharePic{
   margin-right: 5%;

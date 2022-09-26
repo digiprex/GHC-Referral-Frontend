@@ -1,0 +1,59 @@
+.phone-number-section{
+    margin: 2% 5% 0 5%;
+    padding: 2% 3% 2% 3%;
+    background: #FFF3D9;
+    border-radius: 16px;
+}
+
+.phone-number-section .input-section {
+    display: flex;
+    padding: .5% 1%;
+    width: 30%;
+    /* border: solid 1px; */
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 1.5%;
+    width: 45%;
+}
+
+.input-phone-number {
+    flex: 6;
+}
+
+.phone-number-submit-correct {
+    flex: 4;
+    padding: 1.5% 0;
+    background-color: var(--button-color);
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 25px;
+}
+
+.phone-number-submit {
+    flex: 4;
+    padding: 1.5% 0;
+    border-radius: 4px;
+    background-color: #EDEFED;
+    color: #777777;
+    font-size: 25px;
+}
+
+.phone-number-section .sub-heading {
+    margin-top: 1%;
+}
+
+.input-phone-text {
+    height: 100%;
+    width: 100%;
+    padding-left: 3%;
+    font-size: 25px;
+}
+
+.input-phone-text::placeholder {
+    color: #777777;
+    font-size: 20px;
+}
+
+.input-phone-text:focus{
+    outline: none;
+}

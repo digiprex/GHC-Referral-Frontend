@@ -5,6 +5,7 @@ import CoinBalanceCard from "./CoinBalanceCard";
 import giftPic from "../images/gift.png";
 import discountIcon from "../images/discount.png";
 import pic from "../images/WalletCardImage.jpg";
+import constants from "../lib/constants";
 
 export default function WalletCards({ showHistory, user_data, customer_id,handleClick,getNewData }) {
   return (
@@ -17,8 +18,7 @@ export default function WalletCards({ showHistory, user_data, customer_id,handle
             </div>
               <div className="coinsOnWay">
               <span className="onWayCoinsNumber">{user_data.coins_on_way}</span>
-              &nbsp;Mcash credits are on the way
-              {/* <Chip label="200" classes={onWayCoinsNumber} component="a" href="#basic-chip" /> &nbsp;coins are on the way */}
+              &nbsp;{constants.WALLET_VOUCHERS_ON_WAY_TEXT}
             </div> 
           </div> : null}
           { user_data.amazon_voucher_value ? <div className="coinsOnWayFlex">
@@ -26,20 +26,10 @@ export default function WalletCards({ showHistory, user_data, customer_id,handle
               <img src={discountIcon} className="giftPic" alt="" />
             </div>
             <div className="coinsOnWay">
-              You earned Amazon vouchers worth &nbsp;
+              {constants.WALLET_VOUCHERS_ON_WAY_TEXT}&nbsp;
               <span className="onWayCoinsNumber" style={{color:"#1DBA78"}}>{user_data.amazon_voucher_value}</span>
-              {/* <Chip label="200" classes={onWayCoinsNumber} component="a" href="#basic-chip" /> &nbsp;coins are on the way */}
             </div>
           </div> : null}
-          {/* <div className="savedMoneyCard">
-            <img src={discountIcon} className="giftPic" alt="" />
-            <div className="coinsOnWayFlex savedMoney">
-              <div>
-                You earned Amazon vouchers worth &nbsp;{" "}
-              </div>
-              <span className="onWayCoinsPriceNumber"> &#8377;1000</span> &nbsp;
-            </div>
-          </div> */}
         </div>
         <div className="coinBalanceCardContainer container-dash-border">
           <CoinBalanceCard getNewData={getNewData} handleClick={handleClick} user_data={user_data} showHistory={showHistory}customer_id={customer_id} />

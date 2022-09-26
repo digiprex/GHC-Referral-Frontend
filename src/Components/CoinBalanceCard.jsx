@@ -13,6 +13,7 @@ import RedeemPopup from "./RedeemPopup";
 import NoMcashPopUp from "./NoMcashPopUp";
 import SuccessPopup from '../Components/SuccessPopup';
 import axios from "axios";
+import constants from "../lib/constants";
 const mobileViewContext = createContext();
 
 export default function CoinBalanceCard({ showHistory, user_data, customer_id,handleClick,getNewData }) {
@@ -20,16 +21,6 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
   const [noCashModalIsOpen,Set_noCashModalIsOpen] = useState(false);
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
   const openDesktopModal = () => {
     setIsOpen(true);
   };
@@ -67,14 +58,14 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
   return (
     <>
       <div className="coinBalanceHeading">
-        MCash Balance:
+        {constants.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_MOBILE}
         <div className="history" id="history" onClick={() => showHistory()}>
           <img
             style={{ marginRight: "5px", height: "10px" }}
             src={historyPic}
             alt=""
           />{" "}
-          History
+          {constants.WALLET_HISTORY_ICON_TEXT}
         </div>
       </div>
       <div className="coinBalanceCard">
@@ -85,7 +76,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
         />
         <div className="coinBalanceRightSection">
           <div style={{ flex: 1 }} className="earnings-div">
-            <div className="headerCard">MCash Balance</div>
+            <div className="headerCard">{constants.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_DESKTOP}</div>
             <div className="coinBalanceDiv">
               <div className="coinBalance">{user_data.balance}</div>
             </div>
@@ -99,7 +90,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
         </div>
       </div>
       <div className="lifetime-earnings">
-        <span className="earnings">Lifetime earnings:</span>
+        <span className="earnings">{constants.WALLET_LIFETIME_EARNINGS_TEXT}</span>
         <span className="amount">&#8377;{user_data.lifetime}</span>
       </div>
       <div className="button-container">
@@ -109,8 +100,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
           className="redeem"
           type="button"
         >
-          {/* () => setOpen(true) */}
-          Redeem Now
+          {constants.WALLET_REDEEM_NOW_BUTTON_TEXT}
         </button>
         <BottomSheet open={open} onDismiss={closeMobileModal}>
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal} 
@@ -150,12 +140,6 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
         >
           <SuccessPopup closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} handleClick={handleClick}/>
         </Modal>
-      {/* <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p>Some text in the Modal..</p>
-                    </div>
-                </div> */}
     </>
   );
 }
