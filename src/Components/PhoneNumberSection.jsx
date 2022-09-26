@@ -34,7 +34,8 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      Set_customerPhoneNumber(response.data.customer.phone?.slice(3));
+      const changes_phone_number = response.data.customer.phone?.slice(3) 
+      Set_customerPhoneNumber(changes_phone_number);
       Set_loading(false);
       return response;
     } catch(error) {
@@ -80,7 +81,6 @@ const PhoneNumberSection = ({customer_id}) => {
       const response = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
       Set_loading(false);
-      console.log(from_popup,'from popup');
       if(!from_popup){
         Set_successModal(true);
       }
