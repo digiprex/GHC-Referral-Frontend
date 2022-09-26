@@ -27,6 +27,7 @@
     color: #ffffff;
     border-radius: 4px;
     font-size: 25px;
+    cursor: pointer;
 }
 
 .phone-number-submit {
@@ -36,6 +37,7 @@
     background-color: #EDEFED;
     color: #777777;
     font-size: 25px;
+    cursor: not-allowed;
 }
 
 .phone-number-section .sub-heading {
@@ -47,6 +49,8 @@
     width: 100%;
     padding-left: 3%;
     font-size: 25px;
+    border: none !important;
+    outline: none !important;
 }
 
 .input-phone-text::placeholder {
@@ -56,4 +60,10 @@
 
 .input-phone-text:focus{
     outline: none;
+    box-shadow: none !important;
+}
+
+.change-phone-link{
+    color: var(--button-color);
+    text-decoration-line: underline;
 }
