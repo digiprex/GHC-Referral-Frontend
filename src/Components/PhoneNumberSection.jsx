@@ -84,7 +84,7 @@ const PhoneNumberSection = ({customer_id}) => {
   },[customerPhoneNumber]);
 
   const SetPhoneNumber = (e) =>{
-    SetPhoneNumber(e.target.value)
+    Set_phoneNumber(e.target.value)
   }
 
   const changeNumber = () => {
