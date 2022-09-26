@@ -29,7 +29,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      Set_customerPhoneNumber(response.data.customer.phone);
+      Set_customerPhoneNumber(response.data.customer.phone.slice(3));
       Set_loading(false);
       return response;
     } catch(error) {
@@ -78,7 +78,7 @@ const PhoneNumberSection = ({customer_id}) => {
   },[customerPhoneNumber]);
 
   const SetPhoneNumber = (e) =>{
-    Set_phoneNumber(e.target.value)
+    Set_customerPhoneNumber(e.target.value)
   }
 
   const changeNumber = () => {
