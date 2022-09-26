@@ -78,3 +78,21 @@
     width: 20px;
     margin-bottom: 3px;
 }
+
+.custom-modal-success-phone-number {
+    height: 28%;
+    width: 18%;
+}
+
+.phone-success-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-message{
+    margin-top: 10%;
+    font-size: 26px;
+    text-align: center;
+    color: #333333;
+}

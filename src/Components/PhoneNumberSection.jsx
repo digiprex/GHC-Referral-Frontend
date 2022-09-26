@@ -149,7 +149,8 @@ const PhoneNumberSection = ({customer_id}) => {
     </div> : 
     <div className='phone-number-section'>
       <div className='sub-heading'>
-        All the updates will be sent on your registered phone number via Whatsapp/SMS
+        All the updates will be sent on your registered phone number via 
+        <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS
       </div>
       <div className='phone-number-details-div'>
         <span>Phone Number:</span><span>{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
