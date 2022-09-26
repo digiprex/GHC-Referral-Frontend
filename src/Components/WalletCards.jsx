@@ -18,7 +18,7 @@ export default function WalletCards({ showHistory, user_data, customer_id,handle
             </div>
               <div className="coinsOnWay">
               <span className="onWayCoinsNumber">{user_data.coins_on_way}</span>
-              &nbsp;{constants.WALLET_VOUCHERS_ON_WAY_TEXT}
+              &nbsp;{constants.WALLET_MCASH_CREDTIS_ON_WAY_TEXT}
             </div> 
           </div> : null}
           { user_data.amazon_voucher_value ? <div className="coinsOnWayFlex">
