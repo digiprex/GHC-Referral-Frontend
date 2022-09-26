@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import { useEffect } from 'react';
 import { Modal } from "react-responsive-modal";
 import PhoneNumberPopup from './PhoneNumberPopup';
+import SuccessModal from './SuccessModal';
 import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
@@ -12,6 +13,7 @@ const PhoneNumberSection = ({customer_id}) => {
   const [modalOpen,Set_modalOpen] = useState(false);
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
   const [loading,Set_loading] = useState(true);
+  const [successModal,Set_successModal] = useState(false);
  
   const getPhoneNumber = async () => {
     const data = {
@@ -40,6 +42,10 @@ const PhoneNumberSection = ({customer_id}) => {
   const closePopup = () => {
     Set_modalOpen(false);
   }
+
+  const closeSuccessModal = () => {
+    Set_successModal(false);
+  }
   const changePhoneNumber = async () => {
     Set_modalOpen(false);
     Set_loading(true);
@@ -64,6 +70,7 @@ const PhoneNumberSection = ({customer_id}) => {
       const response = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
       Set_loading(false);
+      Set_successModal(true);
     } catch(error) {
 
     }
@@ -150,6 +157,17 @@ const PhoneNumberSection = ({customer_id}) => {
         phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
         // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
         />
+      </Modal>
+      <Modal
+          center
+          open={successModal}
+          onClose={closePopup}
+          showCloseIcon={false}
+          classNames={{
+            modal: 'custom-modal-success-phone-number',
+          }}
+        >
+        <SuccessModal/>
       </Modal>
   </>
   )
