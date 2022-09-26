@@ -42,6 +42,7 @@ const PhoneNumberSection = ({customer_id}) => {
     Set_modalOpen(false);
   }
   const changePhoneNumber = async () => {
+    Set_modalOpen(false);
     Set_loading(true);
     let data = JSON.stringify({
       "customer": {
@@ -63,7 +64,6 @@ const PhoneNumberSection = ({customer_id}) => {
     try {
       const response = await axios(config);
       Set_customerPhoneNumber(response.data.customer.phone);
-      Set_modalOpen(false);
       Set_loading(false);
     } catch(error) {
 
@@ -136,7 +136,8 @@ const PhoneNumberSection = ({customer_id}) => {
         <span>Phone Number:</span><span>{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>
       </div>
     </div> }
-    </div> : <Loader/> }
+    </div> 
+    : <Loader/> }
     <Modal
           center
           open={modalOpen}
