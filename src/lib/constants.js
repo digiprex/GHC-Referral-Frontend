@@ -32,7 +32,7 @@
     exports.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_MOBILE='MCash Balance=';
     exports.WALLET_HISTORY_ICON_TEXT='History';
     exports.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_DESKTOP='MCash Balance';
-    exports.WALLET_LIFETIME_EARNINGS_TEXT='Lifetime earnings=';
+    exports.WALLET_LIFETIME_EARNINGS_TEXT='Lifetime earnings';
     exports.WALLET_REDEEM_NOW_BUTTON_TEXT='Redeem Now';
 
     //Redeem popup
