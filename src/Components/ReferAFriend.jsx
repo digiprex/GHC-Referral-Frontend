@@ -11,7 +11,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import axios from "axios";
 
-export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }) {
+export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,brand}) {
   const [isMobile, SetIsMobile] = useState(false);
   const [clicked, Set_clicked] = useState(false);
   const [referral_code, Set_referral_code] = useState("");

@@ -34,9 +34,9 @@ const scrollToVouchers = () => {
 const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
-     customer_id:"6411445371092",
+    //  customer_id:"6411445371092",
     // "customer_id":"5874011242688",
-    // customer_id: document.getElementById("shopify-customer-id")?.value
+    customer_id: document.getElementById("shopify-customer-id")?.value
   }
   const config = {
       method: 'post',
@@ -105,11 +105,12 @@ const getNewData = () => {}
       "--border",
       process.env.REACT_APP_COLOR_BORDER
     );
+    const brand = process.env.REACT_APP_BRAND;
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
-    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    Set_customer_id("6411445371092"); 
+    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    // Set_customer_id("6411445371092"); 
     // Set_customer_id("6414055473364");
     // Set_customer_id("5874011242688") 
    
@@ -121,12 +122,15 @@ const getNewData = () => {}
     <>
     { body ? <div className="main-container">
       {showHistory && <BackNavigator hideHistory={toggleHistoryFalse} />}
-      {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}/>}
+      {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}
+      brand={brand}/>}
       {!showHistory && <WalletCards getNewData={getNewData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
-      customer_id={customer_id} user_data={user_data}/>}
-      {!showHistory && < PhoneNumberSection customer_id={customer_id}/> }
-      {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data}/>}
-      { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && <History user_data={user_data} customer_id={customer_id} focus_ref={ref} code={user_data.referral_code} Set_Referral_code={Set_Referral_code}/>}
+      customer_id={customer_id} user_data={user_data}brand={brand}/>}
+      {!showHistory && < PhoneNumberSection customer_id={customer_id} brand={brand}/> }
+      {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} brand={brand}/>}
+      { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 
+      <History user_data={user_data} customer_id={customer_id} focus_ref={ref} 
+      code={user_data.referral_code} Set_Referral_code={Set_Referral_code} brand={brand}/>}
     </div> : 
       <Loader/>
       }
