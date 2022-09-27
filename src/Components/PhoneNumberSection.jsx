@@ -98,11 +98,11 @@ const PhoneNumberSection = ({customer_id}) => {
   const phone_number_check = () => {
     if (phoneNumber) {
       if (
-        number.length == 10 &&
-        (number.startsWith("6") ||
-          number.startsWith("7") ||
-          number.startsWith("8") ||
-          number.startsWith("9"))
+        phoneNumber.length == 10 &&
+        (phoneNumber.startsWith("6") ||
+          phoneNumber.startsWith("7") ||
+          phoneNumber.startsWith("8") ||
+          phoneNumber.startsWith("9"))
       )
         return true;
     }
