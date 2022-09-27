@@ -11,7 +11,7 @@ import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
 
-const PhoneNumberSection = ({customer_id,cashName}) => {
+const PhoneNumberSection = ({customer_id}) => {
   const [phoneNumber,Set_phoneNumber] = useState('');
   const [modalOpen,Set_modalOpen] = useState(false);
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
@@ -34,7 +34,8 @@ const PhoneNumberSection = ({customer_id,cashName}) => {
 
     try {
       const response  = await axios(config);
-      const changed_phone_number = response.data.customer.phone?.slice(3) 
+      const changed_phone_number = response.data.customer.phone?.slice(3);
+      console.log(changed_phone_number,'phone number');
       Set_customerPhoneNumber(changed_phone_number);
       Set_loading(false);
       return response;

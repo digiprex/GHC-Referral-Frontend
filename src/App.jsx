@@ -35,9 +35,9 @@ const scrollToVouchers = () => {
 const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
-    //  customer_id:"6411445371092",
+     customer_id:"6411445371092",
     // "customer_id":"5874011242688",
-    customer_id: document.getElementById("shopify-customer-id")?.value
+    // customer_id: document.getElementById("shopify-customer-id")?.value
   }
   const config = {
       method: 'post',
@@ -52,7 +52,6 @@ const getEarningsData = async () => {
     Set_body(response.data);
     let amazon_vouchers_total_sum = 0;
     let pending_rewards_sum = 0;
-    const earnings_rewards_array= []; 
     const pending_rewards =  response.data.body.ledger.filter((x) => x.status == 'pending' && x.type == "credit")
     const pending_rewards_values = pending_rewards.map((x) => x.value);
     if (pending_rewards_values.length){
@@ -111,14 +110,13 @@ const getEarningsData = async () => {
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
+    Set_customer_id("6411445371092");
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
-    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
-    // Set_customer_id("6411445371092"); 
+    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6414055473364");
-    // Set_customer_id("5874011242688") 
+    // Set_customer_id("5874011242688");
    
-    // 5874011242688
-  getEarningsData()
+  getEarningsData();
   },[])
 
   return (
@@ -129,7 +127,7 @@ const getEarningsData = async () => {
       cashName={cashName}/>}
       {!showHistory && <WalletCards getNewData={getNewData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}cashName={cashName}/>}
-      {!showHistory && < PhoneNumberSection customer_id={customer_id} cashName={cashName}/> }
+      {!showHistory && < PhoneNumberSection customer_id={customer_id} /> }
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 
       <History user_data={user_data} customer_id={customer_id} focus_ref={ref} 
