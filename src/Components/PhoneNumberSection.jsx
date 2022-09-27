@@ -69,7 +69,7 @@ const PhoneNumberSection = ({customer_id}) => {
       method: 'put',
       url: `${process.env.REACT_APP_STORE_URL}/admin/api/2022-01/customers/${customer_id}.json`,
       headers: { 
-        'X-Shopify-Access-Token': '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', 
+        'X-Shopify-Access-Token': process.env.REACT_APP_STORE_ACCESS_TOKEN, 
         'Content-Type': 'application/json', 
       },
       data : data
