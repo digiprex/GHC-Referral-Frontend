@@ -133,11 +133,11 @@ const PhoneNumberSection = ({customer_id}) => {
 
   return (
     <>
-    { customer_id &&
+    { true &&
     <div>
-    { !loading ? 
+    { true ? 
     <div>
-     { !customerPhoneNumber ?  
+     { true ?  
     <div className='phone-number-section'>
       <div className='section-header'>
           Almost there!
@@ -185,6 +185,7 @@ const PhoneNumberSection = ({customer_id}) => {
         >
         <PhoneNumberPopup 
         phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
+        phone_number_check={phone_number_check}
         // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
         />
       </Modal>

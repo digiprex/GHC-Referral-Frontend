@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/PhoneNumberPopup.css'
-const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNumber}) => {
+const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNumber,phone_number_check}) => {
   return (
     <>
       <div className="phone-number-popup-div">
@@ -18,7 +18,7 @@ const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNu
         </div>
         <div className='phone-number-submit-div'>
           <button onClick={(event) => changePhoneNumber(event,true)} disabled={phoneNumber?.length != 10}
-          className={ ` phone-number-popup ${(phoneNumber?.length == 10)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
+          className={ ` phone-number-popup ${(phone_number_check())? 'phone-number-submit-correct': 'phone-number-submit' }`}>
             Submit
           </button>
         </div>
