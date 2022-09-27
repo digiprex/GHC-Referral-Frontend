@@ -67,7 +67,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     let config = {
       method: 'put',
-      url: 'https://prex-prex-prex.myshopify.com/admin/api/2022-01/customers/6411445371092.json',
+      url: `${process.env.REACT_APP_STORE_URL}/admin/api/2022-01/customers/${customer_id}.json`,
       headers: { 
         'X-Shopify-Access-Token': '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', 
         'Content-Type': 'application/json', 
