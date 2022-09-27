@@ -35,9 +35,9 @@ const scrollToVouchers = () => {
 const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
-     customer_id:"6411445371092",
+    //  customer_id:"6411445371092",
     // "customer_id":"5874011242688",
-    // customer_id: document.getElementById("shopify-customer-id")?.value
+    customer_id: document.getElementById("shopify-customer-id")?.value
   }
   const config = {
       method: 'post',
@@ -110,9 +110,9 @@ const getEarningsData = async () => {
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    Set_customer_id("6411445371092");
+    // Set_customer_id("6411445371092");
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
-    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6414055473364");
     // Set_customer_id("5874011242688");
    
