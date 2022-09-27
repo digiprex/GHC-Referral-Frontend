@@ -16,10 +16,12 @@ const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNu
             maxLength="10" onKeyDown={isValidInput}
             autoComplete='off'/>
         </div>
-        <button onClick={(event) => changePhoneNumber(event,true)} disabled={phoneNumber?.length != 10}
-        className={ ` phone-number-popup ${(phoneNumber?.length == 10)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
-          Submit
-        </button>
+        <div className='phone-number-submit-div'>
+          <button onClick={(event) => changePhoneNumber(event,true)} disabled={phoneNumber?.length != 10}
+          className={ ` phone-number-popup ${(phoneNumber?.length == 10)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
+            Submit
+          </button>
+        </div>
       </div>
     </>
   )
