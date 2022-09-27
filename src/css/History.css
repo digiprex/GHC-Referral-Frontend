@@ -382,6 +382,10 @@
     font-size: 18px;
     text-align: center;
   }
+
+  .amazon-coupon-on-way{
+    margin-left: 2%;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
@@ -416,5 +420,9 @@
 
   .mobile-history-header{
     display: none;
+  }
+
+  .amazon-coupon-on-way{
+    margin-left: 2%;
   }
 }
