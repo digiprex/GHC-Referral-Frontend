@@ -16,7 +16,7 @@ import axios from "axios";
 import constants from "../lib/constants";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data, customer_id,handleClick,getNewData }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,getNewData }) {
   const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
@@ -136,7 +136,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
               modal: 'custom-modal-success',
           }}
         >
-          <SuccessPopup closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} handleClick={handleClick}/>
+          <SuccessPopup closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} scrollToVouchers={scrollToVouchers}/>
         </Modal>
     </>
   );

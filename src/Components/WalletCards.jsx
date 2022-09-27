@@ -7,7 +7,7 @@ import discountIcon from "../images/discount.png";
 import pic from "../images/WalletCardImage.jpg";
 import constants from "../lib/constants";
 
-export default function WalletCards({ showHistory, user_data, customer_id,handleClick,getNewData }) {
+export default function WalletCards({ showHistory, user_data, customer_id,scrollToVouchers,getNewData }) {
   return (
     <>
       { customer_id && (user_data.number_of_pending_referrals || user_data.lifetime) ? <div className="walletCardsContainer">
@@ -32,7 +32,7 @@ export default function WalletCards({ showHistory, user_data, customer_id,handle
           </div> : null}
         </div>
         <div className="coinBalanceCardContainer container-dash-border">
-          <CoinBalanceCard getNewData={getNewData} handleClick={handleClick} user_data={user_data} showHistory={showHistory}customer_id={customer_id} />
+          <CoinBalanceCard getNewData={getNewData} scrollToVouchers={scrollToVouchers} user_data={user_data} showHistory={showHistory}customer_id={customer_id} />
         </div>
       </div> : null }
     </>

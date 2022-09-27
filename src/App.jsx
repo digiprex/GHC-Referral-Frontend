@@ -26,7 +26,7 @@ const App = () => {
     "rewards_list":[],
     "referral_code":""
 })
-const handleClick = () => {
+const scrollToVouchers = () => {
   ref.current?.scrollIntoView({behavior: 'smooth'});
   // ref.current?.scrollIntoView();
 };
@@ -122,7 +122,7 @@ const getNewData = () => {}
     { body ? <div className="main-container">
       {showHistory && <BackNavigator hideHistory={toggleHistoryFalse} />}
       {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}/>}
-      {!showHistory && <WalletCards getNewData={getNewData} handleClick={handleClick} showHistory={toggleHistoryTrue}  
+      {!showHistory && <WalletCards getNewData={getNewData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}/>}
       {!showHistory && < PhoneNumberSection customer_id={customer_id}/> }
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data}/>}

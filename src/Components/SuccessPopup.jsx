@@ -5,13 +5,13 @@ import "../css/Success.css";
 import Confetti from 'react-confetti';
 import constants from "../lib/constants";
 
-export default function SuccessPopup({close_SuccessPopup,handleClick}) {
+export default function SuccessPopup({close_SuccessPopup,scrollToVouchers}) {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const focusOnVouchers = () => {
     close_SuccessPopup();
     document.getElementById("history").click()
-    handleClick();
+    scrollToVouchers();
     document.getElementById("vouchers").click()
   }
   return (
