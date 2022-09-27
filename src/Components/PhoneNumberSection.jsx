@@ -30,6 +30,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
+      console.log(response.data,'resp data');
       const changed_phone_number = response.data.customer.phone?.slice(3);
       console.log(changed_phone_number,'phone number');
       Set_customerPhoneNumber(changed_phone_number);
