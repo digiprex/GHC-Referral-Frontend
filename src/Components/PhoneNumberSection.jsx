@@ -30,9 +30,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      console.log(response.data,'resp data');
       const changed_phone_number = response.data.customer.phone?.slice(3);
-      console.log(changed_phone_number,'phone number');
       Set_customerPhoneNumber(changed_phone_number);
       Set_loading(false);
       return response;
@@ -54,7 +52,7 @@ const PhoneNumberSection = ({customer_id}) => {
     Set_mobileModal(false);
   }
 
-  const changePhoneNumber = async (evetm,from_popup) => {
+  const changePhoneNumber = async (event,from_popup) => {
     Set_mobileModal(false);
     Set_modalOpen(false);
     Set_loading(true);
@@ -84,6 +82,7 @@ const PhoneNumberSection = ({customer_id}) => {
         Set_successModal(true);
       }
     } catch(error) {
+      Set_loading(false);
       console.log(error);
     }
   }
