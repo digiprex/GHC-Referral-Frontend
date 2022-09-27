@@ -188,6 +188,14 @@
         width: 68%;
         border-radius: 15px;
     }
+
+    .phone-number-submit{
+        cursor: not-allowed;
+    }
+
+    .phone-number-submit-correct{
+        cursor: pointer;
+    }
 }
 
 @media only screen and (max-width: 900px){
