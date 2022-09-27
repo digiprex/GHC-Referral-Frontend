@@ -34,6 +34,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
+      console.log(response,'response data');
       Set_customerPhoneNumber(response.data);
       Set_loading(false);
       return response;
@@ -76,6 +77,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response = await axios(config);
+      console.log(response.data,'resp data');
       Set_customerPhoneNumber(response.data);
       Set_loading(false);
       if(!from_popup){
