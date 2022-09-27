@@ -34,7 +34,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      Set_customerPhoneNumber(response);
+      Set_customerPhoneNumber(response.data);
       Set_loading(false);
       return response;
     } catch(error) {
@@ -76,7 +76,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response = await axios(config);
-      Set_customerPhoneNumber(response);
+      Set_customerPhoneNumber(response.data);
       Set_loading(false);
       if(!from_popup){
         Set_successModal(true);
