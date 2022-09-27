@@ -18,6 +18,7 @@ const App = () => {
   const ref = useRef(null);
   const [showHistory,setShowHistory] = useState(false)
   const [customer_id,Set_customer_id] = useState("");
+  const [brand,Set_brand]= useState('');
   const [user_data,Set_user_data] = useState({
     "balance":"",
     "lifetime":"",
@@ -105,7 +106,7 @@ const getNewData = () => {}
       "--border",
       process.env.REACT_APP_COLOR_BORDER
     );
-    const brand = process.env.REACT_APP_BRAND;
+    Set_brand(process.env.REACT_APP_BRAND);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")

@@ -120,7 +120,9 @@ const PhoneNumberSection = ({customer_id}) => {
 
   return (
     <>
-    {/* { !loading ?  */}
+    { customer_id &&
+    <div>
+    { !loading ? 
     <div>
      { !customerPhoneNumber ?  
     <div className='phone-number-section'>
@@ -156,8 +158,9 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
     </div> }
     </div> 
-    {/* : <Loader/>  */}
-      {/* } */}
+    : <Loader/> 
+      }
+      </div> }
     <Modal
           center
           open={modalOpen}
