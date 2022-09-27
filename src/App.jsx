@@ -144,7 +144,7 @@ const getEarningsData = async () => {
       cashName={cashName}/>}
       {!showHistory && <WalletCards getNewData={getNewData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}cashName={cashName}/>}
-      {!showHistory && !user_data.lifetime && <CashInfo/>}
+      {!showHistory && !user_data.lifetime && <CashInfo cashName={cashName}/>}
       {!showHistory && < PhoneNumberSection customer_id={customer_id} /> }
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 

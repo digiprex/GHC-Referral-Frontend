@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./LoginPopup";
 import { Modal } from "react-responsive-modal";
-import cashPic from '../images/mcash.png'
+import cashPic from '../images/mcash.png';
 import "../css/howItWorksCards.css";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import ProgressBarComp from "./ProgressBar";

@@ -1,7 +1,8 @@
 import React from 'react';
 import "../css/howItWorksCards.css";
+import cashPic from '../images/mcash.png';
 
-const CashInfo = () => {
+const CashInfo = ({cashName}) => {
   return (
     <div className='mcash-balance-nil-mobile'>
         <div className="mcash-balance-nil">
