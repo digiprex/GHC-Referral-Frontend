@@ -23,28 +23,28 @@ export default function VouchersCard({item,code,pending}) {
                 <img className='fire' src={pic} alt="" />
                 <div className='historyContentCard'>
                     <div className='historyContent2'>
-                        <div className='left-section'>
-                            { !pending ? <div className='amazon-coupon'>
-                                <div className='copy-coupon-image'>
-                                    <img className='copy-border' src={coupinPic} alt="Hello" />
-                                    <div className='copy-coupon-code'>
-                                        {item.voucher_code}
-                                    </div>
-                                </div>
-                            </div> :  
-                            <div className='amazon-coupon'>
-                                Amazon voucher coming your way
+                    { !pending ? <div className='left-section'>
+                        <div className='amazon-coupon'>
+                        <div className='copy-coupon-image'>
+                            <img className='copy-border' src={coupinPic} alt="Hello" />
+                            <div className='copy-coupon-code'>
+                                {item.voucher_code}
                             </div>
-                                }
-
                         </div>
+                        </div>
+                        </div> :
+                        <div className='amazon-coupon-on-way'>
+                            Amazon voucher coming your way
+                        </div>
+                    }
+
                         <div className='right-section'>
-                        { !pending ? <div className='copy-coupon'>
+                        { !pending && <div className='copy-coupon'>
                                 <button id={`${item.id}`} className={`copy-coupon-button ${clicked? "copy-green" : ""}`} onClick={(e) => copyToClipBoard(e,item.voucher_code)}>
                                     <img className='coupon-pic' src={copyPic} alt="" />
                                     Copy code
                                 </button>
-                            </div> : null }
+                            </div> }
                         </div>
                     </div>
                     { !pending ? <div className='coupon-description'>

@@ -184,6 +184,7 @@
 
     .historyDate{
         font-size: 11px;
+        margin-top: 0.5%;
     }
 
     .copy-coupon{
@@ -199,7 +200,7 @@
     .coupon-description{
         font-weight: 600;
         font-size: 10px;
-        margin-top: 5%;
+        margin-top: 2%;
     }
 
     .coupon-status{
@@ -252,6 +253,7 @@
     }
 
     .fire {
+        margin-top: 3%;
         width: 20px;
         height: 20px;
     }
@@ -269,6 +271,12 @@
         margin-left: -6%;
         width: 171px;
         height: 37px;
+    }
+
+    .amazon-coupon-on-way{
+        margin-top: 3%;
+        margin-left: 3%;
+        font-size: 12px;
     }
 }
 
