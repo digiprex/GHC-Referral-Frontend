@@ -34,8 +34,8 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      const changes_phone_number = response.data.customer.phone?.slice(3) 
-      Set_customerPhoneNumber(changes_phone_number);
+      const changed_phone_number = response.data.customer.phone?.slice(3) 
+      Set_customerPhoneNumber(changed_phone_number);
       Set_loading(false);
       return response;
     } catch(error) {
@@ -79,7 +79,8 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response = await axios(config);
-      Set_customerPhoneNumber(response.data.customer.phone);
+      const changed_phone_number = response.data.customer.phone?.slice(3) 
+      Set_customerPhoneNumber(changed_phone_number);
       Set_loading(false);
       if(!from_popup){
         Set_successModal(true);
@@ -91,10 +92,6 @@ const PhoneNumberSection = ({customer_id}) => {
   useEffect(()=>{
     getPhoneNumber();
   },[])
-
-  // useEffect(()=>{
-  //   getPhoneNumber();
-  // },[customerPhoneNumber]);
 
   const SetPhoneNumber = (e) =>{
     Set_phoneNumber(e.target.value)
