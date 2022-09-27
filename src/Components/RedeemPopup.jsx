@@ -54,37 +54,37 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
    }
 
   const redeemCoins = async () => {
-    // const data = {
-    //   customer_id: customer_id,
-    //   redeem: redeemAmount,
-    // };
-    // const config = {
-    //   method: "post",
-    //   url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   data: data,
-    // };
+    const data = {
+      customer_id: customer_id,
+      redeem: redeemAmount,
+    };
+    const config = {
+      method: "post",
+      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-    // await axios(config)
-    // .then((response) => {
-    //     closeDesktopModal();
-    //     closeMobileModal();
-    //     open_SuccessPopup();
-    //     // getNewData();
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
+    await axios(config)
+    .then((response) => {
+        closeDesktopModal();
+        closeMobileModal();
+        open_SuccessPopup();
+        // getNewData();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-    setTimeout(()=>{
-      closeDesktopModal();
-      closeMobileModal();
-      open_SuccessPopup();
-      // getNewData();
+    // setTimeout(()=>{
+    //   closeDesktopModal();
+    //   closeMobileModal();
+    //   open_SuccessPopup();
+    //   // getNewData();
 
-    },3000)
+    // },3000)
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
@@ -170,7 +170,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
             </span>
             </div> 
           </div>
-        </div>
         <div className="progressBar">
           <LinearProgress
             color="success"
@@ -186,6 +185,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
         >
           {constants.WALLET_REDEEM_NOW_BUTTON_TEXT}
         </button>
+        </div>
       </Container>
     </>
   );

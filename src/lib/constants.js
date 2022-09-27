@@ -40,7 +40,7 @@
 
     exports.REDEEM_POPUP_HEADER_TEXT='Redeem credits';
     exports.REDEEM_POPUP_SUB_HEADING_TEXT='You can only redeem in multiples of 500';
-    exports.REDEEM_POPUP_BALANCE_TEXT='Balance=';
+    exports.REDEEM_POPUP_BALANCE_TEXT='Balance';
     exports.REDEEM_POPUP_ERROR_TEXT='Enter a value less than the current balance ';
     exports.REDEEM_POPUP_MCASH_CREDITS='sCash credits';
     exports.REDEEM_POPUP='';
