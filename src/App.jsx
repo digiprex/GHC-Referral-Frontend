@@ -9,6 +9,7 @@ import WalletCards from "./Components/WalletCards";
 import BackNavigator from "./Components/BackNavigator";
 import Loader from "./Components/Loader";
 import PhoneNumberSection from "./Components/PhoneNumberSection";
+import CashInfo from "./Components/CashInfo";
 //css
 import "./App.css";
 
@@ -143,6 +144,7 @@ const getEarningsData = async () => {
       cashName={cashName}/>}
       {!showHistory && <WalletCards getNewData={getNewData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}cashName={cashName}/>}
+      {!showHistory && !user_data.lifetime && <CashInfo/>}
       {!showHistory && < PhoneNumberSection customer_id={customer_id} /> }
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 

@@ -183,7 +183,8 @@
     display: none;
   }
 
-  .how-it-works-container {
+  .mcash-balance-nil-mobile{
+    display: none;
   }
 
 }
