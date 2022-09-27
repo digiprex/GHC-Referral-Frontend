@@ -20,10 +20,6 @@ const PhoneNumberSection = ({customer_id}) => {
   const [mobileModal,Set_mobileModal] = useState(false);
  
   const getPhoneNumber = async () => {
-    const data = {
-      customer_id: customer_id
-    }
-
     let config = {
       method: 'get',
       url: `${process.env.REACT_APP_STORE_URL}/admin/api/2022-01/customers/${customer_id}.json`,
