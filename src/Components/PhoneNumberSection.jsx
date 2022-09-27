@@ -20,22 +20,26 @@ const PhoneNumberSection = ({customer_id}) => {
   const [mobileModal,Set_mobileModal] = useState(false);
  
   const getPhoneNumber = async () => {
+    let data = JSON.stringify({
+      "customer": customer_id,
+  });
     let config = {
-      method: 'get',
-      url: `${process.env.REACT_APP_STORE_URL}/admin/api/2022-01/customers/${customer_id}.json`,
+      method: 'post',
+      url: `${process.env.REACT_APP_SHOPIFY_DATA_URL}/shopify-user/getData`,
       headers: { 
-        'X-Shopify-Access-Token': process.env.REACT_APP_STORE_ACCESS_TOKEN
-      }
+        'Content-Type': 'application/json', 
+      },
+      data : data
     };
 
     try {
       const response  = await axios(config);
-      const changed_phone_number = response.data.customer.phone?.slice(3);
-      Set_customerPhoneNumber(changed_phone_number);
+      Set_customerPhoneNumber(response);
       Set_loading(false);
       return response;
     } catch(error) {
       console.log(error);
+      Set_loading(false);
       return null;
     }
   }
@@ -57,17 +61,14 @@ const PhoneNumberSection = ({customer_id}) => {
     Set_modalOpen(false);
     Set_loading(true);
     let data = JSON.stringify({
-      "customer": {
-        "id": customer_id,
+        "customer": customer_id,
         "phone": phoneNumber
-      }
     });
 
     let config = {
-      method: 'put',
-      url: `${process.env.REACT_APP_STORE_URL}/admin/api/2022-01/customers/${customer_id}.json`,
+      method: 'post',
+      url: `${process.env.REACT_APP_SHOPIFY_DATA_URL}/shopify-user/updateData`,
       headers: { 
-        'X-Shopify-Access-Token': process.env.REACT_APP_STORE_ACCESS_TOKEN, 
         'Content-Type': 'application/json', 
       },
       data : data
@@ -75,8 +76,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response = await axios(config);
-      const changed_phone_number = response.data.customer.phone?.slice(3) 
-      Set_customerPhoneNumber(changed_phone_number);
+      Set_customerPhoneNumber(response);
       Set_loading(false);
       if(!from_popup){
         Set_successModal(true);
