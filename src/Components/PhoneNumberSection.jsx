@@ -95,6 +95,19 @@ const PhoneNumberSection = ({customer_id}) => {
     window.innerWidth > 900 ? Set_modalOpen(true) : Set_mobileModal(true);
   }
   
+  const phone_number_check = () => {
+    if (phoneNumber) {
+      if (
+        number.length == 10 &&
+        (number.startsWith("6") ||
+          number.startsWith("7") ||
+          number.startsWith("8") ||
+          number.startsWith("9"))
+      )
+        return true;
+    }
+  };
+
   const isValidInput = (e) => {
     if (e.keyCode === 13) {
       document.getElementById("phone-number-submit").click();
@@ -140,7 +153,7 @@ const PhoneNumberSection = ({customer_id}) => {
            maxLength="10" onKeyDown={isValidInput}
            autoComplete='off'/>
         </div>
-          <button id="phone-number-submit" onClick={changePhoneNumber} disabled={phoneNumber?.length != 10} className={`${(phoneNumber?.length == 10)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
+          <button id="phone-number-submit" onClick={changePhoneNumber} disabled={phoneNumber?.length != 10} className={`${(phone_number_check())? 'phone-number-submit-correct': 'phone-number-submit' }`}>
             Submit
           </button>
       </div>

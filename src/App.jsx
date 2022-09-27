@@ -106,6 +106,22 @@ const getEarningsData = async () => {
       "--border",
       process.env.REACT_APP_COLOR_BORDER
     );
+    document.documentElement.style.setProperty(
+      "--hover",
+      process.env.REACT_APP_COLOR_HOVER
+    );
+    document.documentElement.style.setProperty(
+      "--color-light",
+      process.env.REACT_APP_COLOR_LIGHT
+    );
+    document.documentElement.style.setProperty(
+      "--color-normal",
+      process.env.REACT_APP_COLOR_NORMAL
+    );
+    document.documentElement.style.setProperty(
+      "--color-dark",
+      process.env.REACT_APP_COLOR_DARK
+    );
     const cashNameFromEnv = process.env.REACT_APP_BRAND == 'Saturn' ? 'sCash' : 'mCash';
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
