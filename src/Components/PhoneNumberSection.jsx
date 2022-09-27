@@ -63,7 +63,7 @@ const PhoneNumberSection = ({customer_id}) => {
     Set_loading(true);
     let data = JSON.stringify({
         "customer": customer_id,
-        "phone": phoneNumber
+        "phoneNumber": phoneNumber
     });
 
     let config = {
