@@ -176,6 +176,14 @@
   .reward-img{
     max-width: 50px !important;
   }
+
+  .mcash-balance-desktop{
+    display: none;
+  }
+
+  .mcash-balance-nil-mobile{
+    padding: 4% 8%;
+  }
 }
 
 @media only screen and (min-width: 600px) {

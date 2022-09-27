@@ -46,13 +46,16 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
               img_4="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/skin-4.png?v=1655109040"
               text={'hey'}
         /> */}
-        { customer_id  && !user_data.lifetime ? <div className="mcash-balance-nil">
-          <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt=""
-          className="reward-img" srcset="" /> </span> {cashName} Balance</div>
-          <div className="mcash-content">
-            You will be able to see your {cashName} balance when your referrals place
-            an order using your code. Come back later to check.{" "}
-          </div> 
+        { customer_id  && !user_data.lifetime ? 
+        <div className="mcash-balance-desktop">
+          <div className="mcash-balance-nil">
+            <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt=""
+            className="reward-img" srcset="" /> </span> {cashName} Balance</div>
+            <div className="mcash-content">
+              You will be able to see your {cashName} balance when your referrals place
+              an order using your code. Come back later to check.{" "}
+            </div> 
+          </div>
         </div> : null}
         <div className="how-content-div">
           <div className="how-content">
