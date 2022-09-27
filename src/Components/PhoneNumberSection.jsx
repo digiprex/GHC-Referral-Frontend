@@ -105,6 +105,9 @@ const PhoneNumberSection = ({customer_id}) => {
           phoneNumber.startsWith("9"))
       )
         return true;
+        else {
+          return false;
+        }
     }
   };
 
