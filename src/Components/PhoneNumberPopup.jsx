@@ -17,8 +17,8 @@ const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNu
             autoComplete='off'/>
         </div>
         <div className='phone-number-submit-div'>
-          <button onClick={(event) => changePhoneNumber(event,true)} disabled={!phone_number_check}
-          className={ ` phone-number-popup ${(phone_number_check)? 'phone-number-submit-correct': 'phone-number-submit' }`}>
+          <button onClick={(event) => changePhoneNumber(event,true)} disabled={!phone_number_check()}
+          className={ ` phone-number-popup ${(phone_number_check())? 'phone-number-submit-correct': 'phone-number-submit' }`}>
             Submit
           </button>
         </div>
