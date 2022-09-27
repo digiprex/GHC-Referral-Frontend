@@ -1,9 +1,10 @@
 import React from 'react'
-
+import '../css/PhoneNumberPopup.css'
 const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNumber}) => {
+  const mobileOrTab = window.innerWidth <= 900;
   return (
     <>
-      <div className='phone-number-popup-div'>
+      <div className={`${ mobileOrTab ? "phone-number-popup-div":""}`}>
         <div className='phone-number-popup-heading'>
           Change phone number
         </div>

@@ -104,11 +104,6 @@
     font-size: 20px;
 }
 
-.custom-modal-phone-number {
-    width: 33%;
-    height: 33%;
-    padding: 2% 3%;
-}
 
 .phone-number-popup-heading {
     color: #333333;
@@ -181,12 +176,48 @@
     }
 
     .phone-number-submit, .phone-number-submit-correct{
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .custom-modal-success-phone-number{
         height: 29%;
         width: 68%;
         border-radius: 15px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .phone-number-popup-div{
+        height: 170px
+    }
+
+    .phone-number-popup-heading{
+        font-size: 17px;
+        margin-left: 8%;
+    }
+
+    .phone-number-submit-div{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .input-phone-popup{
+        margin: 3% auto 6% auto;
+        width: 87%;
+    }
+
+    .input-phone-text{
+        background-color: #f6f6f6;
+        font-size: 16px !important;
+    }
+
+}
+
+
+@media only screen and (min-width:900px) {
+    .custom-modal-phone-number {
+        width: 33%;
+        height: 33%;
+        padding: 2% 3%;
     }
 }
