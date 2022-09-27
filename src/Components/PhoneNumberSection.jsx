@@ -133,11 +133,11 @@ const PhoneNumberSection = ({customer_id}) => {
 
   return (
     <>
-    { customer_id &&
+    { true &&
     <div>
-    { !loading ? 
+    { true ? 
     <div>
-     { !customerPhoneNumber ?  
+     { false ?  
     <div className='phone-number-section'>
       <div className='section-header'>
           Almost there!

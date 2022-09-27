@@ -1,6 +1,21 @@
 import React from 'react'
 import '../css/PhoneNumberPopup.css'
-const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNumber,phone_number_check}) => {
+const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNumber}) => {
+  const phone_number_check = () => {
+    if (phoneNumber) {
+      if (
+        phoneNumber.length == 10 &&
+        (phoneNumber.startsWith("6") ||
+          phoneNumber.startsWith("7") ||
+          phoneNumber.startsWith("8") ||
+          phoneNumber.startsWith("9"))
+      )
+        return true;
+        else {
+          return false;
+        }
+    }
+  };
   return (
     <>
       <div className="phone-number-popup-div">
