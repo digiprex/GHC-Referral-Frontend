@@ -72,26 +72,26 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       data: data,
     };
 
-    // await axios(config)
-    // .then((response) => {
-    //     closeDesktopModal();
-    //     closeMobileModal();
-    //     setData(response);
-    //     setLoadingFalse();
-    //     open_SuccessPopup();
-    // })
-    // .catch((error) => {
-    //   Set_loading(false);
-    //   console.log(error);
-    // });
+    await axios(config)
+    .then((response) => {
+        closeDesktopModal();
+        closeMobileModal();
+        setData(response);
+        setLoadingFalse();
+        open_SuccessPopup();
+    })
+    .catch((error) => {
+      Set_loading(false);
+      console.log(error);
+    });
 
-    setTimeout(()=>{
-      closeDesktopModal();
-      closeMobileModal();
-      open_SuccessPopup();
-      setLoadingFalse();
-      // setData();
-    },3000)
+    // setTimeout(()=>{
+    //   closeDesktopModal();
+    //   closeMobileModal();
+    //   open_SuccessPopup();
+    //   setLoadingFalse();
+    //   // setData();
+    // },3000)
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0
