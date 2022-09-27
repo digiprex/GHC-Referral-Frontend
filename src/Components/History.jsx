@@ -63,7 +63,7 @@ const History = ({user_data, customer_id,focus_ref,Set_Referral_code}) => {
                 <img src={live} className='live-img' alt="" srcset="" />
            </div>
            <div className="live-div-content">
-               <span className="green-text"> {user_data.coins_on_way} MCash Credits</span> are on your way!
+               <span className="green-text"> {user_data.coins_on_way} sCash Credits</span> are on your way!
            </div>
         </div>
         <div className="history-referral-content">

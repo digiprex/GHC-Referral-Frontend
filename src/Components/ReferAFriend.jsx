@@ -51,7 +51,7 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }
           console.log("Successfully shared");
         })
         .catch((error) => {
-          console.error("Something went wrong", error);
+          console.error(error);
         });
       }
     } else {
@@ -61,7 +61,6 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory }
 
   useEffect(() => {
     SetIsMobile(window.innerWidth > 480 ? true : false);
-    // Set_customer_id(customer_Id)
     const data = {
       customer_id: customer_id,
     };

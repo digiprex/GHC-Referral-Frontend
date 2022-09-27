@@ -72,15 +72,19 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
     //     closeDesktopModal();
     //     closeMobileModal();
     //     open_SuccessPopup();
-    //     getNewData();
+    //     // getNewData();
     // })
     // .catch((error) => {
     //   console.log(error);
     // });
-    closeDesktopModal();
-    closeMobileModal();
-    open_SuccessPopup();
-    // getNewData();
+
+    setTimeout(()=>{
+      closeDesktopModal();
+      closeMobileModal();
+      open_SuccessPopup();
+      // getNewData();
+
+    },3000)
   };
   useEffect(() => {
     const progress_value = ((parseInt(user_data.balance % 500) / 500 )*100) || 0

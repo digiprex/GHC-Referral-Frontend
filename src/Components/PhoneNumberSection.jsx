@@ -89,36 +89,38 @@ const PhoneNumberSection = ({customer_id}) => {
       console.log(error);
     }
   }
-  useEffect(()=>{
-    getPhoneNumber();
-  },[])
-
+  
   const SetPhoneNumber = (e) =>{
     Set_phoneNumber(e.target.value)
   }
-
+  
   const changeNumber = () => {
     window.innerWidth > 900 ? Set_modalOpen(true) : Set_mobileModal(true);
   }
-
+  
   const isValidInput = (e) => {
     if (e.keyCode === 13) {
       document.getElementById("phone-number-submit").click();
     }
-
+    
     let x = e.which || e.keyCode;
     return (x >= 48 && x <= 57) ||
-        x === 8 ||
-        (x >= 35 && x <= 40) ||
-        x === 46 ||
-        (x >= 96 && x <= 105) ||
-        x === 9
-        ? null
-        : e.preventDefault();
+    x === 8 ||
+    (x >= 35 && x <= 40) ||
+    x === 46 ||
+    (x >= 96 && x <= 105) ||
+    x === 9
+    ? null
+    : e.preventDefault();
   }
+  
+  useEffect(()=>{
+    getPhoneNumber();
+  },[]);
+
   return (
     <>
-    {/* { !loading ?  */}
+    { !loading ? 
     <div>
      { !customerPhoneNumber ?  
     <div className='phone-number-section'>
@@ -154,8 +156,8 @@ const PhoneNumberSection = ({customer_id}) => {
       </div>
     </div> }
     </div> 
-    {/* // : <Loader/> */}
-      {/* // }  */}
+    : <Loader/> 
+      }
     <Modal
           center
           open={modalOpen}

@@ -53,8 +53,6 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,ha
     Set_successPopup(false);
   } 
 
-  useEffect(() => {}, []);
-
   return (
     <>
       <div className="coinBalanceHeading">

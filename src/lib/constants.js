@@ -26,13 +26,13 @@
 
     // Wallet - Left section
 
-    exports.WALLET_MCash_CREDTIS_ON_WAY_TEXT='sCash credits are on the way';
+    exports.WALLET_MCASH_CREDTIS_ON_WAY_TEXT='sCash credits are on the way';
     exports.WALLET_VOUCHERS_ON_WAY_TEXT='You earned Amazon vouchers worth ';
 
     // Wallet -right section
-    exports.WALLET_MCash_CREDIT_BALANCE_HEADING_TEXT_MOBILE='sCash Balance';
+    exports.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_MOBILE='sCash Balance';
     exports.WALLET_HISTORY_ICON_TEXT='History';
-    exports.WALLET_MCash_CREDIT_BALANCE_HEADING_TEXT_DESKTOP='sCash Balance';
+    exports.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_DESKTOP='sCash Balance';
     exports.WALLET_LIFETIME_EARNINGS_TEXT='Lifetime earnings';
     exports.WALLET_REDEEM_NOW_BUTTON_TEXT='Redeem Now';
 
@@ -42,14 +42,14 @@
     exports.REDEEM_POPUP_SUB_HEADING_TEXT='You can only redeem in multiples of 500';
     exports.REDEEM_POPUP_BALANCE_TEXT='Balance=';
     exports.REDEEM_POPUP_ERROR_TEXT='Enter a value less than the current balance ';
-    exports.REDEEM_POPUP_MCash_CREDITS='sCash credits';
+    exports.REDEEM_POPUP_MCASH_CREDITS='sCash credits';
     exports.REDEEM_POPUP='';
     exports.REDEEM_POPUP='';
 
     //No sCash popup
 
-    exports.NO_MCash_POPUP_HEADING_TEXT="You don’t have enough sCash";
-    exports.NO_MCash_POPUP_SUB_HEADING_TEXT='You need atleast 500 sCash credits to redeem. Refer more to earn more';
+    exports.NO_MCASH_POPUP_HEADING_TEXT="You don’t have enough sCash";
+    exports.NO_MCASH_POPUP_SUB_HEADING_TEXT='You need atleast 500 sCash credits to redeem. Refer more to earn more';
 
     //Success popup
 
@@ -61,7 +61,7 @@
     // History section
 
     exports.HISTORY_SECTION_HEADER_TEXT='History';
-    exports.HISTORY_MCash_CREDIT_ON_THE_WAY='sCash Credits will be added once your referral receives their order';
+    exports.HISTORY_MCASH_CREDIT_ON_THE_WAY='sCash Credits will be added once your referral receives their order';
     exports.HISTORY_EARNINGS_BUTTON_TEXT='Earnings';
     exports.HISTORY_VOUCHERS_BUTTON_TEXT='My Vouchers';
     exports.HISTORY_NO_EARNINGS_TEXT='You have no Earnings yet.';
