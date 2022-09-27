@@ -16,7 +16,7 @@ import axios from "axios";
 import constants from "../lib/constants";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,getNewData }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,getNewData,cashName }) {
   const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
@@ -56,7 +56,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
   return (
     <>
       <div className="coinBalanceHeading">
-        {constants.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_MOBILE}
+        {cashName} Balance:
         <div className="history" id="history" onClick={() => showHistory()}>
           <img
             style={{ marginRight: "5px", height: "10px" }}
@@ -74,7 +74,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
         />
         <div className="coinBalanceRightSection">
           <div style={{ flex: 1 }} className="earnings-div">
-            <div className="headerCard">{constants.WALLET_MCASH_CREDIT_BALANCE_HEADING_TEXT_DESKTOP}</div>
+            <div className="headerCard">{cashName} Balance</div>
             <div className="coinBalanceDiv">
               <div className="coinBalance">{user_data.balance}</div>
             </div>
@@ -102,7 +102,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
         </button>
         <BottomSheet open={open} onDismiss={closeMobileModal}>
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal} 
-          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} getNewData={getNewData}/>
+          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} getNewData={getNewData} cashName={cashName}/>
         </BottomSheet>
         <Modal
           center
@@ -113,7 +113,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
           }}
         >
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal}
-          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} getNewData={getNewData}/>
+          closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} getNewData={getNewData} cashName={cashName}/>
         </Modal>
         <Modal
           center
@@ -124,7 +124,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
               modal: 'custom-modal-no-mcash',
           }}
         >
-          <NoMcashPopUp closeNoMcashPopUp={closeNoMcashPopUp} code={user_data.referral_code}/>
+          <NoMcashPopUp closeNoMcashPopUp={closeNoMcashPopUp} code={user_data.referral_code} cashName={cashName}/>
         </Modal>
       </div>
       <Modal

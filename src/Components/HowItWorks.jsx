@@ -7,7 +7,7 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import ProgressBarComp from "./ProgressBar";
 import { useState } from "react";
 
-const HowItWorks = ({customer_id,user_data}) => {
+const HowItWorks = ({customer_id,user_data,cashName}) => {
   const [open, setOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const openDesktopModal = () => {
@@ -34,7 +34,7 @@ const HowItWorks = ({customer_id,user_data}) => {
           Refer and Earn
         </div>
         <div className="mobile-how-it-works-sub-heading">
-          For every Friend you refer, you get 100 Mcash credits for their future purchases.
+          For every Friend you refer, you get 100 {cashName} credits for their future purchases.
           Redeem credits for Amazon gift vouchers.
         </div>
         <div className="how-heading">How it works</div>
@@ -48,9 +48,9 @@ const HowItWorks = ({customer_id,user_data}) => {
         /> */}
         { customer_id  && !user_data.lifetime ? <div className="mcash-balance-nil">
           <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt=""
-          className="reward-img" srcset="" /> </span> MCash Balance</div>
+          className="reward-img" srcset="" /> </span> {cashName} Balance</div>
           <div className="mcash-content">
-            You will be able to see your MCash balance when your referrals place
+            You will be able to see your {cashName} balance when your referrals place
             an order using your code. Come back later to check.{" "}
           </div> 
         </div> : null}
@@ -97,9 +97,9 @@ const HowItWorks = ({customer_id,user_data}) => {
               />
             </div>
             <div className="how-sub-div">
-              <div className="img-content">Earn Mcash</div>
+              <div className="img-content">Earn {cashName}</div>
               <div className="img-sub-content">
-                You earn 100 Mcash credits once the order gets delivered.
+                You earn 100 {cashName} credits once the order gets delivered.
               </div>
             </div>
           </div>
@@ -113,9 +113,9 @@ const HowItWorks = ({customer_id,user_data}) => {
               />
             </div>
             <div className="how-sub-div">
-              <div className="img-content">Redeem Mcash</div>
+              <div className="img-content">Redeem {cashName}</div>
               <div className="img-sub-content">
-                Redeem Mcash for Amazon gift vouchers.{" "}
+                Redeem {cashName} for Amazon gift vouchers.{" "}
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@ const HowItWorks = ({customer_id,user_data}) => {
         </div> : null}
       </div>
       <BottomSheet open={open} onDismiss={closeMobileModal}>
-        <Login />
+        <Login cashName={cashName}/>
       </BottomSheet>
       <Modal
         center
@@ -148,7 +148,7 @@ const HowItWorks = ({customer_id,user_data}) => {
           modal:'custom-modal'
         }}
       >
-        <Login />
+        <Login cashName={cashName}/>
       </Modal>
     </>
   );

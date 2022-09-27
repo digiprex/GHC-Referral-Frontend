@@ -11,7 +11,7 @@ import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
 
-const PhoneNumberSection = ({customer_id}) => {
+const PhoneNumberSection = ({customer_id,cashName}) => {
   const [phoneNumber,Set_phoneNumber] = useState('');
   const [modalOpen,Set_modalOpen] = useState(false);
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');

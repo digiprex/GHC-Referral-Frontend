@@ -6,7 +6,7 @@ import sharePic from '../images/share.png';
 import "../css/NoMcashPopUp.css";
 import "../css/referAndEarn.css";
 
-export default function NoMcashPopUp({closeNoMcashPopUp,code}) {
+export default function NoMcashPopUp({closeNoMcashPopUp,code,cashName}) {
   const share = () => {
       if (navigator.share) {
         navigator
@@ -31,8 +31,8 @@ export default function NoMcashPopUp({closeNoMcashPopUp,code}) {
           <div className="alert-image">
             <img src={alertImage} alt="" srcset="" />
           </div>
-          <div className="modal-Header">{constants.NO_MCASH_POPUP_HEADING_TEXT}</div>
-          <div className="login-modal-content-mcash">{constants.NO_MCASH_POPUP_SUB_HEADING_TEXT}</div>
+          <div className="modal-Header">You don’t have enough {cashName}</div>
+          <div className="login-modal-content-mcash">You need atleast 500 {cashName} credits to redeem. Refer more to earn more</div>
           <div className={`referFriend-in-nomcash `} href="#referFriend" onClick={() => {closeNoMcashPopUp(); share()}}> 
               {/* <div className="share-img-div">
               </div> */}

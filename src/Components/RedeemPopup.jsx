@@ -16,7 +16,8 @@ import LinearProgress from "@mui/material/LinearProgress";
 import React, { Component } from "react";
 import axios from "axios";
 
-export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,closeMobileModal,close_SuccessPopup,getNewData }) {
+export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,
+  closeMobileModal,close_SuccessPopup,getNewData,cashName }) {
   const [redeemAmount, setRedeemAmount] = useState(500);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
@@ -152,7 +153,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
             <div className="saveContent">
               <img src={share_saturn} alt="" style={{}} />
               <span className="save-content-text">
-                100 Mcash credits for every referral order
+                100 {cashName} credits for every referral order
               </span> 
             </div>
             <div className="saveContent bottom">

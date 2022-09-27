@@ -2,7 +2,7 @@ import "../css/referAndEarn.css";
 import constants from '../lib/constants';
 import ReferAFriend from "./ReferAFriend.jsx";
 
-export default function ReferAndEarn({customer_id,Set_Referral_code,brand}) {
+export default function ReferAndEarn({customer_id,Set_Referral_code,cashName}) {
   return (
     <div className="referContainer">
       <div className="content">
@@ -10,7 +10,7 @@ export default function ReferAndEarn({customer_id,Set_Referral_code,brand}) {
         <div className="top-heading">{constants.BANNER_SUB_HEADING}</div>
         <div className="bottom-div-heading ">
           <div className="bottom-div-content" id="top">
-            {constants.BANNER_TOP_CONTENT}
+            For every Friend you refer,you get 100 {cashName} credits for their future purchases
           </div>
           <div className="bottom-div-content" id="bottom">
             {constants.BANNER_BOTTOM_CONTENT}
@@ -23,7 +23,7 @@ export default function ReferAndEarn({customer_id,Set_Referral_code,brand}) {
           />
         </div>
       </div>
-      <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code} brand={brand}/>
+      <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code} cashName={cashName}/>
     </div>
   );
 }

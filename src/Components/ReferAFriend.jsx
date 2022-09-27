@@ -11,7 +11,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import axios from "axios";
 
-export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,brand}) {
+export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,cashName}) {
   const [isMobile, SetIsMobile] = useState(false);
   const [clicked, Set_clicked] = useState(false);
   const [referral_code, Set_referral_code] = useState("");
@@ -55,7 +55,7 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,b
         });
       }
     } else {
-      openDesktopModal()
+        openDesktopModal()
     }
 }
 
@@ -133,7 +133,7 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,b
         </div>
       </div>
       <BottomSheet open={open} onDismiss={closeMobileModal}>
-        <Login />
+        <Login cashName={cashName}/>
       </BottomSheet>
       <Modal
         center
@@ -144,7 +144,7 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,b
           modal:'custom-modal'
         }}
       >
-        <Login />
+        <Login cashName={cashName}/>
       </Modal>
     </>
   );

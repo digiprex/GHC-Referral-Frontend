@@ -12,7 +12,7 @@ import { Modal } from "react-responsive-modal";
 import "../css/History.css";
 import "../css/referAFriend.css";
 
-const History = ({user_data, customer_id,focus_ref,Set_Referral_code}) => {
+const History = ({user_data, customer_id,focus_ref,Set_Referral_code,cashName}) => {
     const [buttonsState,setButtonState] = useState({
         earningsButtonColor: "white",
         earningsButtonTextColor:"#8D5468",

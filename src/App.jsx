@@ -18,7 +18,7 @@ const App = () => {
   const ref = useRef(null);
   const [showHistory,setShowHistory] = useState(false)
   const [customer_id,Set_customer_id] = useState("");
-  const [brand,Set_brand]= useState('');
+  const [cashName,Set_cashName]= useState('');
   const [user_data,Set_user_data] = useState({
     "balance":"",
     "lifetime":"",
@@ -77,19 +77,20 @@ const getEarningsData = async () => {
           "referral_code":'',
           // "pending_amazon_vouchers": []
       });
-  }).catch((error)=>{
-      Set_body(true);
-      console.log(error,'error');
-  })
-}
-
-
-const Set_Referral_code = (code) => {
-  Set_user_data((prevState) => {
-    return {...prevState, 
-      "referral_code": code} 
+    }).catch((error)=>{
+        Set_body(true);
+        console.log(error,'error');
     })
   }
+
+
+  const Set_Referral_code = (code) => {
+    Set_user_data((prevState) => {
+      return {...prevState, 
+        "referral_code": code} 
+      })
+  }
+
   const toggleHistoryTrue = () => {
     setShowHistory(true);
   }
@@ -97,8 +98,8 @@ const Set_Referral_code = (code) => {
   const toggleHistoryFalse = () => {
     setShowHistory(false);
   } 
-  
-const getNewData = () => {}
+    
+  const getNewData = () => {}
 
   useEffect(()=>{
   
@@ -106,7 +107,8 @@ const getNewData = () => {}
       "--border",
       process.env.REACT_APP_COLOR_BORDER
     );
-    Set_brand(process.env.REACT_APP_BRAND);
+    const cashNameFromEnv = process.env.REACT_APP_BRAND == 'Saturn' ? 'sCash' : 'mCash';
+    Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
@@ -124,14 +126,14 @@ const getNewData = () => {}
     { body ? <div className="main-container">
       {showHistory && <BackNavigator hideHistory={toggleHistoryFalse} />}
       {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}
-      brand={brand}/>}
+      cashName={cashName}/>}
       {!showHistory && <WalletCards getNewData={getNewData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
-      customer_id={customer_id} user_data={user_data}brand={brand}/>}
-      {!showHistory && < PhoneNumberSection customer_id={customer_id} brand={brand}/> }
-      {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} brand={brand}/>}
+      customer_id={customer_id} user_data={user_data}cashName={cashName}/>}
+      {!showHistory && < PhoneNumberSection customer_id={customer_id} cashName={cashName}/> }
+      {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 
       <History user_data={user_data} customer_id={customer_id} focus_ref={ref} 
-      code={user_data.referral_code} Set_Referral_code={Set_Referral_code} brand={brand}/>}
+      code={user_data.referral_code} Set_Referral_code={Set_Referral_code} cashName={cashName}/>}
     </div> : 
       <Loader/>
       }
