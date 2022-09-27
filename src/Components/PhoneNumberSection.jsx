@@ -92,9 +92,9 @@ const PhoneNumberSection = ({customer_id}) => {
     getPhoneNumber();
   },[])
 
-  useEffect(()=>{
-    getPhoneNumber();
-  },[customerPhoneNumber]);
+  // useEffect(()=>{
+  //   getPhoneNumber();
+  // },[customerPhoneNumber]);
 
   const SetPhoneNumber = (e) =>{
     Set_phoneNumber(e.target.value)

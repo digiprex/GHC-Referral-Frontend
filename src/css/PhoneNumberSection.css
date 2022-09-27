@@ -122,6 +122,10 @@
     margin: 4% 0%;
 }
 
+.phone-number{
+    margin-left: 1%;
+}
+
 @media only screen and (max-width: 600px){
     .phone-number-section .sub-heading{
         margin-right: 3%;
