@@ -333,7 +333,6 @@
   }
 
   .history-container {
-    height: 700px;
   }
 
   .live-div {
@@ -366,6 +365,12 @@
   .amazon-coupon-on-way{
     margin-left: 2%;
   }
+
+  .history-earnings-div{
+    height: 500px;
+    overflow: scroll;
+  }
+ 
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {
@@ -405,4 +410,10 @@
   .amazon-coupon-on-way{
     margin-left: 2%;
   }
+
+  .history-earnings-div{
+    height: 500px;
+    overflow: scroll;
+  }
+
 }
