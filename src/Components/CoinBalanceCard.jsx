@@ -100,7 +100,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
       </div>
       <div className="lifetime-earnings">
         <span className="earnings">{constants.WALLET_LIFETIME_EARNINGS_TEXT}</span>
-        <span className="amount">&#8377;{user_data.lifetime}</span>
+        <span className="amount">{user_data.lifetime}</span>
       </div>
       <div className="button-container">
         <button
