@@ -22,7 +22,7 @@ const PhoneNumberSection = ({customer_id}) => {
   const getPhoneNumber = async () => {
     let data = JSON.stringify({
       "customer": customer_id,
-  });
+    });
     let config = {
       method: 'post',
       url: `${process.env.REACT_APP_SHOPIFY_DATA_URL}/shopify-user/getData`,
@@ -34,8 +34,11 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response  = await axios(config);
-      console.log(response,'response data');
-      Set_customerPhoneNumber(response.data);
+      if(response.data){
+        Set_customerPhoneNumber(response.data);
+      } else {
+        Set_customerPhoneNumber(document.getElementById('shopify-customer-phone').value)
+      }
       Set_loading(false);
       return response;
     } catch(error) {
@@ -77,7 +80,6 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response = await axios(config);
-      console.log(response.data,'resp data');
       Set_customerPhoneNumber(response.data);
       Set_loading(false);
       if(!from_popup){
