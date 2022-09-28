@@ -35,7 +35,7 @@ const PhoneNumberSection = ({customer_id}) => {
     try {
       const response  = await axios(config);
       if(response.data){
-        console.log(resposne.data,'metafields phone number');
+        console.log(response.data,'metafields phone number');
         Set_customerPhoneNumber(response.data);
       } else {
         const required_phone_number = document.getElementById('shopify-customer-phone').value.slice(3);
