@@ -20,26 +20,24 @@ const PhoneNumberSection = ({customer_id}) => {
   const [mobileModal,Set_mobileModal] = useState(false);
  
   const getPhoneNumber = async () => {
-    let data = JSON.stringify({
-      "customer": customer_id,
-    });
-    let config = {
-      method: 'post',
-      url: `${process.env.REACT_APP_SHOPIFY_DATA_URL}/shopify-user/getData`,
-      headers: { 
-        'Content-Type': 'application/json', 
-      },
-      data : data
-    };
+    // let data = JSON.stringify({
+    //   "customer": customer_id,
+    // });
+    // let config = {
+    //   method: 'post',
+    //   url: `${process.env.REACT_APP_SHOPIFY_DATA_URL}/shopify-user/getData`,
+    //   headers: { 
+    //     'Content-Type': 'application/json', 
+    //   },
+    //   data : data
+    // };
 
     try {
-      const response  = await axios(config);
-      if(response.data){
-        console.log(response.data,'metafields phone number');
-        Set_customerPhoneNumber(response.data);
+      // const response  = await axios(config);
+      if(document.getElementById('shopify-customer').value){
+        Set_customerPhoneNumber(document.getElementById('shopify-customer').value);
       } else {
-        const required_phone_number = document.getElementById('shopify-customer-phone').value.slice(3);
-        console.log(required_phone_number,'req phone number');
+        const required_phone_number = document.getElementById('shopify-customer-phone')?.value?.slice(3);
         Set_customerPhoneNumber(required_phone_number)
       }
       Set_loading(false);
