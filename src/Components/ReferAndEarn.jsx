@@ -10,7 +10,7 @@ export default function ReferAndEarn({customer_id,Set_Referral_code,cashName}) {
         <div className="top-heading">{constants.BANNER_SUB_HEADING}</div>
         <div className="bottom-div-heading ">
           <div className="bottom-div-content" id="top">
-            For every Friend you refer,you get 100 {cashName} credits for their future purchases
+            For every friend you refer,you get 100 {cashName} credits for their future purchases.
           </div>
           <div className="bottom-div-content" id="bottom">
             {constants.BANNER_BOTTOM_CONTENT}

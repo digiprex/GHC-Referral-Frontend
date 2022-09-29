@@ -26,6 +26,9 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
     setOpen(false);
   };
 
+  const redirectToShopifyHome = () => {
+    window.location.href = process.env.REACT_APP_LOGIN_REDIRECT_URL;
+  }
 
   return (
     <>
@@ -131,7 +134,7 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
             <button
               className="how-login-button"
               onClick={
-                openDesktopModal
+                () => redirectToShopifyHome()
               }
             >
               Log In

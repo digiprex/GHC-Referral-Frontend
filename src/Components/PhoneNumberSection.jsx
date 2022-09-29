@@ -20,20 +20,7 @@ const PhoneNumberSection = ({customer_id}) => {
   const [mobileModal,Set_mobileModal] = useState(false);
  
   const getPhoneNumber = async () => {
-    // let data = JSON.stringify({
-    //   "customer": customer_id,
-    // });
-    // let config = {
-    //   method: 'post',
-    //   url: `${process.env.REACT_APP_SHOPIFY_DATA_URL}/shopify-user/getData`,
-    //   headers: { 
-    //     'Content-Type': 'application/json', 
-    //   },
-    //   data : data
-    // };
-
     try {
-      // const response  = await axios(config);
       if(document.getElementById('shopify-customer').value){
         Set_customerPhoneNumber(document.getElementById('shopify-customer').value);
       } else {
@@ -41,7 +28,6 @@ const PhoneNumberSection = ({customer_id}) => {
         Set_customerPhoneNumber(required_phone_number)
       }
       Set_loading(false);
-      return response;
     } catch(error) {
       console.log(error);
       Set_loading(false);

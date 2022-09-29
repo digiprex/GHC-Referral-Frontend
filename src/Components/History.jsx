@@ -53,6 +53,9 @@ const History = ({user_data, customer_id,focus_ref,Set_Referral_code,cashName}) 
           vouchers: true
       })
   }
+  const redirectToShopifyHome = () => {
+    window.location.href = process.env.REACT_APP_LOGIN_REDIRECT_URL;
+  }
   return (
     <>
      { customer_id && (user_data.number_of_pending_referrals || user_data.lifetime)?  <div className="history-container">
