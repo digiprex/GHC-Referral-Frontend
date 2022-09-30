@@ -67,7 +67,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
     };
     const config = {
       method: "post",
-      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeem`,
+      url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeemMcash`,
       headers: {
         "Content-Type": "application/json",
       },
