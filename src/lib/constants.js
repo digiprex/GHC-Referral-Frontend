@@ -12,7 +12,7 @@
 
     // Banner constants
 
-    exports.BANNER_HEADER = 'Wellness is rewarding';
+    exports.BANNER_HEADER = 'Wellness is rewarding.';
     exports.BANNER_SUB_HEADING= '#GiftWellness';
     exports.BANNER_TOP_CONTENT='For every Friend you refer,you get 100 sCash credits for their future purchases.';
     exports.BANNER_BOTTOM_CONTENT='Redeem credits for Amazon Gift Vouchers.';

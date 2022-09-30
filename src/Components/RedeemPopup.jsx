@@ -17,11 +17,13 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,
-  closeMobileModal,close_SuccessPopup,getNewData,cashName }) {
+  closeMobileModal,close_SuccessPopup,setData,cashName,setLoadingFalse,setLoadingTrue,customerPhoneNumber }) {
   const [redeemAmount, setRedeemAmount] = useState(500);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
   const [friend_to_refer_for_redemption,Set_friend_to_refer_for_redemption] = useState(0);
+  const [loading,Set_loading]= useState(false);
+
   const mcash_for_redeem_pending = (user_data.balance%500);
   const can_redeem = (user_data/500);
   const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
@@ -55,9 +57,13 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
    }
 
   const redeemCoins = async () => {
+    setLoadingTrue();
     const data = {
       customer_id: customer_id,
       redeem: redeemAmount,
+      brand: process.env.REACT_APP_BRAND,
+      phone: customerPhoneNumber,
+      email: document.getElementById('shopify-customer-email').value
     };
     const config = {
       method: "post",
@@ -72,10 +78,12 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
     .then((response) => {
         closeDesktopModal();
         closeMobileModal();
+        setData(response);
+        setLoadingFalse();
         open_SuccessPopup();
-        // getNewData();
     })
     .catch((error) => {
+      Set_loading(false);
       console.log(error);
     });
 
@@ -83,8 +91,8 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
     //   closeDesktopModal();
     //   closeMobileModal();
     //   open_SuccessPopup();
-    //   // getNewData();
-
+    //   setLoadingFalse();
+    //   // setData();
     // },3000)
   };
   useEffect(() => {
@@ -93,7 +101,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   }, []);
   return (
     <>
-      <Container>
+       <Container>
         <div className="modalContainer">
           <div className="headerContent">
             <div className="modalHeader">{constants.REDEEM_POPUP_HEADER_TEXT}</div>
@@ -186,8 +194,8 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
         >
           {constants.WALLET_REDEEM_NOW_BUTTON_TEXT}
         </button>
-        </div>
-      </Container>
+        </div> 
+      </Container> 
     </>
   );
 }

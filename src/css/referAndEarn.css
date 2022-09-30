@@ -1,6 +1,6 @@
 .referContainer {
   overflow: auto;
-  background: var(--backgroundGradient);
+  background: var(--color-gradient);
   border-radius: 16px;
   position: relative;
   margin: 5% 5% 0 5% ;
