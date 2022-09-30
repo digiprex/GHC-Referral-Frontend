@@ -4,7 +4,6 @@ import pic from "../images/mcash.png";
 import constants from "../lib/constants";
 import minus from "../images/minus.png";
 import plus from "../images/plus.png";
-import Loader from './Loader';
 import saturnMinus from "../images/saturn-minus.png";
 import saturnPlus from "../images/saturn-plus.png";
 import share from "../images/small-share.png";
@@ -99,7 +98,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   }, []);
   return (
     <>
-       {/* { !loading ?  */}
        <Container>
         <div className="modalContainer">
           <div className="headerContent">
@@ -195,7 +193,6 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
         </button>
         </div> 
       </Container> 
-      {/* : <Loader/>}  */}
     </>
   );
 }
