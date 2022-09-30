@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/PhoneNumberPopup.css'
-const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNumber}) => {
+const PhoneNumberPopup = ({phoneNumber,SetPhoneNumberTemp,isValidInput,changePhoneNumber}) => {
   const phone_number_check = () => {
     if (phoneNumber) {
       if (
@@ -24,7 +24,7 @@ const PhoneNumberPopup = ({phoneNumber,SetPhoneNumber,isValidInput,changePhoneNu
         </div>
         <div className='input-phone-popup'>
           <input type="text" className='input-phone-text' value={phoneNumber}
-            onChange={SetPhoneNumber} 
+            onChange={SetPhoneNumberTemp} 
             placeholder="Enter your phone number" inputMode="numeric"
             pattern="[1-9]{1}[0-9]{5}"
             minLength="10"

@@ -14,7 +14,6 @@ import '../css/PhoneNumberSection.css';
 const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) => {
   const [phoneNumber,Set_phoneNumber] = useState('');
   const [modalOpen,Set_modalOpen] = useState(false);
-  const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
   const [loading,Set_loading] = useState(true);
   const [successModal,Set_successModal] = useState(false);
   const [mobileModal,Set_mobileModal] = useState(false);
@@ -78,7 +77,7 @@ const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) =>
     }
   }
   
-  const SetPhoneNumber = (e) =>{
+  const SetPhoneNumberTemp = (e) =>{
     Set_phoneNumber(e.target.value)
   }
   
@@ -175,7 +174,7 @@ const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) =>
           }}
         >
         <PhoneNumberPopup 
-        phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
+        phoneNumber={phoneNumber} SetPhoneNumberTemp={SetPhoneNumberTemp} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
         phone_number_check={phone_number_check}
         // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
         />
@@ -193,7 +192,7 @@ const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) =>
       </Modal>
       <BottomSheet open={mobileModal} onDismiss={closeMobileModal}>
         <PhoneNumberPopup 
-          phoneNumber={phoneNumber} SetPhoneNumber={SetPhoneNumber} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
+          phoneNumber={phoneNumber} SetPhoneNumberTemp={SetPhoneNumberTemp} isValidInput={isValidInput} changePhoneNumber={changePhoneNumber}
           // closeDesktopModal={closeDesktopModal} close_SuccessPopup={close_SuccessPopup} 
           />
       </BottomSheet>

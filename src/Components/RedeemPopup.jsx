@@ -63,7 +63,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       redeem: redeemAmount,
       brand: process.env.REACT_APP_BRAND,
       phone: customerPhoneNumber,
-      email: document.getElementById('shopify-customer_email').value
+      email: document.getElementById('shopify-customer-email').value
     };
     const config = {
       method: "post",

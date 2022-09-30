@@ -132,6 +132,10 @@ const getEarningsData = async () => {
       "--color-dark",
       process.env.REACT_APP_COLOR_DARK
     );
+    document.documentElement.style.setProperty(
+      "--color-gradient",
+      process.env.REACT_APP_COLOR_GRADIENT
+    );
     const cashNameFromEnv = process.env.REACT_APP_BRAND == 'Saturn' ? 'sCash' : 'mCash';
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
