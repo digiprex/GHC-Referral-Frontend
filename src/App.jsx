@@ -27,7 +27,12 @@ const App = () => {
     "total_earnings":"",
     "rewards_list":[],
     "referral_code":""
-})
+});
+const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
+
+const SetPhoneNumber = (phone) => {
+  Set_customerPhoneNumber(phone);
+}
 const scrollToVouchers = () => {
   ref.current?.scrollIntoView({behavior: 'smooth'});
   // ref.current?.scrollIntoView();
@@ -147,9 +152,9 @@ const getEarningsData = async () => {
       {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}
       cashName={cashName}/>}
       {!showHistory && <WalletCards setData={setData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
-      customer_id={customer_id} user_data={user_data}cashName={cashName}/>}
+      customer_id={customer_id} user_data={user_data}cashName={cashName} customerPhoneNumber={customerPhoneNumber}/>}
       {!showHistory && !user_data.lifetime && <CashInfo cashName={cashName}/>}
-      {!showHistory && < PhoneNumberSection customer_id={customer_id} /> }
+      {!showHistory && < PhoneNumberSection customer_id={customer_id} customerPhoneNumber={customerPhoneNumber} SetPhoneNumber={SetPhoneNumber}/> }
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 
       <History user_data={user_data} customer_id={customer_id} focus_ref={ref} 

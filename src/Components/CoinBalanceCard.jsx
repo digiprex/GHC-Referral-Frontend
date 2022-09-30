@@ -17,7 +17,7 @@ import constants from "../lib/constants";
 import Loader from "./Loader";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,setData,cashName }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,setData,cashName,customerPhoneNumber }) {
   const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
@@ -114,7 +114,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
         <BottomSheet open={open} onDismiss={closeMobileModal}>
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal} 
           closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} setData={setData} cashName={cashName} setLoadingFalse={setLoadingFalse}
-          setLoadingTrue={setLoadingTrue}/>
+          setLoadingTrue={setLoadingTrue} customerPhoneNumber={customerPhoneNumber}/>
         </BottomSheet>
         <Modal
           center
@@ -126,7 +126,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
         >
           <RedeemPopup user_data={user_data} customer_id={customer_id} open_SuccessPopup={open_SuccessPopup} closeDesktopModal={closeDesktopModal}
           closeMobileModal={closeMobileModal} close_SuccessPopup={close_SuccessPopup} setData={setData} cashName={cashName} setLoadingFalse={setLoadingFalse}
-          setLoadingTrue={setLoadingTrue}/>
+          setLoadingTrue={setLoadingTrue} customerPhoneNumber={customerPhoneNumber}/>
         </Modal>
         <Modal
           center

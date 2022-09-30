@@ -11,7 +11,7 @@ import Loader from "./Loader";
 import "react-responsive-modal/styles.css";
 import '../css/PhoneNumberSection.css';
 
-const PhoneNumberSection = ({customer_id}) => {
+const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) => {
   const [phoneNumber,Set_phoneNumber] = useState('');
   const [modalOpen,Set_modalOpen] = useState(false);
   const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
@@ -22,10 +22,10 @@ const PhoneNumberSection = ({customer_id}) => {
   const getPhoneNumber = async () => {
     try {
       if(document.getElementById('shopify-customer').value){
-        Set_customerPhoneNumber(document.getElementById('shopify-customer').value);
+        SetPhoneNumber(document.getElementById('shopify-customer').value);
       } else {
         const required_phone_number = document.getElementById('shopify-customer-phone')?.value?.slice(3);
-        Set_customerPhoneNumber(required_phone_number)
+        SetPhoneNumber(required_phone_number)
       }
       Set_loading(false);
     } catch(error) {
@@ -67,7 +67,7 @@ const PhoneNumberSection = ({customer_id}) => {
 
     try {
       const response = await axios(config);
-      Set_customerPhoneNumber(response.data);
+      SetPhoneNumber(response.data);
       Set_loading(false);
       if(!from_popup){
         Set_successModal(true);

@@ -17,7 +17,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,open_SuccessPopup,
-  closeMobileModal,close_SuccessPopup,setData,cashName,setLoadingFalse,setLoadingTrue }) {
+  closeMobileModal,close_SuccessPopup,setData,cashName,setLoadingFalse,setLoadingTrue,customerPhoneNumber }) {
   const [redeemAmount, setRedeemAmount] = useState(500);
   const [progress_amount, Set_progress_amount] = useState(0);
   const [loading_state,Set_loading_state] = useState(false);
@@ -61,6 +61,9 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
     const data = {
       customer_id: customer_id,
       redeem: redeemAmount,
+      brand: process.env.REACT_APP_BRAND,
+      phone: customerPhoneNumber,
+      email: document.getElementById('shopify-customer_email').value
     };
     const config = {
       method: "post",
