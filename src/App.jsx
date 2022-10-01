@@ -42,8 +42,8 @@ const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
     //  customer_id:"6411445371092",
-    // "customer_id":"6461613637844",
-    customer_id: document.getElementById("shopify-customer-id")?.value
+    "customer_id":"6461613637844",
+    // customer_id: document.getElementById("shopify-customer-id")?.value
   }
   const config = {
       method: 'post',
@@ -65,8 +65,8 @@ const getEarningsData = async () => {
 
 const getReferralCode = async () => {
   const data = {
-    customer_id: document.getElementById("shopify-customer-id")?.value,
-    // "customer_id":"6461613637844"
+    // customer_id: document.getElementById("shopify-customer-id")?.value,
+    "customer_id":"6461613637844"
   };
   const config = {
     method: "post",
@@ -154,8 +154,8 @@ const getReferralCode = async () => {
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    // Set_customer_id("6461613637844");
-    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    Set_customer_id("6461613637844");
+    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6457619448020");
     // Set_customer_id("5874011242688");
 
