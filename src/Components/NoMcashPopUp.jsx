@@ -8,10 +8,11 @@ import "../css/referAndEarn.css";
 import { type } from "@testing-library/user-event/dist/type";
 
 export default function NoMcashPopUp({closeNoMcashPopUp,code,cashName}) {
-  const share = () => {
+  const share = async () => {
       if (navigator.share) {
-        const blob = fetch("https://cdn.shopify.com/s/files/1/0607/6029/3588/files/Whatsapp_referral_image.jpg?v=1664651803");
-        const file = new File([blob],'Whatsapp_referral_image.jpg',{type:"image/jpeg"})
+        const image = await fetch("https://cdn.shopify.com/s/files/1/0607/6029/3588/files/Whatsapp_referral_image.jpg?v=1664651803");
+        const image_blob = await image.blob();
+        const file = new File([image_blob],'Whatsapp_referral_image.jpg',{type:"image/jpeg"})
         navigator
         .share({
           files:[file],
