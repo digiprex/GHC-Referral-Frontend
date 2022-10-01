@@ -89,7 +89,8 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
                     {constants.HISTORY_VOUCHERS_BUTTON_TEXT}
                 </button>
             </div>
-            { user_data?.rewards_list?.length  ? <div className="history-earnings-div">
+            { (user_data?.rewards_list?.length && buttonsState.earnings )  ? 
+            <div className="history-earnings-div">
             {buttonsState.earnings && user_data.rewards_list.map((item,key)=> (
                 <EarningsCard key={key} item={item} />
                 ))} 
@@ -108,7 +109,8 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
                 <ReferAFriend customer_id={customer_id} inHistory={true} referral_code={referral_code}/>
             </div>
             }
-            { (user_data?.pending_amazon_vouchers?.length || user_data?.vouchers_array?.length) ? <div className="history-earnings-div">
+            { ((user_data?.pending_amazon_vouchers?.length || user_data?.vouchers_array?.length) && buttonsState.vouchers)? 
+            <div className="history-earnings-div">
                 {buttonsState.vouchers && user_data.pending_amazon_vouchers.map((item,key)=> (
                     <VouchersCard key={key} item={item} pending="true"/>  
                 ))}
