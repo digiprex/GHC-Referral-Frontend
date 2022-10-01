@@ -11,10 +11,8 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import axios from "axios";
 
-export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,cashName}) {
-  const [isMobile, SetIsMobile] = useState(false);
+export default function ReferAFriend({ customer_id,inHistory,cashName,referral_code}) {
   const [clicked, Set_clicked] = useState(false);
-  const [referral_code, Set_referral_code] = useState("");
   const [open, setOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const openDesktopModal = () => {
@@ -32,10 +30,6 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,c
   const closeMobileModal = () => {
     setOpen(false);
   };
-
-  const getShareText = (code) => {
-    return 
-  }
 
   const share = () => {
     if(customer_id) {
@@ -59,39 +53,12 @@ export default function ReferAFriend({ customer_id,Set_Referral_code,inHistory,c
     }
 }
 
-  useEffect(() => {
-    SetIsMobile(window.innerWidth > 480 ? true : false);
-    const data = {
-      customer_id: customer_id,
-    };
-    const getReferralCode = async () => {
-      const config = {
-        method: "post",
-        url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        customer_id: customer_id,
-        data: data
-      };
-      await axios(config)
-        .then((response) => {
-          Set_referral_code(response.data.body.referral_code);
-          Set_Referral_code(response.data.body.referral_code);
-        })
-        .catch((error) => {
-          console.log(error, "error");
-        });
-      config.url = `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/checkBalance`;
-    };
-    getReferralCode();
-  }, [customer_id]);
-
   const copyToClipBoard = (obj) => {
     obj.target.innerHTML = "Copied";
     Set_clicked(true);
     navigator.clipboard.writeText(referral_code);
   };
+
   return (
     <>
       <div className={ `${inHistory? "referAFriendContainer-inHistory": "referAFriendContainer"}`} id="referFriend">

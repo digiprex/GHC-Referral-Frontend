@@ -3,18 +3,19 @@ import constants from "../lib/constants";
 import React, { Component } from "react";
 import alertImage from '../images/alert.png';
 import sharePic from '../images/share.png';
+import whatsapp_referral_share_img from '../images/Whatsapp_referral_image.jpeg';
 import "../css/NoMcashPopUp.css";
 import "../css/referAndEarn.css";
 
 export default function NoMcashPopUp({closeNoMcashPopUp,code,cashName}) {
   const share = () => {
       if (navigator.share) {
+        const file = new File('whatsapp_referral_share_img.jpeg', { type: 'image/jpeg' });
         navigator
         .share({
           title: "Referral",
-          text: `Hey,buddy!\nHere is my Mars by ghc referral code - ${code}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness`,
-          // url: "/",
-          // files:filesArray
+          text: `Hey,buddy!\nHere is my ${process.env.REACT_APP_BRAND} by ghc referral code - ${code}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness`,
+          files:[file]
         })
         .then(() => {
           console.log("Successfully shared");

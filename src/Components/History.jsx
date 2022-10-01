@@ -12,7 +12,7 @@ import { Modal } from "react-responsive-modal";
 import "../css/History.css";
 import "../css/referAFriend.css";
 
-const History = ({user_data, customer_id,focus_ref,Set_Referral_code,cashName}) => {
+const History = ({user_data, customer_id,focus_ref,referral_code}) => {
     const [buttonsState,setButtonState] = useState({
         earningsButtonColor: "white",
         earningsButtonTextColor:"#8D5468",
@@ -105,7 +105,7 @@ const History = ({user_data, customer_id,focus_ref,Set_Referral_code,cashName}) 
                 <div className="no-earnings-header">
                     {constants.HISTORY_REFER_FRIEND_TEXT}
                 </div>
-                <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code} inHistory={true}/>
+                <ReferAFriend customer_id={customer_id} inHistory={true} referral_code={referral_code}/>
             </div>
             }
             { (user_data?.pending_amazon_vouchers?.length || user_data?.vouchers_array?.length) ? <div className="history-earnings-div">
@@ -127,7 +127,7 @@ const History = ({user_data, customer_id,focus_ref,Set_Referral_code,cashName}) 
                 <div className="no-earnings-header">
                     {constants.HISTORY_REFER_FRIEND_TEXT}
                 </div>
-                <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code} inHistory={true}/>
+                <ReferAFriend customer_id={customer_id} inHistory={true} referral_code={referral_code}/>
               </div>
               }
       </div>

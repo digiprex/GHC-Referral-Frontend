@@ -12,7 +12,6 @@ export default function VouchersCard({item,code,pending}) {
     const [clicked,Set_clicked] = useState(false);
     const required_date = `${date.getDate()} ${date.toLocaleString('en-US', {month: 'short'})} ${date.getFullYear()} `
     const copyToClipBoard = (e,code) => {
-           console.log(e.target,'target')
         e.target.innerHTML = "Copied";
         Set_clicked(true);
         navigator.clipboard.writeText(code)

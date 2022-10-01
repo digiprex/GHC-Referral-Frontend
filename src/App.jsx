@@ -26,8 +26,8 @@ const App = () => {
     "coins_on_way":"",
     "total_earnings":"",
     "rewards_list":[],
-    "referral_code":""
 });
+const [referral_code,Set_referral_code] = useState("");
 const [customerPhoneNumber,Set_customerPhoneNumber] = useState('');
 
 const SetPhoneNumber = (phone) => {
@@ -42,7 +42,7 @@ const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
     //  customer_id:"6411445371092",
-    // "customer_id":"6457619448020",
+    // "customer_id":"6461613637844",
     customer_id: document.getElementById("shopify-customer-id")?.value
   }
   const config = {
@@ -55,22 +55,35 @@ const getEarningsData = async () => {
       data : data
   }
    await axios(config).then((response) =>{
-    Set_body(response.data);
-    setData(response);
-    
+      Set_body(true);
+      setData(response);
     }).catch((error)=>{
-        Set_body(true);
-        console.log(error,'error');
+      Set_body(true);
+      console.log(error,'error');
     })
   }
 
-
-  const Set_Referral_code = (code) => {
-    Set_user_data((prevState) => {
-      return {...prevState, 
-        "referral_code": code} 
-      })
-  }
+const getReferralCode = async () => {
+  const data = {
+    customer_id: document.getElementById("shopify-customer-id")?.value,
+    // "customer_id":"6461613637844"
+  };
+  const config = {
+    method: "post",
+    url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/createReferral`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data
+  };
+  await axios(config)
+    .then((response) => {
+      Set_referral_code(response.data.body.referral_code);
+    })
+    .catch((error) => {
+      console.log(error, "error");
+    });
+}
 
   const toggleHistoryTrue = () => {
     setShowHistory(true);
@@ -87,12 +100,11 @@ const getEarningsData = async () => {
     const pending_rewards_values = pending_rewards.map((x) => x.value);
     if (pending_rewards_values.length){
       pending_rewards_sum = pending_rewards_values?.reduce((x,y) => x+y);
-    }
+    };
     const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded')
     const amazon_vouchers_array=response.data.body.ledger.filter((x) => x.voucher_code != "0");
     amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
-    const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")})
-    console.log(response.data.body.lifetime,'lifetime earnings');
+    const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")});
     Set_user_data({
           "balance": response.data.body.balance,
           // "balance": 2000,
@@ -105,8 +117,8 @@ const getEarningsData = async () => {
           // "vouchers_array":[],
           "number_of_pending_referrals":pending_rewards_values.length,
           "pending_amazon_vouchers": pending_amazon_vouchers,
-          "referral_code":'',
-          // "pending_amazon_vouchers": []
+          "referral_code": referral_code,
+          // "pending_amazon_vouchers": [] 
       });
   }
 
@@ -140,21 +152,20 @@ const getEarningsData = async () => {
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    // Set_customer_id("6411445371092");
-    // console.log(showHistory &&  window.innerWidth < 600 ,"test1", window.innerWidth > 600, "test2")
-    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    Set_customer_id("6461613637844");
+    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6457619448020");
     // Set_customer_id("5874011242688");
    
   getEarningsData();
+  getReferralCode();
   },[])
 
   return (
     <>
     { body ? <div className="main-container">
       {showHistory && <BackNavigator hideHistory={toggleHistoryFalse} />}
-      {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} Set_Referral_code={Set_Referral_code}
-      cashName={cashName}/>}
+      {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} cashName={cashName} referral_code={referral_code}/>}
       {!showHistory && <WalletCards setData={setData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}cashName={cashName} customerPhoneNumber={customerPhoneNumber}/>}
       {!showHistory && !user_data.lifetime && <CashInfo cashName={cashName}/>}
@@ -162,7 +173,7 @@ const getEarningsData = async () => {
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 
       <History user_data={user_data} customer_id={customer_id} focus_ref={ref} 
-      code={user_data.referral_code} Set_Referral_code={Set_Referral_code} cashName={cashName}/>}
+      referral_code={referral_code} cashName={cashName}/>}
     </div> : 
       <Loader/>
       }
