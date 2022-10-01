@@ -78,9 +78,11 @@ const getReferralCode = async () => {
   };
   await axios(config)
     .then((response) => {
+      Set_body(true);
       Set_referral_code(response.data.body.referral_code);
     })
     .catch((error) => {
+      Set_body(true);
       console.log(error, "error");
     });
 }
@@ -152,11 +154,12 @@ const getReferralCode = async () => {
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    Set_customer_id("6461613637844");
-    // Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    // Set_customer_id("6461613637844");
+    Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6457619448020");
     // Set_customer_id("5874011242688");
-   
+
+  Set_body(false);
   getEarningsData();
   getReferralCode();
   },[])
