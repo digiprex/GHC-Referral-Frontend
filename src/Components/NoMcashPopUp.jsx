@@ -5,16 +5,18 @@ import alertImage from '../images/alert.png';
 import sharePic from '../images/share.png';
 import "../css/NoMcashPopUp.css";
 import "../css/referAndEarn.css";
+import { type } from "@testing-library/user-event/dist/type";
 
 export default function NoMcashPopUp({closeNoMcashPopUp,code,cashName}) {
   const share = () => {
       if (navigator.share) {
-        const file = new File([],'../images/Whatsapp_referral_image.jpeg', { type: 'image/jpeg' });
+        const blob = fetch("https://cdn.shopify.com/s/files/1/0607/6029/3588/files/Whatsapp_referral_image.jpg?v=1664651803");
+        const file = new File([blob],'Whatsapp_referral_image.jpg',{type:"image/jpeg"})
         navigator
         .share({
+          files:[file],
           title: "Referral",
-          text: `Hey,buddy!\nHere is my ${process.env.REACT_APP_BRAND} by ghc referral code - ${code}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness`,
-          files:[file]
+          text: `Hey,buddy!\nHere is my ${process.env.REACT_APP_BRAND} by ghc referral code - ${code}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness`
         })
         .then(() => {
           console.log("Successfully shared");
