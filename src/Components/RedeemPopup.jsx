@@ -62,9 +62,12 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       customer_id: customer_id,
       redeem: redeemAmount,
       brand: process.env.REACT_APP_BRAND,
-      phone: customerPhoneNumber,
-      email: document.getElementById('shopify-customer-email').value
+      // phone: customerPhoneNumber,
+      // email: document.getElementById('shopify-customer-email').value
+      email:"lava.kumar@digi-prex.com",
+      phone:"8919795483"
     };
+    console.log(data,'red data');
     const config = {
       method: "post",
       url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeemMcash`,
@@ -76,6 +79,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
 
     await axios(config)
     .then((response) => {
+        console.log(response.data,'resp data');
         closeDesktopModal();
         closeMobileModal();
         setData(response);
