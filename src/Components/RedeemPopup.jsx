@@ -62,10 +62,10 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       customer_id: customer_id,
       redeem: redeemAmount,
       brand: process.env.REACT_APP_BRAND,
-      // phone: customerPhoneNumber,
-      // email: document.getElementById('shopify-customer-email').value
-      email:"lava.kumar@digi-prex.com",
-      phone:"8919795483"
+      phone: customerPhoneNumber,
+      email: document.getElementById('shopify-customer-email').value
+      // email:"lava.kumar@digi-prex.com",
+      // phone:"8919795483"
     };
     console.log(data,'red data');
     const config = {
