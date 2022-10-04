@@ -90,8 +90,8 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
                 </button>
             </div>
           </div> : null }
-          { !customer_id &&
           <div className="refer-friend-container">
+          { !customer_id &&
             <div className={`referFriend ${customer_id ? "refer-friend-width-with-customer-id" : 
           "refer-friend-width-no-customer-id"}`} onClick={() => share()}> 
               <div className="referText">
@@ -99,8 +99,8 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
                 {constants.BANNER_REFER_A_FRIEND_TEXT}
                 </div>
             </div>
-          </div>
           }
+          </div>
         </div>
       </div>
       <BottomSheet open={open} onDismiss={closeMobileModal}>
