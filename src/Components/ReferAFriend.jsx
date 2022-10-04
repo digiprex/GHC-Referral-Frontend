@@ -32,6 +32,7 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
   };
 
   const share = async () => {
+    if(customer_id){
     if (navigator.share) {
       const image = await fetch("https://cdn.shopify.com/s/files/1/0607/6029/3588/files/Referral_message.png?v=1664823151");
       const image_blob = await image.blob();
@@ -48,6 +49,9 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
       .catch((error) => {
         console.error("Something went wrong", error);
       });
+    }
+    } else {
+        openDesktopModal();
     }
 }
 
