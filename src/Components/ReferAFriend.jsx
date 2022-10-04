@@ -91,7 +91,7 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
             </div>
           </div> : null }
           <div className="refer-friend-container">
-          { !customer_id &&
+          { (!customer_id || (window.innerWidth < 600) ) && 
             <div className={`referFriend ${customer_id ? "refer-friend-width-with-customer-id" : 
           "refer-friend-width-no-customer-id"}`} onClick={() => share()}> 
               <div className="referText">
