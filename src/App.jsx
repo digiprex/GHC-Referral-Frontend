@@ -132,7 +132,7 @@ const getReferralCode = async () => {
       process.env.REACT_APP_COLOR_BORDER
     );
     document.documentElement.style.setProperty(
-      "--hover",
+      "--color-hover",
       process.env.REACT_APP_COLOR_HOVER
     );
     document.documentElement.style.setProperty(
@@ -151,6 +151,14 @@ const getReferralCode = async () => {
       "--color-gradient",
       process.env.REACT_APP_COLOR_GRADIENT
     );
+    document.documentElement.style.setProperty(
+      "--color-coin",
+      process.env.REACT_APP_COLOR_COIN
+    );
+    document.documentElement.style.setProperty(
+      "--color-progress",
+      process.env.REACT_APP_PROGRESS_BAR
+    );
     const cashNameFromEnv = process.env.REACT_APP_BRAND == 'Saturn' ? 'sCash' : 'mCash';
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
@@ -158,7 +166,7 @@ const getReferralCode = async () => {
     // Set_customer_id("6411445371092");
      Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6457619448020");
-    // Set_customer_id("5874011242688");
+    // Set_customer_id("6461613637844");
 
     Set_body(false);
     getEarningsData();

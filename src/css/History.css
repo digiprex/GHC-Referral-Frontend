@@ -11,10 +11,10 @@
 
 .how-heading {
   text-align: center;
-  background: var(--color-normal);
+  background: var(--color-hover);
   border-radius: 16px 16px 0px 0px;
   padding: 20px 0;
-  color: var(--basic);
+  color: var(--color-dark);
   font-size: 30px;
   letter-spacing: 1px;
 }
@@ -22,13 +22,13 @@
 .history-referral {
   padding: 2% 0%;
   margin: 3% 16%;
-  background: var(--white);
+  background: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
 }
 
 .green-text {
-  color: var(--green)
+  color: #108F57;
 }
 
 .history-referral-header {
@@ -223,7 +223,7 @@
 } 
 
 .no-earnings-header {
-  color: #975169;
+  color: var(--border);
   font-weight: 700;
   text-align: center;
 }
@@ -309,6 +309,7 @@
   
   .no-earnings-header{
     margin: 4% 0;
+    font-size: 12px;
   }
 }
 

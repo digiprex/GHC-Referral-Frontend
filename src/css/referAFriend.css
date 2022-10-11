@@ -67,7 +67,7 @@
 }
 
 .referFriend {
-  background-color: var(--button-color);
+  background-color: var(--color-dark);
   box-sizing: border-box;
   border-radius: 5px;
   text-align: center;
@@ -152,14 +152,14 @@
   .referral-code {
     flex-direction: column;
     /* background: linear-gradient(-90deg, #1469B3 -1.36%, #222E54 77.79%);  */
-    background: var(--backgroundGradient);
+    background: var(--color-gradient);
     margin-right: 0;
   }
 
   .refer-code-header {
     font-size: 15px;
     margin-bottom: 4%;
-    color: var(--basic)
+    color: var(--color-dark)
   }
   
   .coupon {
@@ -222,7 +222,7 @@
 @media only screen and (min-width: 600px) {
   .referAFriendContainer {
     margin-top: 4%;
-    background: var(--backgroundGradient);  
+    background: var(--color-gradient);  
   }
 
   .referAFriendContainer-inHistory {
@@ -237,6 +237,7 @@
   .referral-code-in-history {
     margin-bottom: 3%;
     height: 55px;
+    margin-left: 28%;
 }
 
   .refer-code-header {
