@@ -30,9 +30,9 @@
 
 .redeem {
   /* background: #fe8276; */
-  background-color: var(--button-color);
+  background-color: var(--color-dark);
   box-sizing: border-box;
-  border: 1px solid #975169;
+  border: 1px solid var(--border);
   box-shadow: 0px 4px 10px rgba(151, 81, 105, 0.12);
   border-radius: 5px;
   height: 55px;

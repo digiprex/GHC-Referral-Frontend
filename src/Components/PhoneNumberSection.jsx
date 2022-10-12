@@ -134,7 +134,7 @@ const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) =>
       </div>
       <div className='sub-heading'>
         To continue using your account and for all future updates, please link your phone number.All notifications will be sent via
-        <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS
+        <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS.
       </div>
       <div className='input-section'>
         <div className='input-phone-number'>
@@ -154,7 +154,7 @@ const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) =>
     <div className='phone-number-section'>
       <div className='sub-heading'>
         All the updates will be sent on your registered phone number via 
-        <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS
+        <span className='whatsapp-image-span'> <img src={whatsappPic} className="whatsapp-img" alt="" srcset="" /></span> Whatsapp/SMS.
       </div>
       <div className='phone-number-details-div'>
         <span className='phone-number-text'>Phone Number:</span><span className='phone-number' >{customerPhoneNumber}</span><a className='change-phone-link' onClick={changeNumber} >Change</a>

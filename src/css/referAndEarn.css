@@ -13,7 +13,7 @@
 
 .top-div-heading,.top-heading {
   font-weight: 700;
-  color: var(--basic);
+  color: var(--color-dark);
   max-width: 40%;
   letter-spacing: 1px;
 }
@@ -32,7 +32,7 @@
 .bottom-div-heading {
   font-weight: 200;
   font-size: 20px;
-  color: var(--basic);
+  color: var(--color-dark);
   line-height: 26px;
   margin-top: 1%;
   margin-bottom: 3%;
@@ -90,6 +90,7 @@
 
   .coupon-image-div {
     height: 100px;
+    width: 100px;
     right: 5%;
     top: 5%
   }
@@ -120,6 +121,7 @@
 
   .coupon-image-div {
     height: 200px;
+    width: 230px;
     right: 9%;
     top: 9%;
   }

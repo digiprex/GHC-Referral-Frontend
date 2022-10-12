@@ -2,7 +2,7 @@ import "../css/referAndEarn.css";
 import constants from '../lib/constants';
 import ReferAFriend from "./ReferAFriend.jsx";
 
-export default function ReferAndEarn({customer_id,Set_Referral_code,cashName}) {
+export default function ReferAndEarn({customer_id,cashName,referral_code}) {
   return (
     <div className="referContainer">
       <div className="content">
@@ -23,7 +23,7 @@ export default function ReferAndEarn({customer_id,Set_Referral_code,cashName}) {
           />
         </div>
       </div>
-      <ReferAFriend customer_id={customer_id} Set_Referral_code={Set_Referral_code} cashName={cashName}/>
+      <ReferAFriend customer_id={customer_id} cashName={cashName} referral_code={referral_code} />
     </div>
   );
 }

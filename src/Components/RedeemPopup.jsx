@@ -8,7 +8,8 @@ import saturnMinus from "../images/saturn-minus.png";
 import saturnPlus from "../images/saturn-plus.png";
 import share from "../images/small-share.png";
 import share_saturn from '../images/share-saturn.png';
-import redeem_saturn from '../images/redeem-saturn.png'
+import redeem_saturn from '../images/redeem-saturn.png';
+import redeem_mars from '../images/redeem_mars.png';
 import { Modal } from "react-responsive-modal";
 import next from "../images/next.png";
 import { useEffect, useState } from "react";
@@ -65,6 +66,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       phone: customerPhoneNumber,
       email: document.getElementById('shopify-customer-email').value
     };
+    console.log(data,'red data');
     const config = {
       method: "post",
       url: `${process.env.REACT_APP_REFERRAL_BASE_URL}/referral/redeemMcash`,
@@ -76,6 +78,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
 
     await axios(config)
     .then((response) => {
+        console.log(response.data,'resp data');
         closeDesktopModal();
         closeMobileModal();
         setData(response);
@@ -117,13 +120,13 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           </div>
           <div className="addCoins">
             <div className="minus" onClick={() => decrement()}>
-              <img src={saturnMinus} alt="" />
+              <img src={ process.env.REACT_APP_BRAND == 'Saturn' ? saturnMinus : minus} alt="" />
             </div>
             <div className="addCoinsText">
               <img src={pic} alt="" /> {redeemAmount}
             </div>
             <div className="plus" onClick={() => increment()}>
-              <img src={saturnPlus} alt="" />
+              <img src={process.env.REACT_APP_BRAND == 'Saturn' ? saturnPlus : plus} alt="" />
             </div>
           </div>
           <div id="error-text-redeem">
@@ -159,13 +162,13 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           <div className="earnAndSave">
             <div className="saveHeader">Gift More. Save More.</div>
             <div className="saveContent">
-              <img src={share_saturn} alt="" style={{}} />
+              <img src={process.env.REACT_APP_BRAND == 'Saturn' ?  share_saturn : share} alt="" style={{}} />
               <span className="save-content-text">
                 100 {cashName} credits for every referral order
               </span> 
             </div>
             <div className="saveContent bottom">
-              <img src={redeem_saturn} alt="" style={{}} /> 
+              <img src={process.env.REACT_APP_BRAND == 'Saturn' ? redeem_saturn : redeem_mars} alt="" style={{}} /> 
               <span className="save-content-text">
                 Redeem credits for Amazon gift vouchers
               </span>

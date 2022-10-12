@@ -62,7 +62,7 @@
 }
 
 .referFriend-in-nomcash {
-    background-color: var(--button-color);
+    background-color: var(--color-dark);
     box-sizing: border-box;
     border-radius: 5px;
     text-align: center;
@@ -103,7 +103,7 @@
 @media only screen and (max-width: 900px) and (min-width: 600px) {
     .custom-modal-no-mcash {
         width: 44%;
-        height: 41%;
+        height: 18%;
     }
 }
 

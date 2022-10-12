@@ -24,7 +24,7 @@
 .coin-pic {
     width: 88px;
     height: 38px;
-    background: var(--coin);
+    background: var(--color-coin);
     border-radius: 4px;
     margin-left: 16px;
     display: flex;
@@ -61,7 +61,7 @@
 }
 
 .copy-coupon-button{
-    background: var(--button-color);
+    background: var(--color-dark);
     border-radius: 4px;
     color: white;
     border: none;
@@ -136,7 +136,7 @@
     height: 56px;
 }
 .coins {
-    color: var(--button-color)
+    color: var(--border)
 }
 
 .copy-green {
