@@ -12,7 +12,7 @@ import { Modal } from "react-responsive-modal";
 import "../css/History.css";
 import "../css/referAFriend.css";
 
-const History = ({user_data, customer_id,focus_ref,referral_code}) => {
+const History = ({user_data, customer_id,focus_ref,referral_code,cashName}) => {
     const [buttonsState,setButtonState] = useState({
         earningsButtonColor: "white",
         earningsButtonTextColor:"#8D5468",
@@ -92,7 +92,7 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
             { (user_data?.rewards_list?.length && buttonsState.earnings )  ? 
             <div className="history-earnings-div">
             {buttonsState.earnings && user_data.rewards_list.map((item,key)=> (
-                <EarningsCard key={key} item={item} />
+                <EarningsCard key={key} item={item} cashName={cashName} />
                 ))} 
             </div> : 
             buttonsState.earnings && 

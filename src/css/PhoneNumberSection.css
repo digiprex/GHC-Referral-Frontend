@@ -13,7 +13,7 @@
     background: #FFFFFF;
     border-radius: 4px;
     margin-top: 1.5%;
-    width: 45%;
+    width: 37%;
 }
 
 .input-phone-number {
@@ -26,8 +26,9 @@
     background-color: var(--color-dark);
     color: #ffffff;
     border-radius: 4px;
-    font-size: 25px;
+    font-size: 14px;
     cursor: pointer;
+    height: 34px;
 }
 
 .phone-number-submit {
@@ -36,13 +37,14 @@
     border-radius: 4px;
     background-color: #EDEFED;
     color: #777777;
-    font-size: 25px;
+    font-size: 14px;
+    height: 34px;
     cursor: not-allowed;
 }
 
 .phone-number-section .sub-heading {
     margin-top: 1%;
-    font-size: 20px;
+    font-size: 22px;
     color: #333333;
 }
 
@@ -50,14 +52,14 @@
     height: 100%;
     width: 100%;
     padding-left: 3%;
-    font-size: 25px;
+    font-size: 14px;
     border: none !important;
     outline: none !important;
 }
 
 .input-phone-text::placeholder {
     color: #777777;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .input-phone-text:focus{
@@ -72,7 +74,7 @@
 }
 
 .section-header {
-    font-size: 20px;
+    font-size: 22px;
     color: #333333;
 }
 

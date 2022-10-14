@@ -2,11 +2,11 @@
 .history-container {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
     margin: 2% 5%;
     overflow: auto;
     position: relative;
     padding-bottom: 3%;
+    border: 2px solid var(--color-hover);
 }
 
 .how-heading {
@@ -37,7 +37,7 @@
 }
 
 .history-referral-content {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 1%;
   display: flex;
 }
@@ -345,7 +345,7 @@
 
   .live-div-content {
     flex: 10;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .live-img {
@@ -365,6 +365,7 @@
 
   .amazon-coupon-on-way{
     margin-left: 2%;
+    font-size: 22px;
   }
 
   .history-earnings-div{

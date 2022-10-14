@@ -4,7 +4,7 @@
 
 .refer-code-header {
   margin-left: 3%;
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 1%;
   color: #ffffff;
 }
@@ -35,11 +35,11 @@
 .couponText {
   font-style: normal;
   font-weight: normal;
-  color: #2fa83b;
+  color: #333333;
   display: flex;
   font-size: 15px;
   align-items: center;
-  font-size: 25px;
+  font-size: 22px;
   padding: 0 0 0 5%;
   flex: 2;
   height: 40px;
@@ -54,10 +54,10 @@
   background: #edefed;
   box-sizing: border-box;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 14px;
   color: #8a8a8a;
-  height: 74%;
-  width: 82%;
+  height: 34px;
+  width: 74%;
   cursor: pointer;
   margin: 3% 0 3% 5%;
   padding: 0 0;
@@ -221,7 +221,7 @@
 
 @media only screen and (min-width: 600px) {
   .referAFriendContainer {
-    margin-top: 4%;
+    margin-top: 2%;
     background: var(--color-gradient);  
   }
 
@@ -242,7 +242,7 @@
 
   .refer-code-header {
     font-weight: bold;
-    color: #333333
+    color: var(--color-dark);
   }
 
   .refer-friend-container{

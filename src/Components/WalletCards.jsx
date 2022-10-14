@@ -31,7 +31,7 @@ export default function WalletCards({ showHistory, user_data, customer_id,scroll
             </div>
           </div> : null}
         </div>
-        <div className="coinBalanceCardContainer container-dash-border">
+        <div className="coinBalanceCardContainer short-wallet-container container-dash-border">
           <CoinBalanceCard cashName={cashName} setData={setData} scrollToVouchers={scrollToVouchers} user_data={user_data} showHistory={showHistory}
           customer_id={customer_id} customerPhoneNumber={customerPhoneNumber}/>
         </div>

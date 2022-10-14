@@ -30,12 +30,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 22px;
 }
 
 .historyContent{
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 22px;
     color: #000000;
     margin-left: 23px;
     justify-content: space-between;
@@ -65,13 +66,13 @@
     border-radius: 4px;
     color: white;
     border: none;
-    padding: 0% 10%;
+    padding: 0% 5%;
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    height: 100%;
-    width: 42%;
+    width: 35%;
+    height: 34px;
     justify-content: center;
 }
 
@@ -98,7 +99,7 @@
 
 .coupon-description{    
     color: #EE9A24;
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 3%;
     margin-top: 1%;
 
@@ -111,7 +112,7 @@
     margin-bottom: 0;
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     color: #726868;
     height: 21px;
 }
@@ -151,7 +152,7 @@
 .copy-coupon-code {
     position: absolute;
     top: 27%;
-    left: 11%;
+    left: 6%;
     font-size: 16px;
 }
 

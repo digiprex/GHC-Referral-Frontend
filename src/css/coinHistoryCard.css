@@ -109,6 +109,10 @@
   cursor: pointer;
 }
 
+.earn-record {
+  font-size: 22px;
+}
+
 .credits{
   color: #108F57;
   font-weight: 600;
