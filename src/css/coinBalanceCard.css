@@ -29,7 +29,7 @@
   letter-spacing: 0.0025em;
   color: #333333;
   display: inline-block;
-  margin-left: 16px;
+  margin-left: 1%;
 }
 
 .redeem {
@@ -39,7 +39,7 @@
   border: 1px solid var(--border);
   box-shadow: 0px 4px 10px rgba(151, 81, 105, 0.12);
   border-radius: 5px;
-  height: 34px;
+  height: 44px;
   width: 100%;
   font-style: normal;
   font-weight: 500;
@@ -78,7 +78,7 @@
 
 .dash {
   border: none;
-  border-bottom: 1px dashed #000000;
+  border-bottom: 1px dashed #333333;
   height: 0px;
   margin-top: 33px;
   margin: 33px 35px 0px 35px;
@@ -133,7 +133,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
-  color: #000000;
+  color: #333333;
   margin-left: 3%;
   display: flex;
   align-items: center;
@@ -295,7 +295,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  color: #000000;
+  color: #333333;
   margin-top: 18px;
   margin-left: 18px;
 }
@@ -304,12 +304,12 @@
   float: right;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 14px;
   letter-spacing: 0.0025em;
   text-decoration-line: underline;
-  color: #000000;
-  margin-right: 39px;
+  color: #333333;
+  margin-right: 6%;
   cursor: pointer;
   display: flex;
   align-items: baseline;
@@ -358,7 +358,11 @@
 
 .mobile-coinBalance {
   color: #FEFEFE;
-  font-size: 20px;
+  font-size: 22px;
+}
+
+.mobile-mcash{
+  height: 22px;
 }
 
 @media only screen and (max-width: 600px){
@@ -375,7 +379,7 @@
   }
 
   .coinBalanceHeading {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .giftPic {
@@ -389,20 +393,20 @@
   }
 
   .coinsOnWayFlex {
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 4%;
   } 
 
   .coinsOnWay {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .onWayCoinsNumber {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .coinBalanceHeading{
-    margin-left: 11%; 
+    margin-left: 5%;
   }
 
   .amount {
@@ -410,20 +414,37 @@
   }
 
   .redeem {
-    font-size: 19px;
-    height: 45px;
+    font-size: 14px;
+    height: 44px;
   }
 
   .earnings {
-    font-size: 17px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 14px;
-    color: #777777
+    color: #777777;
+    margin-left: 0;
   }
 
   .amount {
-    font-size: 17px;
+    font-size: 14px;
+  }
+
+  .coinBalanceCard {
+    background: linear-gradient(96.68deg, #146ab5 12.55%, #0a487d 71.99%);
+    border-radius: 10px;
+    display: flex;
+    max-width: 100%;
+    margin: 3% 4%;
+  }
+
+  .button-container{
+    margin: 5% 4% 0 4%;
+  }
+
+  .lifetime-earnings{
+    text-align: center;
   }
 }
 
@@ -450,13 +471,15 @@
   }
 
   .custom-modal-redeem {
-    width: 35%;
+    width: 30%;
   }
 
   .custom-modal-success {
     width: 25%;
     height: 45%;
   }
+
+ 
 }
 
 @media only screen and (min-width: 600px) and (max-width: 900px) {

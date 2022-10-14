@@ -28,7 +28,7 @@
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer;
-    height: 34px;
+    height: 44px;
 }
 
 .phone-number-submit {
@@ -38,14 +38,14 @@
     background-color: #EDEFED;
     color: #777777;
     font-size: 14px;
-    height: 34px;
+    height: 44px;
     cursor: not-allowed;
 }
 
 .phone-number-section .sub-heading {
     margin-top: 1%;
     font-size: 22px;
-    color: #333333;
+    color: #777777;
 }
 
 .input-phone-text {
@@ -103,13 +103,13 @@
 }
 
 .phone-number-details-div{
-    font-size: 20px;
+    margin-top: 1%;
 }
 
 
 .phone-number-popup-heading {
     color: #333333;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .phone-number-popup{
@@ -121,24 +121,27 @@
 }
 
 .input-phone-popup {
-    margin: 4% 0%;
+    margin: 6% 0%
 }
 
 .phone-number{
     margin-left: 1%;
 }
 
+.phone-number-text,.change-phone-link,.phone-number{
+    font-size: 22px;
+}
 @media only screen and (max-width: 600px){
     .phone-number-section .sub-heading{
         margin-right: 3%;
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    .phone-number-text{
+    .phone-number-text,.change-phone-link,.phone-number{
+        font-size: 14px;
     }
 
     .change-phone-link{
-        margin-left: 33%;
     }
 
     .phone-number-details-div{
@@ -189,10 +192,23 @@
 
     .phone-number-submit{
         cursor: not-allowed;
+        height: 44px;
+        margin-right: 2%;
+        font-size: 14px;
     }
 
     .phone-number-submit-correct{
         cursor: pointer;
+        height: 44px;
+        font-size: 14px;
+    }
+
+    .section-header{
+        font-size: 14px;
+    }
+
+    .phone-number-submit-correct{
+        margin-right: 2%;
     }
 }
 
@@ -203,38 +219,39 @@
 
     .phone-number-popup-heading{
         font-size: 17px;
-        margin-left: 8%;
+        margin-left: 6%;
     }
 
     .phone-number-submit-div{
-        width: 80%;
+        width: 88%;
         margin: 0 auto;
     }
 
     .input-phone-popup{
-        margin: 3% auto 6% auto;
+        margin: 6% auto 6% auto;
         width: 87%;
     }
 
     .input-phone-text{
         background-color: #ffffff;
-        font-size: 16px !important;
+        font-size: 14px !important;
+        padding-left: 0%
     }
 
     .input-phone-text::placeholder{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .phone-number-submit{
-        font-size: 20px;
+        font-size: 14px;
     }
 }
 
 
 @media only screen and (min-width:900px) {
     .custom-modal-phone-number {
-        width: 33%;
-        height: 33%;
+        width: 26%;
+        height: 27%;
         padding: 2% 3%;
     }
 }

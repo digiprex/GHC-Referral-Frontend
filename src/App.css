@@ -113,6 +113,7 @@ a:not([href]) {
   .walletCardsContainer {
     flex-direction: column-reverse;
     display: flex;
+    margin: 4% 5% 4% 5%;
   }
   
   .progress-bar-saturn-step {

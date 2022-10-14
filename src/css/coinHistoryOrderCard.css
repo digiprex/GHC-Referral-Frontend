@@ -37,7 +37,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
-    color: #000000;
+    color: #333333;
     margin-left: 23px;
     justify-content: space-between;
     display: flex;
@@ -48,7 +48,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: #333333;
     margin-left: 1%;
     display: flex;
     align-items: center;
@@ -184,7 +184,7 @@
     }
 
     .historyDate{
-        font-size: 11px;
+        font-size: 12px;
         margin-top: 0.5%;
     }
 
@@ -200,7 +200,7 @@
 
     .coupon-description{
         font-weight: 600;
-        font-size: 10px;
+        font-size: 12px;
         margin-top: 2%;
     }
 

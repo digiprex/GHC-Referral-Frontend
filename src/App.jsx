@@ -42,8 +42,8 @@ const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
     //  customer_id:"6411445371092",
-    // "customer_id":"6461613637844",
-    customer_id: document.getElementById("shopify-customer-id")?.value
+    "customer_id":"6461613637844",
+    // customer_id: document.getElementById("shopify-customer-id")?.value
   }
   const config = {
       method: 'post',
@@ -65,8 +65,8 @@ const getEarningsData = async () => {
 
 const getReferralCode = async () => {
   const data = {
-    customer_id: document.getElementById("shopify-customer-id")?.value,
-    // "customer_id":"6461613637844",
+    // customer_id: document.getElementById("shopify-customer-id")?.value,
+    "customer_id":"6461613637844",
     // customer_id:"6411445371092",
   };
   const config = {
@@ -110,8 +110,9 @@ const getReferralCode = async () => {
     const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")});
     Set_user_data({
           "balance": response.data.body.balance,
-          // "balance": 2000,
-          "lifetime": response.data.body.lifetime,
+          // "balance": 0,
+          // "lifetime": response.data.body.lifetime,
+          lifetime:0,
           "coins_on_way": pending_rewards_sum,
           "rewards_list": rewards_earned,
           // rewards_list:[],
@@ -164,9 +165,9 @@ const getReferralCode = async () => {
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
     // Set_customer_id("6411445371092");
-     Set_customer_id(document.getElementById("shopify-customer-id")?.value)
+    //  Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6457619448020");
-    // Set_customer_id("6461613637844");
+    Set_customer_id("6461613637844");
 
     Set_body(false);
     getEarningsData();

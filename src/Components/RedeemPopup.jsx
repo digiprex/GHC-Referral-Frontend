@@ -120,13 +120,13 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
           </div>
           <div className="addCoins">
             <div className="minus" onClick={() => decrement()}>
-              <img src={ process.env.REACT_APP_BRAND == 'Saturn' ? saturnMinus : minus} alt="" />
+              <img src={ process.env.REACT_APP_BRAND == 'Saturn' ? saturnMinus : minus} className="minus-image" alt="" />
             </div>
             <div className="addCoinsText">
               <img src={pic} alt="" /> {redeemAmount}
             </div>
             <div className="plus" onClick={() => increment()}>
-              <img src={process.env.REACT_APP_BRAND == 'Saturn' ? saturnPlus : plus} alt="" />
+              <img src={process.env.REACT_APP_BRAND == 'Saturn' ? saturnPlus : plus} className="plus-image" alt="" />
             </div>
           </div>
           <div id="error-text-redeem">
