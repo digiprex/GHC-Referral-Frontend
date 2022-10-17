@@ -313,6 +313,11 @@
     margin: 4% 0;
     font-size: 12px;
   }
+
+  .history-earnings-div{
+    height: 300px;
+    overflow: scroll;
+  }
 }
 
   .no-earnings {
