@@ -104,15 +104,15 @@ const getReferralCode = async () => {
     if (pending_rewards_values.length){
       pending_rewards_sum = pending_rewards_values?.reduce((x,y) => x+y);
     };
-    const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded')
+    const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded');
     const amazon_vouchers_array=response.data.body.ledger.filter((x) => x.voucher_code != "0");
     amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
     const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")});
     Set_user_data({
           "balance": response.data.body.balance,
           // "balance": 0,
-          // "lifetime": response.data.body.lifetime,
-          lifetime:0,
+          "lifetime": response.data.body.lifetime,
+          // lifetime:0,
           "coins_on_way": pending_rewards_sum,
           "rewards_list": rewards_earned,
           // rewards_list:[],
