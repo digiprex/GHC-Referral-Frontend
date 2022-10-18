@@ -1,6 +1,5 @@
 .referContainer {
   overflow: auto;
-  background: var(--color-gradient);
   border-radius: 16px;
   position: relative;
   margin: 5% 5% 0 5% ;
@@ -13,7 +12,7 @@
 
 .top-div-heading,.top-heading {
   font-weight: 700;
-  color: var(--color-dark);
+  color: var(--color-text);
   max-width: 40%;
   letter-spacing: 1px;
 }
@@ -36,7 +35,7 @@
 .bottom-div-heading {
   font-weight: 200;
   font-size: 20px;
-  color: var(--color-dark);
+  color: var(--color-text);
   line-height: 26px;
   margin-top: 1%;
   margin-bottom: 2%;

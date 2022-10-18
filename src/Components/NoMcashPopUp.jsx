@@ -36,7 +36,7 @@ export default function NoMcashPopUp({closeNoMcashPopUp,code,cashName}) {
     <>
         <div className="header-content">
           <div className="alert-image">
-            <img src={process.env.REACT_APP_BRAND == 'Saturn' ?  alertImage : alertImageMars} alt="" srcset="" />
+            <img className="alert-image-no-mcash" src={process.env.REACT_APP_BRAND == 'Saturn' ?  alertImage : alertImageMars} alt="" srcset="" />
           </div>
           <div className="modal-Header">You don’t have enough {cashName}</div>
           <div className="login-modal-content-mcash">You need atleast 500 {cashName} balance to redeem. Refer more to earn more</div>

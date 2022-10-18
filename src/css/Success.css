@@ -22,8 +22,8 @@
 .success-button-popup {
   width: 60%;
   height: 44px;
-  background-color: #8D5468;
-  border: 1px solid #8D5468;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-dark);
   border-radius: 5px;
   color: white;
   margin-top: 8%;

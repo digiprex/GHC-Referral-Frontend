@@ -223,7 +223,7 @@
 } 
 
 .no-earnings-header {
-  color: var(--border);
+  color: var(--color-dark);
   font-weight: 700;
   text-align: center;
 }

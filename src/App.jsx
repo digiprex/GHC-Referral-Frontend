@@ -153,6 +153,14 @@ const getReferralCode = async () => {
       process.env.REACT_APP_COLOR_GRADIENT
     );
     document.documentElement.style.setProperty(
+      "--color-text",
+      process.env.REACT_APP_TEXT_COLOR
+    );
+    document.documentElement.style.setProperty(
+      "--coins-color-text",
+      process.env.REACT_APP_COINS_TEXT_COLOR
+    );
+    document.documentElement.style.setProperty(
       "--color-coin",
       process.env.REACT_APP_COLOR_COIN
     );

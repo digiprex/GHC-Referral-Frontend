@@ -39,8 +39,8 @@
 .login-button-popup {
   width: 80%;
   height: 44px;
-  background-color: #8D5468;
-  border: 1px solid #8D5468;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-dark);
   border-radius: 5px;
   color: white;
   margin-top: 10%;
@@ -91,6 +91,11 @@
     /* background-color: var(--color-dark); */
   }
 
+  .alert-image-no-mcash{
+    height: 40px;
+    width: 40px;
+  }
+
 @media only screen and (min-width: 600px) {
     .react-responsive-modal-modal {
     }
@@ -121,5 +126,10 @@
 
     .modal-Header{
         font-size: 14px;
+    }
+    
+    .alert-image-no-mcash{
+        height: 25px;
+        width: 25px;
     }
 }
