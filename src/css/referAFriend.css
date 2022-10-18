@@ -140,6 +140,11 @@
 .dotted-box {
   border: dotted 1px;
 }
+
+.referAFriendContainer-inHistory{
+  background: none !important;
+}
+
 @media only screen and (max-width: 600px) {
   .referAFriendContainer {
     box-sizing: border-box;
