@@ -57,6 +57,11 @@
   justify-content: center;
 }
 
+.reward-img{
+  height: 70px;
+  width: 70px;
+}
+
 .how-content {
   margin: 0 0%;
 }
@@ -199,6 +204,7 @@
 
   .reward-img{
     max-width: 50px !important;
+    height: 50px !important;
   }
 
   .mcash-balance-desktop{

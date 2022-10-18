@@ -64,7 +64,7 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
           <div className="how-content">
             <div className="img-reward">
               <img
-                src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-1.png?v=1660124046"
+                src={` ${process.env.REACT_APP_BRAND == 'Saturn' ?  "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-1.png?v=1660124046" : "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-1-mars.png?v=1666078720"} `}
                 alt=""
                 className="reward-img"
                 srcset=""
@@ -80,7 +80,7 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
           <div className="how-content">
             <div className="img-reward">
               <img
-                src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-2.png?v=1660124046"
+                src={` ${process.env.REACT_APP_BRAND == 'Saturn' ?  "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-2.png?v=1660124046" : "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-2-mars.png?v=1666078733"} `}
                 alt=""
                 className="reward-img"
                 srcset=""
@@ -96,7 +96,8 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
           <div className="how-content">
             <div className="img-reward">
               <img
-                src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-3.png?v=1660124046"
+                src={` ${process.env.REACT_APP_BRAND == 'Saturn' ?  "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-3.png?v=1660124046" : "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-3-mars.png?v=1666078736"} `}
+                
                 alt=""
                 className="reward-img"
                 srcset=""
@@ -112,7 +113,7 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
           <div className="how-content">
             <div className="img-reward">
               <img
-                src="https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-4.png?v=1660124046"
+                src={` ${process.env.REACT_APP_BRAND == 'Saturn' ?  "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-4.png?v=1660124046" : "https://cdn.shopify.com/s/files/1/0607/6029/3588/files/image-4-mars.png?v=1666078733"} `}
                 alt=""
                 className="reward-img"
                 srcset=""
