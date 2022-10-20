@@ -12,10 +12,10 @@ import { Modal } from "react-responsive-modal";
 import "../css/History.css";
 import "../css/referAFriend.css";
 
-const History = ({user_data, customer_id,focus_ref,referral_code}) => {
+const History = ({user_data, customer_id,focus_ref,referral_code,cashName}) => {
     const [buttonsState,setButtonState] = useState({
         earningsButtonColor: "white",
-        earningsButtonTextColor:"#8D5468",
+        earningsButtonTextColor: process.env.REACT_APP_COLOR_DARK,
         earnings: true,
         spendsButtonColor:"#ebebeb",
         spendsButtonTextColor:"black",
@@ -29,7 +29,7 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
     const showEarnings = () =>{
         setButtonState({
             earningsButtonColor: "white",
-            earningsButtonTextColor:"#8D5468",
+            earningsButtonTextColor:process.env.REACT_APP_COLOR_DARK,
             earnings: true,
             spendsButtonColor:"#ebebeb",
             spendsButtonTextColor:"black",
@@ -49,7 +49,7 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
           spendsButtonTextColor:"black",
           spends: false,
           vouchersButtonColor: "white",
-          vouchersButtonTextColor:"#8D5468",
+          vouchersButtonTextColor:process.env.REACT_APP_COLOR_DARK,
           vouchers: true
       })
   }
@@ -66,14 +66,14 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
                 <img src={live} className='live-img' alt="" srcset="" />
            </div>
            <div className="live-div-content">
-               <span className="green-text"> {user_data.coins_on_way} sCash Credits</span> are on your way!
+               <span className="green-text"> {user_data.coins_on_way} {cashName} Credits</span> are on your way!
            </div>
         </div>
         <div className="history-referral-content">
             <div style={{flex:1, visibility:"visible"}}>
             </div>
             <div style={{flex:10}}>
-            {user_data.coins_on_way} {constants.HISTORY_MCASH_CREDIT_ON_THE_WAY} 
+            {user_data.coins_on_way} {cashName} Credits will be added once your referral receives their order
             </div>
         </div>
       </div> : null }
@@ -92,7 +92,7 @@ const History = ({user_data, customer_id,focus_ref,referral_code}) => {
             { (user_data?.rewards_list?.length && buttonsState.earnings )  ? 
             <div className="history-earnings-div">
             {buttonsState.earnings && user_data.rewards_list.map((item,key)=> (
-                <EarningsCard key={key} item={item} />
+                <EarningsCard key={key} item={item} cashName={cashName} />
                 ))} 
             </div> : 
             buttonsState.earnings && 

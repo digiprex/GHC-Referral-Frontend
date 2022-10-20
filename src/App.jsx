@@ -104,14 +104,15 @@ const getReferralCode = async () => {
     if (pending_rewards_values.length){
       pending_rewards_sum = pending_rewards_values?.reduce((x,y) => x+y);
     };
-    const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded')
+    const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded');
     const amazon_vouchers_array=response.data.body.ledger.filter((x) => x.voucher_code != "0");
     amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
     const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")});
     Set_user_data({
           "balance": response.data.body.balance,
-          // "balance": 2000,
+          // "balance": 0,
           "lifetime": response.data.body.lifetime,
+          // lifetime:0,
           "coins_on_way": pending_rewards_sum,
           "rewards_list": rewards_earned,
           // rewards_list:[],
@@ -152,6 +153,14 @@ const getReferralCode = async () => {
       process.env.REACT_APP_COLOR_GRADIENT
     );
     document.documentElement.style.setProperty(
+      "--color-text",
+      process.env.REACT_APP_TEXT_COLOR
+    );
+    document.documentElement.style.setProperty(
+      "--coins-color-text",
+      process.env.REACT_APP_COINS_TEXT_COLOR
+    );
+    document.documentElement.style.setProperty(
       "--color-coin",
       process.env.REACT_APP_COLOR_COIN
     );
@@ -180,7 +189,7 @@ const getReferralCode = async () => {
       {!showHistory && <ReferAndEarn  customer_id={customer_id} showHistory={showHistory} cashName={cashName} referral_code={referral_code}/>}
       {!showHistory && <WalletCards setData={setData} scrollToVouchers={scrollToVouchers} showHistory={toggleHistoryTrue}  
       customer_id={customer_id} user_data={user_data}cashName={cashName} customerPhoneNumber={customerPhoneNumber}/>}
-      {!showHistory && !user_data.lifetime && <CashInfo cashName={cashName}/>}
+      {!showHistory && customer_id && !user_data.lifetime && <CashInfo cashName={cashName}/>}
       {!showHistory && < PhoneNumberSection customer_id={customer_id} customerPhoneNumber={customerPhoneNumber} SetPhoneNumber={SetPhoneNumber}/> }
       {!showHistory && <HowItWorks customer_id={customer_id} user_data={user_data} cashName={cashName}/>}
       { ((showHistory &&  window.innerWidth < 600) || (window.innerWidth > 600) ) && 

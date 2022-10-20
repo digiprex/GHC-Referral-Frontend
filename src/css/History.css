@@ -2,11 +2,11 @@
 .history-container {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
     margin: 2% 5%;
     overflow: auto;
     position: relative;
     padding-bottom: 3%;
+    border: 2px solid var(--color-hover);
 }
 
 .how-heading {
@@ -37,7 +37,7 @@
 }
 
 .history-referral-content {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 1%;
   display: flex;
 }
@@ -223,7 +223,7 @@
 } 
 
 .no-earnings-header {
-  color: var(--border);
+  color: var(--color-dark);
   font-weight: 700;
   text-align: center;
 }
@@ -237,22 +237,23 @@
 
 @media only screen and (max-width: 600px){
   .rewards{
-    font-size: 15px;
+    font-size: 14px;
     margin: 1% 1%
   }
 
   .how-it-works-container{
     margin-bottom: 10%;
+    margin: 4% 5% 0 5%;
   }
 
   .history-referral {
-    margin: 3% 2%;
+    margin: 3% 3%;
     padding: 5% 5%;
   }
   
   .toggleButtons {
     border-radius: 0px;
-    margin: 2% 2% 7% 2%;
+    margin: 2% 3% 7% 3%;
     height: 44px;
   }
 
@@ -270,6 +271,7 @@
 
   .live-div-content {
     flex: 10;
+    font-size: 14px;
   }
 
   .live-img {
@@ -303,13 +305,23 @@
     margin-left: 2%;
     margin-top: 8%;
     margin-bottom: 5%;
-    font-size: 30px;
+    font-size: 22px;
     color: #333333;
   }
   
   .no-earnings-header{
-    margin: 4% 0;
-    font-size: 12px;
+    margin: 4% 4%;
+    font-size: 14px;
+  }
+
+  .history-earnings-div{
+    height: 300px;
+    overflow: scroll;
+  }
+
+  .no-earnings{
+    margin: 3% 10% 0 10%;
+    text-align: center;
   }
 }
 
@@ -330,7 +342,7 @@
 
   .no-earnings {
     margin-top: 2%;
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .history-container {
@@ -345,7 +357,7 @@
 
   .live-div-content {
     flex: 10;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .live-img {
@@ -359,12 +371,13 @@
 
   .no-earnings-header{
     margin: 2% 0;
-    font-size: 18px;
     text-align: center;
+    font-size: 22px;
   }
 
   .amazon-coupon-on-way{
     margin-left: 2%;
+    font-size: 22px;
   }
 
   .history-earnings-div{

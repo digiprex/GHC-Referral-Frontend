@@ -4,7 +4,7 @@ import ReferAFriend from "./ReferAFriend.jsx";
 
 export default function ReferAndEarn({customer_id,cashName,referral_code}) {
   return (
-    <div className="referContainer">
+    <div className={`referContainer ${process.env.REACT_APP_BRAND == 'Saturn' ? "saturn-gradient":"mars-gradient"} `}>
       <div className="content">
         <div className="top-div-heading">{constants.BANNER_HEADER}</div>
         <div className="top-heading">{constants.BANNER_SUB_HEADING}</div>

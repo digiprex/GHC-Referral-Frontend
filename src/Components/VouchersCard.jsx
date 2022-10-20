@@ -41,7 +41,7 @@ export default function VouchersCard({item,code,pending}) {
                         { !pending && <div className='copy-coupon'>
                                 <button id={`${item.id}`} className={`copy-coupon-button ${clicked? "copy-green" : ""}`} onClick={(e) => copyToClipBoard(e,item.voucher_code)}>
                                     <img className='coupon-pic' src={copyPic} alt="" />
-                                    Copy code
+                                    { window.innerWidth > 600 ? "Copy code" : "Copy"}
                                 </button>
                             </div> }
                         </div>

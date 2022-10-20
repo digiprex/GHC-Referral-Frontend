@@ -63,7 +63,7 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
 
   return (
     <>
-      <div className={ `${inHistory? "referAFriendContainer-inHistory": "referAFriendContainer"}`} id="referFriend">
+      <div className={ `${inHistory? "referAFriendContainer-inHistory": "referAFriendContainer"} ${process.env.REACT_APP_BRAND == 'Saturn' ? "saturn-gradient":"mars-gradient"}`} id="referFriend">
         {(customer_id && !inHistory) ? (
           <div className="refer-code-header">{constants.BANNER_REFERRAL_CODE_INPUT_LABEL}</div>
         ) : null}
