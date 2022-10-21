@@ -178,7 +178,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
             <div className="referMore">
               Refer {number_of_more_friends_to_refer} more friend{`${number_of_more_friends_to_refer>1 ? 's':""}`} to reach{"  "}
             <span className="greenText">
-              {user_data.balance+number_of_more_friends_to_refer*100} {constants.REDEEM_POPUP_MCASH_CREDITS}
+              {user_data.balance+number_of_more_friends_to_refer*100} {cashName} credits
             </span>
             </div> 
           </div>
