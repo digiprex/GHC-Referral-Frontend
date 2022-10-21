@@ -121,7 +121,8 @@
 }
 
 .input-phone-popup {
-    margin: 6% 0%
+    margin: 6% 0%;
+    border-bottom: solid 1px #333333;
 }
 
 .phone-number{
@@ -192,14 +193,14 @@
 
     .phone-number-submit{
         cursor: not-allowed;
-        height: 44px;
+        height: 34px;
         margin-right: 2%;
         font-size: 14px;
     }
 
     .phone-number-submit-correct{
         cursor: pointer;
-        height: 44px;
+        height: 34px;
         font-size: 14px;
     }
 
@@ -229,6 +230,7 @@
     .input-phone-popup{
         margin: 6% auto 6% auto;
         width: 87%;
+        border-bottom: solid 1px #333333;
     }
 
     .input-phone-text{
