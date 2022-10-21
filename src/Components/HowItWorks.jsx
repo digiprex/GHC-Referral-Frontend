@@ -53,7 +53,7 @@ const HowItWorks = ({customer_id,user_data,cashName}) => {
         <div className="mcash-balance-desktop">
           <div className="mcash-balance-nil">
             <div className="mcash-header"> <span className="mcash-pic"> <img src={cashPic} alt=""
-            className="reward-img" srcset="" /> </span> {cashName} Balance</div>
+            className="reward-img-cash" srcset="" /> </span> {cashName} Balance</div>
             <div className="mcash-content">
               You will be able to see your {cashName} balance when your referrals place
               an order using your code. Come back later to check.{" "}
