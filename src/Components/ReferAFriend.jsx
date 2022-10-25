@@ -35,10 +35,17 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
     if(customer_id){
     if (navigator.share) {
       let image='';
+      let link = ''
       if(process.env.REACT_APP_BRAND == 'Saturn') {
         image = await fetch("https://cdn.shopify.com/s/files/1/0607/6029/3588/files/Referral_message.png?v=1664823151");
       } else {
         image = await fetch("https://cdn.shopify.com/s/files/1/0607/6029/3588/files/Referral_message-1.png?v=1665489842");
+      }
+
+      if(process.env.REACT_APP_BRAND == 'Saturn') {
+        link = `https://www.saturn.health/pages/referral`
+      } else {
+        link = `https://www.ghc.health/pages/referral`
       }
       const image_blob = await image.blob();
       const file = new File([image_blob],'Whatsapp_referral_image.jpg',{type:"image/jpeg"})
@@ -46,7 +53,8 @@ export default function ReferAFriend({ customer_id,inHistory,cashName,referral_c
       .share({
         files:[file],
         title: "Referral",
-        text: `Hey,buddy!\nHere is my ${process.env.REACT_APP_BRAND} by ghc referral code - ${referral_code}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness`
+        text: `Hey,buddy!\nHere is my ${process.env.REACT_APP_BRAND} by ghc referral code - ${referral_code.toUpperCase()}.\nYou get 20% off and free delivery on your next order.\nLet's celebrate Good health and Wellness
+        \n${link} `
       })
       .then(() => {
         console.log("Successfully shared");

@@ -70,6 +70,9 @@ const PhoneNumberSection = ({customer_id,customerPhoneNumber,SetPhoneNumber}) =>
       Set_loading(false);
       if(!from_popup){
         Set_successModal(true);
+        setTimeout(() => {
+          Set_successModal(false);
+        }, 1000);
       }
     } catch(error) {
       Set_loading(false);
