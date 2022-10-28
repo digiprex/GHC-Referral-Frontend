@@ -32,7 +32,7 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   const decrement = () => {
     if (redeemAmount - 500 == 0) {
       document.getElementById("error-text-redeem").style.visibility='visible';
-      document.getElementById("error-text-redeem").innerHTML = 'Enter a minimum of 500';
+      document.getElementById("error-text-redeem").innerHTML = 'Enter a minimum value of 500';
     } else if ( redeemAmount - 500 > 0) {
      setRedeemAmount(redeemAmount - 500);
      document.getElementById("error-text-redeem").style.visibility = "hidden"
