@@ -1,6 +1,6 @@
 import "../css/coinBalanceCard.css";
 // import coinPic from './images/onlycoin.png'
-import pic from "../images/mobile-mcash.png";
+import pic from "../images/mcash.png";
 import historyPic from "../images/history3.png";
 import React, { useState, useContext, createContext, useEffect } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
@@ -17,7 +17,7 @@ import constants from "../lib/constants";
 import Loader from "./Loader";
 const mobileViewContext = createContext();
 
-export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,setData,cashName,customerPhoneNumber }) {
+export default function CoinBalanceCard({ showHistory, user_data, customer_id,scrollToVouchers,setData,cashName,customerPhoneNumber,referral_code }) {
   const [open, setOpen] = useState(false); 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [successPopup,Set_successPopup] = useState(false);
@@ -137,7 +137,7 @@ export default function CoinBalanceCard({ showHistory, user_data, customer_id,sc
               modal: 'custom-modal-no-mcash',
           }}
         >
-          <NoMcashPopUp closeNoMcashPopUp={closeNoMcashPopUp} code={user_data.referral_code} cashName={cashName}/>
+          <NoMcashPopUp closeNoMcashPopUp={closeNoMcashPopUp} code={referral_code} cashName={cashName}/>
         </Modal>
       </div>
       </div> : <Loader/> }

@@ -30,9 +30,10 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
   const number_of_more_friends_to_refer = (500-(mcash_for_redeem_pending))/100;
   const next_redemption_amount = user_data.balance+mcash_for_redeem_pending;
   const decrement = () => {
-    if (redeemAmount == 0) {
-      document.getElementById("error-text-redeem").style.visibility = "hidden"
-    } else if ( redeemAmount - 500 >= 0) {
+    if (redeemAmount - 500 == 0) {
+      document.getElementById("error-text-redeem").style.visibility='visible';
+      document.getElementById("error-text-redeem").innerHTML = 'Enter a minimum value of 500';
+    } else if ( redeemAmount - 500 > 0) {
      setRedeemAmount(redeemAmount - 500);
      document.getElementById("error-text-redeem").style.visibility = "hidden"
     } else {
@@ -44,7 +45,8 @@ export default function RedeemPopup({ user_data, customer_id,closeDesktopModal,o
       setRedeemAmount(redeemAmount + 500);
       document.getElementById("error-text-redeem").style.visibility = "hidden"
     } else {
-      document.getElementById("error-text-redeem").style.visibility = "visible"
+      document.getElementById("error-text-redeem").style.visibility = "visible";
+      document.getElementById("error-text-redeem").innerHTML = 'Enter a value less than the current balance';
     }
   };
 
