@@ -41,7 +41,7 @@ const scrollToVouchers = () => {
 const getEarningsData = async () => {
   const data = {
     // "customer_id":"6414055473364",
-    //  customer_id:"6411445371092",
+    //  customer_id:"6704818159864",
     // "customer_id":"6461613637844",
     customer_id: document.getElementById("shopify-customer-id")?.value
   }
@@ -67,7 +67,7 @@ const getReferralCode = async () => {
   const data = {
     customer_id: document.getElementById("shopify-customer-id")?.value,
     // "customer_id":"6461613637844",
-    // customer_id:"6411445371092",
+    // customer_id:"6704818159864",
   };
   const config = {
     method: "post",
@@ -106,7 +106,7 @@ const getReferralCode = async () => {
     };
     const rewards_earned = response.data.body.ledger.filter((x) => x.status == 'rewarded');
     const amazon_vouchers_array=response.data.body.ledger.filter((x) => x.voucher_code != "0");
-    amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += x.value);
+    amazon_vouchers_array.forEach((x) => amazon_vouchers_total_sum += parseInt(x.voucher_value));
     const pending_amazon_vouchers = response.data.body.ledger.filter((x) => {return (x.type == 'debit' && x.status == "pending")});
     Set_user_data({
           "balance": response.data.body.balance,
@@ -172,7 +172,7 @@ const getReferralCode = async () => {
     Set_cashName(cashNameFromEnv);
     const screenWidth = window.innerWidth;
     setScreenSize(screenWidth);
-    // Set_customer_id("6411445371092");
+    // Set_customer_id("6704818159864");
      Set_customer_id(document.getElementById("shopify-customer-id")?.value)
     // Set_customer_id("6457619448020");
     // Set_customer_id("6461613637844");
